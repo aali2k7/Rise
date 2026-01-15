@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 
 /**
@@ -37,14 +38,22 @@ export default function Navigation() {
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="flex justify-between items-center h-20">
-          {/* Logo - Premium typography */}
-          <Link href="/" className="flex items-center group">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-3 group">
+            <Image
+              src="/brand/RISE Logo.jpeg"
+              alt="RISE"
+              width={44}
+              height={44}
+              priority
+              className="rounded-sm"
+            />
             <span className="text-2xl font-bold text-accent-navy tracking-tight group-hover:opacity-80 transition-smooth">
               RISE
             </span>
           </Link>
 
-          {/* Desktop Navigation - Clean, minimal */}
+          {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-10">
             {navLinks.map((link) => (
               <Link
@@ -56,10 +65,7 @@ export default function Navigation() {
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent-navy group-hover:w-full transition-all duration-300"></span>
               </Link>
             ))}
-            <Link
-              href="/contact"
-              className="btn-primary text-sm px-6 py-2.5"
-            >
+            <Link href="/contact" className="btn-primary text-sm px-6 py-2.5">
               Enquire
             </Link>
           </div>
@@ -89,7 +95,7 @@ export default function Navigation() {
           </button>
         </div>
 
-        {/* Mobile Navigation - Slide down animation */}
+        {/* Mobile Navigation */}
         <div
           className={`lg:hidden overflow-hidden transition-all duration-300 ease-out-cubic ${
             isOpen ? "max-h-96 pb-4" : "max-h-0"
