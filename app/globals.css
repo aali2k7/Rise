@@ -2,8 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Premium typography: Inter font with variable weights */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+/* =========================
+   FONT
+========================= */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 :root {
   --font-inter: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
@@ -22,103 +24,257 @@ html {
 
 body {
   font-family: var(--font-inter);
-  color: theme('colors.text.DEFAULT');
-  background-color: theme('colors.base.light');
+  color: #1A3C5E;
+  background-color: #fcfcfd;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
-/* Premium scrollbar: minimal and elegant */
+/* =========================
+   SCROLLBAR
+========================= */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: theme('colors.base.DEFAULT');
+  background: #fcfcfd;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: theme('colors.text.muted');
+  background: #94A3B8;
   border-radius: 5px;
-  border: 2px solid theme('colors.base.DEFAULT');
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: theme('colors.text.secondary');
+  background: #64748B;
 }
 
-/* Design system utilities */
-@layer utilities {
-  /* Smooth transitions for premium feel */
-  .transition-smooth {
+/* =========================
+   COMPONENTS
+========================= */
+@layer components {
+
+  .bg-premium {
+    background-color: #fcfcfd;
+  }
+
+  .card-glass {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 32px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+    transition: all 500ms cubic-bezier(0.33, 1, 0.68, 1);
+  }
+
+  .card-glass:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    transform: translateY(-8px);
+  }
+
+  .badge-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    background-color: #f8fafc;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+  }
+
+  .btn-premium {
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+    color: white;
+    padding: 0.875rem 2rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    box-shadow: 0 10px 25px rgba(249, 115, 22, 0.25);
     transition: all 300ms cubic-bezier(0.33, 1, 0.68, 1);
   }
-  
-  .transition-gentle {
-    transition: all 400ms cubic-bezier(0.33, 1, 0.68, 1);
-  }
 
-  /* Fade-in animation for scroll reveals */
-  .fade-in {
-    animation: fadeIn 0.6s ease-out forwards;
-    opacity: 0;
-  }
-
-  @keyframes fadeIn {
-    to {
-      opacity: 1;
-    }
-  }
-
-  /* Slide-up animation */
-  .slide-up {
-    animation: slideUp 0.6s ease-out forwards;
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  @keyframes slideUp {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /* Premium button base styles */
-  .btn-primary {
-    @apply px-8 py-3.5 bg-accent-navy text-white rounded-button font-medium;
-    @apply hover:bg-accent-navy-light transition-smooth;
-    @apply shadow-soft hover:shadow-card;
-    @apply focus:outline-none focus:ring-2 focus:ring-accent-navy focus:ring-offset-2;
-  }
-
-  .btn-secondary {
-    @apply px-8 py-3.5 border-2 border-accent-navy text-accent-navy rounded-button font-medium;
-    @apply hover:bg-accent-navy hover:text-white transition-smooth;
-    @apply focus:outline-none focus:ring-2 focus:ring-accent-navy focus:ring-offset-2;
-  }
-
-  /* Card styles */
-  .card {
-    @apply bg-white rounded-card p-card shadow-soft;
-    @apply border border-base-subtle;
-    @apply hover:shadow-card transition-gentle;
-  }
-
-  /* Section spacing */
-  .section {
-    @apply py-section;
-  }
-
-  .section-sm {
-    @apply py-section-sm;
+  .btn-premium:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+    box-shadow: 0 15px 35px rgba(249, 115, 22, 0.35);
   }
 }
 
-/* Focus styles for accessibility */
-*:focus-visible {
-  outline: 2px solid theme('colors.accent.navy');
-  outline-offset: 2px;
+/* =========================
+   UTILITIES
+========================= */
+@layer utilities {
+
+  .text-hero {
+    @apply text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900;
+  }
+
+  .text-section {
+    @apply text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-slate-900;
+  }
+
+  .text-body {
+    @apply text-base sm:text-lg leading-relaxed text-slate-600;
+  }
+
+  .text-support {
+    @apply text-sm sm:text-base leading-relaxed text-slate-500;
+  }
+
+  .section-spacing {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+
+  .section-spacing-lg {
+    @apply py-20 sm:py-24 lg:py-28;
+  }
+
+  .content-container {
+    @apply mx-auto max-w-4xl px-6 sm:px-8 lg:px-6;
+  }
+
+  .btn-primary {
+    @apply bg-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-600 transition-all duration-300;
+  }
+}
+
+/* =========================
+   GLOBAL ANIMATIONS
+========================= */
+
+/* ORB */
+@keyframes orb-float {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: translate(30px, -20px) scale(1.15);
+    opacity: 0.75;
+  }
+
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.5;
+  }
+}
+
+.animate-orb {
+  animation: orb-float 18s ease-in-out infinite;
+}
+
+/* MANDALA */
+@keyframes mandala-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.mandala-wheel {
+  animation: mandala-rotate 80s linear infinite;
+  transform-origin: 50% 50%;
+}
+
+/* ROTATIONS */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-reverse-slow {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 60s linear infinite;
+}
+
+.animate-spin-reverse-slow {
+  animation: spin-reverse-slow 60s linear infinite;
+}
+
+.animate-spin-slower {
+  animation: spin-slow 90s linear infinite;
+}
+
+.animate-spin-reverse-slower {
+  animation: spin-reverse-slow 90s linear infinite;
+}
+
+/* =========================
+   3D FLIP ANIMATIONS
+   (Pure CSS implementation)
+========================= */
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  /* Safari support */
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Flip Card Container */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+/* Front & Back Faces */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 0.75rem;
+  /* rounded-xl matches Tailwind */
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+  background-color: #ffffff;
+  /* Explicit background for back face */
+}
+
+/* Group Hover Trigger */
+.group:hover .flip-card-inner {
+  transform: rotateY(180deg);
 }
