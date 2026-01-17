@@ -58,6 +58,11 @@ const goals: Goal[] = [
     { label: "Explore", target: "courses", icon: IconExplore, shadowColor: "rgba(100, 116, 139, 0.25)" },
 ];
 
+// ------------------------------------
+// SELECT GOAL SECTION
+// Premium Institutional Refinement
+// ------------------------------------
+
 export default function SelectGoalSection() {
     const scrollToSection = (id: string) => {
         const element = document.getElementById(id);
@@ -67,33 +72,42 @@ export default function SelectGoalSection() {
     };
 
     return (
-        <section className="relative w-full py-16 overflow-hidden bg-base-light border-b border-white/50">
+        <section className="relative w-full py-20 lg:py-24 overflow-hidden bg-base-light border-b border-white/50">
             {/* Abstract fluid background shape */}
             <div className="absolute top-0 right-0 w-[800px] h-[600px] bg-gradient-to-b from-blue-50/50 to-purple-50/50 rounded-full blur-3xl opacity-40 translate-x-1/3 -translate-y-1/2 -z-10 pointer-events-none" />
 
+            <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
-            <div className="mx-auto max-w-5xl px-6 sm:px-8">
-                <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
-
-                    {/* Header */}
-                    <div className="flex flex-col max-w-xs">
-                        <h2 className="text-3xl md:text-4xl font-serif font-medium text-slate-800 tracking-tight leading-tight">
+                    {/* LEFT COLUMN: Header Text (Anchor) */}
+                    <div className="lg:col-span-4 flex flex-col justify-center items-start text-left">
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-medium text-slate-800 tracking-tight leading-tight">
                             Select your goal
                         </h2>
-                        <p className="text-lg text-slate-400 font-light mt-2 tracking-wide font-sans">
+                        <p className="text-lg lg:text-xl text-slate-500 font-light mt-3 tracking-wide font-sans">
                             to explore our courses
                         </p>
+                        {/* Visionary decorative line */}
+                        <div className="mt-8 h-px w-24 bg-slate-200" />
                     </div>
 
-                    {/* Cards Container - Gap 1.5rem (24px) */}
-                    <div className="flex flex-wrap gap-6 justify-start lg:justify-end">
-                        {goals.map((goal) => (
-                            <TiltButton
-                                key={goal.label}
-                                goal={goal}
-                                onClick={() => scrollToSection(goal.target)}
-                            />
-                        ))}
+                    {/* RIGHT COLUMN: Goal Pills Grid */}
+                    <div className="lg:col-span-8 w-full">
+                        {/* 
+                           Grid Layout:
+                           - Consistent gaps
+                           - Auto-fit logic for responsiveness 
+                           - Visual symmetry
+                        */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                            {goals.map((goal) => (
+                                <TiltButton
+                                    key={goal.label}
+                                    goal={goal}
+                                    onClick={() => scrollToSection(goal.target)}
+                                />
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -107,51 +121,55 @@ function TiltButton({ goal, onClick }: { goal: Goal; onClick: () => void }) {
     useEffect(() => {
         if (tiltRef.current) {
             VanillaTilt.init(tiltRef.current, {
-                max: 12,           // Max tilt rotation (degrees)
-                speed: 400,        // Speed of the enter/exit transition
-                glare: true,       // Add glare effect
-                "max-glare": 0.3,  // Max opacity of glare
-                scale: 1.05,       // Scale up on hover
-                perspective: 1000, // Transform perspective
-                transition: true,  // Smooth transition
-                gyroscope: false,   // Disable gyroscope
+                max: 5,             // Calm tilt
+                speed: 1000,        // Slow transition
+                glare: true,
+                "max-glare": 0.15,  // Very subtle glare (optical glass)
+                scale: 1.01,        // Micro scale
+                perspective: 1000,
+                transition: true,
+                gyroscope: false,
             });
         }
     }, []);
 
-    // Dynamic styles for the colored shadow - strict "Gemini Orb & Antigravity" master prompt spec
-    // Shadow: 0 20px 40px rgba(0,0,0,0.15) for depth
-    const shadowStyle = {
-        boxShadow: `0 20px 40px -10px ${goal.shadowColor}, 0 20px 40px 0 rgba(0, 0, 0, 0.15)`,
+    // Helper to determine the "Ink Drop" color for the internal bloom
+    const bloomColorMap: Record<string, string> = {
+        "Doctor": "#10b981",    // Emerald
+        "Engineer": "#3b82f6",  // Blue
+        "Commerce": "#f59e0b",  // Amber
+        "Classes 6–10": "#6366f1", // Indigo
+        "Explore": "#64748b",   // Slate
     };
+
+    const bloomColor = bloomColorMap[goal.label] || "#64748b";
 
     return (
         <button
             ref={tiltRef}
             onClick={onClick}
-            style={shadowStyle}
-            // Updated styles: 
-            // - bg-white (no opacity)
-            // - text-slate-800 (#1e293b) for high contrast
-            // - px-8 py-5 for slightly larger pill
-            // - custom transition bezier for inertia/bounce
-            // - hover:translate-y-[-10px] for significant lift
-            // - Compact padding: px-6 py-3
-            className="group relative flex items-center gap-4 px-6 py-3 rounded-full bg-white border border-slate-100/80 text-slate-800 transition-all duration-500 ease-[cubic-bezier(0.175,0.885,0.32,1.275)] preserve-3d hover:-translate-y-[10px]"
+            // Passing the bloom color as a CSS variable for the ::before pseudo-element
+            style={{ "--bloom-color": bloomColor } as React.CSSProperties}
+
+            // OPTICAL GLASS CLASS APPLICATION
+            // - optical-glass: Base frosted surface + borders + depth
+            // - optical-bloom: Activates the internal color injection
+            className="group optical-glass optical-bloom relative flex items-center gap-4 px-6 py-4 w-full h-full min-h-[5rem] rounded-2xl text-left"
             aria-label={`Select ${goal.label}`}
         >
-            {/* Icon wrapper with subtle background */}
-            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-slate-50 group-hover:bg-white transition-colors border border-slate-100">
-                <goal.icon />
+            {/* CONTENT WRAPPER - Ensures text/icon sits ABOVE the internal bloom */}
+            <div className="optical-content flex items-center gap-4 w-full">
+
+                {/* Icon wrapper - Monoline styling */}
+                <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-full bg-white/40 border border-white/30 text-slate-700 group-hover:bg-white/80 transition-colors duration-500">
+                    <goal.icon />
+                </div>
+
+                {/* Typography */}
+                <span className="text-base lg:text-lg font-semibold tracking-tight text-slate-700 group-hover:text-slate-900 transition-colors">
+                    {goal.label}
+                </span>
             </div>
-
-            {/* Typography: Dark Slate / Charcoal (#1e293b is slate-800), Semi-bold (600) */}
-            <span className="text-lg font-semibold tracking-tight text-slate-800 group-hover:text-black transition-colors">
-                {goal.label}
-            </span>
-
-            {/* Glossy overlay hint (optional extra polish) - keeping it subtle */}
-            <div className="absolute inset-0 rounded-full ring-1 ring-inset ring-black/5 group-hover:ring-black/10 pointer-events-none" />
         </button>
     );
 }
