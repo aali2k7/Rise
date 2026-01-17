@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navigation from "@/components/Navigation";
+import Header from "@/components/Header";
 
 export const metadata: Metadata = {
   title: "RISE - Our Effort. Your Rise.",
@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Navigation />
+        <Header />
 
         <main>{children}</main>
       </body>
