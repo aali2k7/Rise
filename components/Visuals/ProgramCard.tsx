@@ -21,7 +21,7 @@ export default function ProgramCard({
 }: ProgramCardProps) {
     if (comingSoon) {
         return (
-            <div className="h-full rounded-xl border border-[#1A3C5E]/10 bg-white p-7 shadow-sm opacity-70 cursor-not-allowed">
+            <div className="h-full rounded-xl border border-[#1A3C5E]/10 bg-white/60 p-7 shadow-sm opacity-70 cursor-not-allowed backdrop-blur-sm">
                 <div className="flex items-start justify-between gap-6">
                     <div className="max-w-md">
                         <h3 className="text-lg font-semibold leading-snug text-[#1A3C5E]">
@@ -43,11 +43,15 @@ export default function ProgramCard({
     }
 
     return (
-        <div className="group h-[420px] w-full perspective-1000 bg-transparent">
-            <div className="flip-card-inner h-full w-full rounded-xl border border-[#1A3C5E]/10 shadow-sm transition-all duration-700 bg-white">
+        <div className="group h-[420px] w-full perspective-1200 bg-transparent">
+            {/* 
+        The inner container handles the flip rotation, scale, and general shape.
+        The faces allow the glass effect to be visible.
+      */}
+            <div className="flip-card-inner">
 
                 {/* FRONT SIDE */}
-                <div className="flip-card-front flex flex-col p-7 bg-white rounded-xl">
+                <div className="flip-card-front card-glass-premium flex flex-col p-7">
                     <div className="max-w-md mb-6">
                         <h3 className="text-lg font-semibold leading-snug text-[#1A3C5E]">
                             {title}
@@ -59,42 +63,42 @@ export default function ProgramCard({
                     <div className="flex-grow">
                         {frontContent}
                     </div>
-                    <div className="mt-auto pt-4 text-xs font-semibold uppercase tracking-wider text-orange-600 opacity-0 transition-opacity duration-300 group-hover:opacity-0">
-                        Hover for details
-                        {/* Note: This is optional hint, but cleaner to hide on hover */}
+                    {/* Subtle indicator to maintain usability */}
+                    <div className="mt-auto pt-4 flex justify-end">
+                        <div className="h-1 w-12 bg-slate-200 rounded-full opacity-50 group-hover:opacity-0 transition-opacity" />
                     </div>
                 </div>
 
                 {/* BACK SIDE */}
-                <div className="flip-card-back flex flex-col justify-center p-8 bg-white rounded-xl border border-[#1A3C5E]/10">
+                <div className="flip-card-back card-glass-premium flex flex-col justify-center p-8">
                     <div className="space-y-6">
 
                         {/* Benefits */}
                         <div>
-                            <h4 className="text-sm font-bold uppercase tracking-wide text-[#1A3C5E] mb-2">
+                            <h4 className="text-sm font-bold uppercase tracking-wide text-[#1A3C5E] mb-2 border-l-2 border-orange-500 pl-3">
                                 Student Benefit
                             </h4>
-                            <p className="text-sm leading-relaxed text-slate-700 font-medium">
+                            <p className="text-sm leading-relaxed text-slate-700 font-medium pl-3.5">
                                 {backContent.benefits}
                             </p>
                         </div>
 
                         {/* Duration */}
                         <div>
-                            <h4 className="text-sm font-bold uppercase tracking-wide text-[#1A3C5E] mb-2">
+                            <h4 className="text-sm font-bold uppercase tracking-wide text-[#1A3C5E] mb-2 border-l-2 border-orange-500 pl-3">
                                 Duration
                             </h4>
-                            <p className="text-sm leading-relaxed text-slate-700 font-medium">
+                            <p className="text-sm leading-relaxed text-slate-700 font-medium pl-3.5">
                                 {backContent.duration}
                             </p>
                         </div>
 
                         {/* Reason */}
                         <div>
-                            <h4 className="text-sm font-bold uppercase tracking-wide text-[#1A3C5E] mb-2">
+                            <h4 className="text-sm font-bold uppercase tracking-wide text-[#1A3C5E] mb-2 border-l-2 border-orange-500 pl-3">
                                 Why Choose This?
                             </h4>
-                            <p className="text-sm leading-relaxed text-slate-700 font-medium">
+                            <p className="text-sm leading-relaxed text-slate-700 font-medium pl-3.5">
                                 {backContent.reason}
                             </p>
                         </div>

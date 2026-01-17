@@ -5,7 +5,7 @@
 /* =========================
    FONT
 ========================= */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;600;700&display=swap');
 
 :root {
   --font-inter: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
@@ -222,12 +222,12 @@ body {
 }
 
 /* =========================
-   3D FLIP ANIMATIONS
-   (Pure CSS implementation)
+   3D FLIP & GLASS ANIMATIONS
+   (Premium Implementation)
 ========================= */
 
-.perspective-1000 {
-  perspective: 1000px;
+.perspective-1200 {
+  perspective: 1200px;
 }
 
 .transform-style-3d {
@@ -237,21 +237,40 @@ body {
 .backface-hidden {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  /* Safari support */
 }
 
 .rotate-y-180 {
   transform: rotateY(180deg);
 }
 
-/* Flip Card Container */
+/* Premium Glass Surface */
+.card-glass-premium {
+  background-color: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+/* Flip Card Container & Transition */
 .flip-card-inner {
   position: relative;
   width: 100%;
   height: 100%;
   text-align: left;
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.65s cubic-bezier(0.4, 0, 0.2, 1),
+    scale 0.65s cubic-bezier(0.4, 0, 0.2, 1);
   transform-style: preserve-3d;
+  border-radius: 0.75rem;
+}
+
+/* Hover State - Scale & Shadow */
+.group:hover .flip-card-inner {
+  transform: rotateY(180deg) scale(1.02);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 /* Front & Back Faces */
@@ -265,16 +284,91 @@ body {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   border-radius: 0.75rem;
-  /* rounded-xl matches Tailwind */
+  overflow: hidden;
 }
 
 .flip-card-back {
   transform: rotateY(180deg);
-  background-color: #ffffff;
-  /* Explicit background for back face */
 }
 
-/* Group Hover Trigger */
-.group:hover .flip-card-inner {
-  transform: rotateY(180deg);
+/* =========================
+   TESTIMONIAL MARQUEE
+   (Continuous Loop, Institutional Feel)
+========================= */
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-infinite {
+  display: flex;
+  width: max-content;
+
+  /* Slower duration for readability (55s preferred) */
+  animation: marquee-scroll 55s linear infinite;
+
+  /* Compositor optimizations */
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* 
+   PAUSE ON HOVER (Interaction Refinement)
+   Pauses the animation smoothly without resetting.
+   Applies when hovering the container group.
+*/
+.group:hover .animate-marquee-infinite {
+  animation-play-state: paused;
+}
+
+/* 
+   Reduced Motion:
+   Stops animation completely and allows native horizontal scrolling if needed.
+*/
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee-infinite {
+    animation: none;
+    transform: none;
+    width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+    /* Firefox */
+  }
+
+  .animate-marquee-infinite::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari */
+  }
+}
+
+/* 
+   TESTIMONIAL GLASS CARD
+   (Matte, Premium, Soft Depth)
+*/
+.testimonial-glass {
+  /* Matte Glass Base */
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  /* Subtle Border */
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+
+  /* Depth & Elevation (Constant, no hover) */
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.05),
+    0 2px 4px -1px rgba(0, 0, 0, 0.03);
+
+  /* 3D Hint */
+  transform: translateZ(0);
+
+  /* Typography optimization on glass */
+  -webkit-font-smoothing: antialiased;
 }

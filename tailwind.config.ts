@@ -33,6 +33,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["var(--font-inter)", "-apple-system", "BlinkMacSystemFont", "system-ui", "sans-serif"],
+        serif: ["'Playfair Display'", "serif"],
       },
       fontSize: {
         // Professional typography scale with strong hierarchy
