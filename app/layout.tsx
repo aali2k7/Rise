@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "@/components/Header";
+import Header from "@/components/Sections/Header";
 
 export const metadata: Metadata = {
   title: "RISE - Our Effort. Your Rise.",
