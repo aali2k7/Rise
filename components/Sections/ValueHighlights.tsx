@@ -1,137 +1,119 @@
 "use client";
 
+import React from "react";
+
 export default function ValueHighlights() {
-  return (
-    <section
-      id="value-highlights"
-      className="relative w-full bg-slate-50 py-20 overflow-hidden"
-    >
-      {/* Ambient Orb */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-0"
-      >
-        <div
-          className="absolute left-[10%] top-[35%]
-                     h-[600px] w-[600px]
-                     rounded-full
-                     bg-emerald-400/40
-                     blur-[160px]
-                     animate-orb"
-        />
-      </div>
+    const highlights = [
+        {
+            title: "Small Batches, Individual Attention",
+            description:
+                "We maintain a non-negotiable limit of 20 students per batch. This ensures every student receives the dedicated attention required for elite competitive preparation.",
+        },
+        {
+            title: "Learning Support Beyond Classroom Hours",
+            description:
+                "Learning does not conclude with the final bell. Our faculty remains accessible post-class to ensure concepts are mastered, not just taught.",
+        },
+        {
+            title: "Weekly Mandatory Doubt-Clearing Sessions",
+            description:
+                "Doubt resolution is not optional. We enforce mandatory weekly sessions to dismantle conceptual bottlenecks before they compound.",
+        },
+        {
+            title: "Weekly Student Review & Personal Guidance",
+            description:
+                "Continuous diagnostic screening allows us to identify specific content weaknesses and intervene immediately with personalized correction strategies.",
+        },
+        {
+            title: "Weekly Performance Reports for Parents",
+            description:
+                "We operate with radical transparency. Detailed performance audits and attendance logs are shared directly with parents weekly.",
+        },
+    ];
 
-      {/* Content */}
-      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-16">
-        {/* Header */}
-        <header className="mb-14 max-w-2xl">
-          <p className="text-support font-medium tracking-wide">
-            Built for long-term growth
-          </p>
-
-          <h2 className="mt-3 text-3xl font-bold text-[#1A3C5E]">
-            What Makes RISE Different
-          </h2>
-
-          <p className="mt-4 text-base leading-relaxed text-slate-600">
-            A calm, structured approach that prioritizes mentorship, discipline,
-            and clarity — with parents kept informed at every step.
-          </p>
-        </header>
-
-        {/* Cards */}
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
-          {[
-            {
-              title: "Personal Mentorship",
-              text: "One-on-one academic guidance beyond classroom teaching.",
-              icon: (
-                <>
-                  <path d="M12 12c2.761 0 5-2.239 5-5S14.761 2 12 2 7 4.239 7 7s2.239 5 5 5Z" />
-                  <path d="M20 21a8 8 0 0 0-16 0" />
-                </>
-              ),
-            },
-            {
-              title: "Limited Batch Strength",
-              text: "Small groups to ensure attention, accountability, and clarity.",
-              icon: (
-                <>
-                  <path d="M9 21v-7a3 3 0 0 1 6 0v7" />
-                  <path d="M7 21h10" />
-                  <path d="M8 9a4 4 0 1 1 8 0" />
-                </>
-              ),
-            },
-            {
-              title: "Structured Academic Roadmaps",
-              text: "Clear planning for exams, revisions, and long-term goals.",
-              icon: (
-                <>
-                  <path d="M4 6h16" />
-                  <path d="M4 10h10" />
-                  <path d="M4 14h16" />
-                  <path d="M4 18h10" />
-                </>
-              ),
-            },
-            {
-              title: "Continuous Doubt Resolution",
-              text: "Doubts addressed consistently, not postponed or ignored.",
-              icon: (
-                <>
-                  <path d="M8 15l2-2 2 2 4-4" />
-                  <path d="M12 2v1.5" />
-                  <path d="M12 20.5V22" />
-                </>
-              ),
-            },
-            {
-              title: "Parent Transparency",
-              text: "Regular updates and open communication with parents.",
-              icon: (
-                <>
-                  <path d="M6 3h12" />
-                  <path d="M8 7h8" />
-                  <path d="M6 21h12" />
-                </>
-              ),
-            },
-          ].map((item) => (
+    return (
+        <section className="relative py-16 lg:py-24 bg-slate-50 overflow-hidden">
+            {/* Subtle Background Radial */}
             <div
-              key={item.title}
-              className="group flex h-full max-w-[18rem] flex-col
-                         rounded-2xl border border-slate-200 bg-white p-6
-                         transition-all hover:-translate-y-1 hover:shadow-lg"
-            >
-              <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[#74B49B]/20">
-                <svg
-                  aria-hidden="true"
-                  viewBox="0 0 24 24"
-                  className="h-5 w-5"
-                  fill="none"
-                  stroke="#1A3C5E"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  {item.icon}
-                </svg>
-              </div>
+                className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] 
+                   bg-[radial-gradient(closest-side,rgba(26,60,94,0.03),transparent)] pointer-events-none"
+            />
 
-              <h3 className="mb-2 text-sm font-semibold text-[#1A3C5E]">
-                {item.title}
-              </h3>
+            <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+                {/* Section Header */}
+                <div className="text-center mb-12">
+                    <h2 className="text-3xl font-bold tracking-tight text-[#1A3C5E] sm:text-4xl">
+                        Why Choose RISE?
+                    </h2>
+                    <p className="mt-4 text-lg font-medium text-slate-600 max-w-2xl mx-auto">
+                        A system built on discipline, structural integrity, and measurable outcomes.
+                    </p>
+                </div>
 
-              <p className="text-sm leading-relaxed text-slate-600">
-                {item.text}
-              </p>
+                {/* 
+            Grid Layout:
+            Desktop: 3 top, 2 bottom (centered)
+            Mobile/Tablet: Stacked/Grid
+        */}
+                <div className="flex flex-col gap-8">
+                    {/* Row 1: 3 Items */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {highlights.slice(0, 3).map((item, index) => (
+                            <PremiumPlacard key={index} {...item} />
+                        ))}
+                    </div>
+
+                    {/* Row 2: 2 Items (Centered) */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 lg:w-2/3 lg:mx-auto">
+                        {highlights.slice(3, 5).map((item, index) => (
+                            <PremiumPlacard key={index + 3} {...item} />
+                        ))}
+                    </div>
+                </div>
             </div>
-          ))}
-        </div>
-      </div>
+        </section>
+    );
+}
 
-      {/* Content for the section (Already configured above) */}
-    </section>
-  );
+function PremiumPlacard({
+    title,
+    description,
+}: {
+    title: string;
+    description: string;
+}) {
+    return (
+        <div
+            className="group relative h-full w-full rounded-xl bg-white p-8
+                 border border-slate-100/80
+                 transition-all duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]
+                 shadow-[0_4px_20px_rgba(0,0,0,0.03)]
+                 hover:-translate-y-2
+                 hover:shadow-[0_20px_40px_rgba(26,60,94,0.08)]
+                 hover:border-slate-200"
+        >
+            {/* Decorative Top Accent (Subtle) */}
+            <div
+                className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#1A3C5E]/10 to-transparent 
+                   opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+            />
+
+            <div className="flex flex-col h-full">
+                {/* Title */}
+                <h3
+                    className="text-xl font-bold tracking-tight text-[#1A3C5E] mb-4 
+                       transition-colors duration-300 group-hover:text-[#0F2942]"
+                >
+                    {title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-base font-medium text-slate-600 leading-relaxed
+                      transition-colors duration-300 group-hover:text-[#1A3C5E]"
+                >
+                    {description}
+                </p>
+            </div>
+        </div>
+    );
 }

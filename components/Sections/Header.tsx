@@ -51,8 +51,8 @@ export default function Header() {
                                     key={link.href}
                                     href={link.href}
                                     className={`text-sm font-medium transition-all relative group ${isActive
-                                            ? "text-[#1A3C5E]"
-                                            : "text-slate-600 hover:text-[#1A3C5E]"
+                                        ? "text-[#1A3C5E]"
+                                        : "text-slate-600 hover:text-[#1A3C5E]"
                                         }`}
                                 >
                                     {link.label}
@@ -114,8 +114,8 @@ export default function Header() {
                                     href={link.href}
                                     onClick={() => setIsOpen(false)}
                                     className={`block px-4 py-3 text-sm font-medium rounded-md transition-colors ${isActive
-                                            ? "text-[#1A3C5E] bg-slate-50"
-                                            : "text-slate-600 hover:bg-slate-50"
+                                        ? "text-[#1A3C5E] bg-slate-50"
+                                        : "text-slate-600 hover:bg-slate-50"
                                         }`}
                                 >
                                     {link.label}
