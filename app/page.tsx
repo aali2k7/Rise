@@ -1,14 +1,15 @@
 "use client";
 
-import AboutRISE from "@/components/Sections/AboutRISE";
+
 import DirectorsDesk from "@/components/Sections/DirectorsDesk";
-import FacultySection from "@/components/Sections/FacultySection";
+
 import FooterSection from "@/components/Sections/FooterSection";
 import HeroSection from "@/components/Sections/HeroSection";
 import MentorshipStatement from "@/components/Sections/MentorshipStatement";
 import CoursesSection from "@/components/Sections/CoursesSection";
 import SelectGoalSection from "@/components/Sections/SelectGoalSection";
 import StudyResources from "@/components/Sections/StudyResources";
+import StudentJourney from "@/components/Sections/StudentJourney";
 import TestimonialsSection from "@/components/Sections/TestimonialsSection";
 import ValueHighlights from "@/components/Sections/ValueHighlights";
 
@@ -37,15 +38,17 @@ export default function Home() {
           <MentorshipStatement />
         </div>
 
+        {/* Student Journey - Flow after Philosophy */}
+        <div className="bg-section-secondary">
+          <StudentJourney />
+        </div>
+
         {/* Primary background - white */}
         <div className="bg-section-primary section-divider">
           <DirectorsDesk />
         </div>
 
-        {/* Secondary background - light tint */}
-        <div className="bg-section-secondary">
-          <FacultySection />
-        </div>
+
 
         {/* Tertiary background - subtle gradient */}
         <div className="bg-section-tertiary">
@@ -57,10 +60,7 @@ export default function Home() {
           <StudyResources />
         </div>
 
-        {/* Secondary background - light tint */}
-        <div className="bg-section-secondary">
-          <AboutRISE />
-        </div>
+
       </div>
 
       <FooterSection />
