@@ -105,7 +105,7 @@ export default function FacultyCard({ name, role, department, tagline, image, is
                         ${isHovered ? 'visible' : 'invisible'} 
                         /* use invisible to keep layout space if we want pre-allocated, but let's toggle height for 'expansion' effect request */
                     `}>
-                        "{tagline}"
+                        &quot;{tagline}&quot;
                     </p>
                 </div>
             )}
@@ -123,7 +123,7 @@ export default function FacultyCard({ name, role, department, tagline, image, is
                     text-xs text-slate-500 font-medium leading-relaxed italic absolute w-full transition-all duration-300 ease-out
                     ${isHovered ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'}
                 `}>
-                    "{tagline}"
+                    &quot;{tagline}&quot;
                 </p>
             </div>
 

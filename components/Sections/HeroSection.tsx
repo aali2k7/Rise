@@ -55,7 +55,7 @@ export default function HeroSection() {
           <div>
             {/* Main headline */}
             <h1 className="mt-4 max-w-2xl text-4xl font-semibold leading-tight text-[#1A3C5E] sm:text-5xl">
-              Structured guidance for every stage of your child's academic journey —{" "}
+              Structured guidance for every stage of your child&apos;s academic journey —{" "}
               <span className="text-[#74B49B]">
                 with long-term mentorship
               </span>{" "}

@@ -69,7 +69,7 @@ function CoursesPageVariant() {
                         Our Courses
                     </h2>
                     <p className="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
-                        Structured learning paths designed for every stage of your child's academic journey.
+                        Structured learning paths designed for every stage of your child&apos;s academic journey.
                     </p>
                 </div>
 
@@ -154,7 +154,7 @@ function HomePageVariant() {
                         Programs Built Around Academic Stages
                     </h2>
                     <p className="mt-4 text-base leading-relaxed text-slate-600 sm:text-lg">
-                        Each stage needs a different kind of guidance. Our programs evolve with your child’s
+                        Each stage needs a different kind of guidance. Our programs evolve with your child&rsquo;s
                         phase — building foundations early, then adding structure, revision, and exam readiness
                         with consistent mentor support.
                     </p>

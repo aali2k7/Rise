@@ -29,7 +29,7 @@ export default function TestimonialsSection() {
                     </h2>
                     <div className="mt-6 h-px w-16 bg-[#94A3B8] mx-auto opacity-50" />
                     <p className="mt-6 text-lg text-slate-600 max-w-2xl mx-auto font-medium">
-                        Experiences from families who have trusted us with their children's academic journey.
+                        Experiences from families who have trusted us with their children&apos;s academic journey.
                     </p>
                 </header>
 
@@ -58,7 +58,7 @@ export default function TestimonialsSection() {
 
                                 <div className="relative z-10 pt-4">
                                     <p className="text-[#1A3C5E] text-lg leading-relaxed font-medium tracking-normal italic opacity-90 mb-8 whitespace-normal">
-                                        "{item.text}"
+                                        &quot;{item.text}&quot;
                                     </p>
 
                                     <div className="pt-6 border-t border-slate-100 flex flex-col gap-1">

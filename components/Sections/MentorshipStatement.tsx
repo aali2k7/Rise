@@ -17,11 +17,11 @@ export default function MentorshipStatement() {
           <div className="mt-12 bg-white rounded-2xl border border-slate-100 shadow-sm p-8 hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
             <p className="text-xl font-semibold tracking-tight text-slate-900">
               RISE is not just coaching. It is a long-term mentorship ecosystem designed to support a
-              child's academic growth — and the discipline, confidence, and clarity that sustain it.
+              child&apos;s academic growth — and the discipline, confidence, and clarity that sustain it.
             </p>
 
             <p className="mt-6 text-lg leading-relaxed text-slate-600">
-              Mentorship at RISE is practical and consistent: academic planning that fits the student's
+              Mentorship at RISE is practical and consistent: academic planning that fits the student&apos;s
               phase, regular tracking that highlights what is improving and what needs attention, and
               individual guidance that helps students correct course early. Parents are kept involved
               through steady updates and open communication — so expectations remain clear and progress

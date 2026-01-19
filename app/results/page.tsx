@@ -161,9 +161,9 @@ export default function Results() {
         <section className="py-24 relative z-10">
           <div className="max-w-4xl mx-auto px-6 text-center">
             <h2 className="text-2xl md:text-3xl lg:text-4xl text-[#1A3C5E] font-medium leading-relaxed">
-              "At RISE, we don’t chase results.
+              &ldquo;At RISE, we don’t chase results.
               <br className="hidden md:block" />
-              We build methods, discipline, and clarity — <span className="text-[#059669]">results follow naturally.</span>"
+              We build methods, discipline, and clarity — <span className="text-[#059669]">results follow naturally.</span>&rdquo;
             </h2>
           </div>
         </section>
@@ -183,7 +183,7 @@ export default function Results() {
                   className="bg-slate-50 rounded-2xl p-8 md:p-10 border border-slate-100 flex flex-col h-full hover:shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] transition-shadow duration-300"
                 >
                   <blockquote className="text-lg text-[#1A3C5E]/90 leading-relaxed mb-8 flex-grow italic relative">
-                    <span className="absolute -top-4 -left-2 text-6xl text-[#059669] opacity-10 font-serif">"</span>
+                    <span className="absolute -top-4 -left-2 text-6xl text-[#059669] opacity-10 font-serif">&ldquo;</span>
                     {testimonial.quote}
                   </blockquote>
 
