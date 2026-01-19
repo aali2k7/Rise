@@ -68,7 +68,7 @@ export default function Header() {
                     {/* Enquire Button (Right) & Mobile Toggle */}
                     <div className="flex items-center gap-4">
                         <Link
-                            href="/contact"
+                            href="/enquire"
                             className="hidden lg:inline-flex items-center justify-center rounded-md bg-[#1A3C5E] px-6 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#1A3C5E]/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1A3C5E] transition-all"
                         >
                             Enquire
@@ -124,7 +124,7 @@ export default function Header() {
                         })}
                         <div className="px-4 pt-2">
                             <Link
-                                href="/contact"
+                                href="/enquire"
                                 onClick={() => setIsOpen(false)}
                                 className="block w-full text-center rounded-md bg-[#1A3C5E] px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-[#1A3C5E]/90"
                             >

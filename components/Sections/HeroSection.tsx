@@ -73,7 +73,7 @@ export default function HeroSection() {
 
             {/* CTAs */}
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <a href="#footer" className="btn-primary">
+              <a href="/enquire" className="btn-primary">
                 Enquire Now
               </a>
               <a

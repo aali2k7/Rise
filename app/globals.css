@@ -330,7 +330,12 @@ body {
    Pauses the animation smoothly without resetting.
    Applies when hovering the container group.
 */
-.group:hover .animate-marquee-infinite {
+/* 
+   PAUSE ON HOVER (Interaction Refinement)
+   Pauses the animation smoothly without resetting.
+   Applies when hovering the container group.
+*/
+.ticker-container:hover .animate-marquee-infinite {
   animation-play-state: paused;
 }
 

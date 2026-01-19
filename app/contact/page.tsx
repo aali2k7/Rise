@@ -1,156 +1,81 @@
 "use client";
 
-import { useState } from "react";
-
+/**
+ * Contact Page
+ * Intent: Physical presence, trust, reachability.
+ * No forms, just direct contact methods.
+ */
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    course: "",
-    message: "",
-  });
-
-  const [loading, setLoading] = useState(false);
-  const [showSuccess, setShowSuccess] = useState(false);
-
-  const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setLoading(true);
-
-    try {
-      const res = await fetch("https://formspree.io/f/xpqqzooj", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (res.ok) {
-        setShowSuccess(true);
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          course: "",
-          message: "",
-        });
-      } else {
-        alert("Something went wrong. Please try again.");
-      }
-    } catch (error) {
-      alert("Network error. Please try again later.");
-    } finally {
-      setLoading(false);
-    }
-  };
-
   return (
-    <div className="min-h-screen bg-base-light relative">
-      {/* Contact Form */}
-      <section className="section">
-        <div className="max-w-xl mx-auto px-6">
-          <div className="card">
-            <h2 className="text-h3 text-text-primary mb-8">
-              Enquiry Form
-            </h2>
+    <div className="min-h-screen bg-white">
+      <section className="py-20 max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h1 className="text-4xl md:text-5xl font-semibold text-[#1A3C5E] mb-6 tracking-tight">
+            Get in Touch
+          </h1>
+          <p className="text-lg text-slate-600 font-medium max-w-2xl mx-auto">
+            We are here to answer your questions. <br className="hidden md:block" />
+            Reach out to us directly or visit our campus.
+          </p>
+        </div>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <input
-                name="name"
-                placeholder="Your Name"
-                required
-                value={formData.name}
-                onChange={handleChange}
-                className="w-full px-4 py-3 border rounded-button"
-              />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+          {/* LEFT COLUMN: PHONE NUMBERS & ADDRESS */}
+          <div className="flex flex-col gap-12">
 
-              <input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                required
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full px-4 py-3 border rounded-button"
-              />
+            {/* Phone Numbers */}
+            <div className="bg-slate-50 border border-slate-100 rounded-2xl p-8 md:p-10 text-center lg:text-left">
+              <h2 className="text-2xl font-semibold text-[#1A3C5E] mb-8">
+                Call Us
+              </h2>
+              <div className="flex flex-col gap-6">
+                <a
+                  href="tel:+919334332340"
+                  className="text-3xl md:text-4xl font-bold text-[#1A3C5E] hover:text-[#059669] transition-colors tracking-tight"
+                >
+                  +91 93343 323 40
+                </a>
+                <a
+                  href="tel:+918552517726"
+                  className="text-3xl md:text-4xl font-bold text-[#1A3C5E] hover:text-[#059669] transition-colors tracking-tight"
+                >
+                  +91 85525 177 26
+                </a>
+              </div>
+              <p className="mt-8 text-slate-500 font-medium">
+                Available Mon-Sat, 9:00 AM — 7:00 PM
+              </p>
+            </div>
 
-              <input
-                name="phone"
-                placeholder="Phone Number"
-                required
-                value={formData.phone}
-                onChange={handleChange}
-                className="w-full px-4 py-3 border rounded-button"
-              />
+            {/* Address */}
+            <div className="px-4 md:px-0 text-center lg:text-left">
+              <h3 className="text-lg font-semibold text-[#1A3C5E] mb-4 uppercase tracking-wider">
+                Visit Campus
+              </h3>
+              <address className="text-lg text-slate-600 not-italic leading-relaxed">
+                Park Ln, beside Sri Krishna Park,<br />
+                opposite Doranda College Road,<br />
+                Darzee Mohalla, Shyamali Colony,<br />
+                Doranda, Ranchi, Jharkhand 834002
+              </address>
+            </div>
+          </div>
 
-              <select
-                name="course"
-                value={formData.course}
-                onChange={handleChange}
-                className="w-full px-4 py-3 border rounded-button bg-white"
-              >
-                <option value="">Select a course</option>
-                <option value="class-11">Class 11</option>
-                <option value="class-12">Class 12</option>
-                <option value="jee">JEE Preparation</option>
-                <option value="neet">NEET Preparation</option>
-              </select>
-
-              <textarea
-                name="message"
-                rows={4}
-                placeholder="Your message"
-                value={formData.message}
-                onChange={handleChange}
-                className="w-full px-4 py-3 border rounded-button resize-none"
-              />
-
-              <button
-                type="submit"
-                disabled={loading}
-                className="btn-primary w-full disabled:opacity-50"
-              >
-                {loading ? "Submitting..." : "Submit Enquiry"}
-              </button>
-            </form>
+          {/* RIGHT COLUMN: GOOGLE MAP */}
+          <div className="h-[400px] md:h-[500px] w-full bg-slate-100 rounded-2xl overflow-hidden shadow-sm border border-slate-200">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3663.431249374942!2d85.3189629!3d23.3363858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f4e1ca0008d2e7%3A0x939448a2982e890!2sVISUAL%20INFORMATICS!5e0!3m2!1sen!2sin!4v1768804122077!5m2!1sen!2sin"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen={true}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="RISE Location Map"
+            />
           </div>
         </div>
       </section>
-
-      {/* SUCCESS POPUP */}
-      {showSuccess && (
-        <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50">
-          <div className="bg-white rounded-2xl p-8 max-w-md text-center shadow-xl">
-            <h3 className="text-2xl font-semibold mb-4">
-              Thank You!
-            </h3>
-            <p className="text-text-secondary mb-6">
-              Thank you for submitting your details.  
-              Please wait until one of our associates gets in touch with you.
-            </p>
-            <button
-              onClick={() => setShowSuccess(false)}
-              className="btn-primary"
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

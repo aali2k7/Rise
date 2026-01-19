@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 
 const steps = [
     {
@@ -66,6 +67,7 @@ const steps = [
 ];
 
 export default function StudentJourney() {
+    const router = useRouter();
     return (
         <section className="relative w-full py-24 bg-slate-50 overflow-hidden">
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -92,7 +94,10 @@ export default function StudentJourney() {
 
                 {/* CTA */}
                 <div className="mt-32 text-center">
-                    <button className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white transition-all duration-200 bg-[#f47920] rounded-full hover:bg-[#e06510] hover:shadow-lg hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500">
+                    <button
+                        onClick={() => router.push('/enquire')}
+                        className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white transition-all duration-200 bg-[#f47920] rounded-full hover:bg-[#e06510] hover:shadow-lg hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+                    >
                         Start Your Journey Today
                     </button>
                 </div>

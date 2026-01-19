@@ -7,7 +7,7 @@ export default function FooterSection() {
           <div className="space-y-4">
             <h3 className="text-2xl font-semibold">RISE</h3>
             <p className="text-sm text-slate-300 leading-relaxed">
-              Structured mentorship for long-term academic growth. 
+              Structured mentorship for long-term academic growth.
               Building confidence through patient guidance and consistent support.
             </p>
           </div>
@@ -56,8 +56,8 @@ export default function FooterSection() {
                 </a>
               </div>
               <div className="pt-2">
-                <a 
-                  href="#footer" 
+                <a
+                  href="/enquire"
                   className="inline-block px-4 py-2 bg-[#F4A261] text-[#1A3C5E] text-sm font-medium rounded hover:bg-[#F4A261]/90 transition-colors"
                 >
                   Enquire Now

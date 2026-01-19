@@ -26,11 +26,12 @@ export default function Approach() {
       </section>
 
       {/* --- SECTION 2: CORE PILLARS (2x2 GRID) --- */}
-      <section className="py-24 bg-[#fcfcfd]">
+      <section className="py-24 bg-slate-50 border-y border-slate-100/50">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-[#1A3C5E] sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-[#1A3C5E] sm:text-4xl relative inline-block">
               The Four Pillars of Excellence
+              <span className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-16 h-0.5 bg-orange-500/30 rounded-full"></span>
             </h2>
           </div>
 
@@ -163,7 +164,7 @@ export default function Approach() {
 
 function PillarCard({ title, points }: { title: string, points: string[] }) {
   return (
-    <div className="group bg-white/70 backdrop-blur-md p-6 lg:p-7 rounded-2xl border border-white/50 shadow-lg hover:shadow-xl transition-shadow duration-200 ease-out supports-[backdrop-filter]:bg-white/60">
+    <div className="group bg-white/70 backdrop-blur-md p-6 lg:p-7 rounded-2xl border border-slate-200/60 shadow-lg hover:shadow-xl transition-shadow duration-200 ease-out supports-[backdrop-filter]:bg-white/60">
       <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-3 group-hover:text-orange-600 transition-colors">
         {title}
       </h3>

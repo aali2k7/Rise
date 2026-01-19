@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 
 interface ProgramCardProps {
     title: string;
@@ -10,6 +11,7 @@ interface ProgramCardProps {
         reason: string;
     };
     comingSoon?: boolean;
+    backCTA?: string;
 }
 
 export default function ProgramCard({
@@ -18,6 +20,7 @@ export default function ProgramCard({
     frontContent,
     backContent,
     comingSoon = false,
+    backCTA,
 }: ProgramCardProps) {
     if (comingSoon) {
         return (
@@ -103,6 +106,18 @@ export default function ProgramCard({
                             </p>
                         </div>
 
+                        {/* ENQUIRE CTA (Restored) */}
+                        {backCTA && (
+                            <div className="mt-auto pt-6 border-t border-slate-100/50">
+                                <Link
+                                    href="/enquire"
+                                    className="inline-flex items-center gap-2 text-sm font-bold text-orange-600 hover:text-orange-700 transition-colors"
+                                >
+                                    {backCTA}
+                                    <span className="text-lg leading-none">→</span>
+                                </Link>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
