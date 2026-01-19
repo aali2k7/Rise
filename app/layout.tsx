@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Sections/Header";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: "RISE - Our Effort. Your Rise.",
@@ -19,6 +20,7 @@ export default function RootLayout({
         <Header />
 
         <main>{children}</main>
+        <SpeedInsights />
       </body>
     </html>
   );
