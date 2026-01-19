@@ -1,6 +1,8 @@
+import Link from "next/link";
+
 export default function FooterSection() {
   return (
-    <footer id="footer" className="w-full bg-[#1A3C5E] text-white">
+    <footer id="footer" className="w-full bg-[#0f172a] text-white transition-colors duration-300">
       <div className="content-container section-spacing">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Logo and Description */}
@@ -17,24 +19,24 @@ export default function FooterSection() {
             <h4 className="text-lg font-medium mb-4">Quick Links</h4>
             <ul className="space-y-2">
               <li>
-                <a href="#faculty" className="text-sm text-slate-300 hover:text-white transition-colors">
+                <Link href="/faculty" className="text-sm text-slate-300 hover:text-white transition-colors">
                   Faculty
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#results" className="text-sm text-slate-300 hover:text-white transition-colors">
+                <Link href="/results" className="text-sm text-slate-300 hover:text-white transition-colors">
                   Results
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#testimonials" className="text-sm text-slate-300 hover:text-white transition-colors">
+                <Link href="/results#testimonials" className="text-sm text-slate-300 hover:text-white transition-colors">
                   Testimonials
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#about-rise" className="text-sm text-slate-300 hover:text-white transition-colors">
+                <Link href="/approach" className="text-sm text-slate-300 hover:text-white transition-colors">
                   About RISE
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -44,24 +46,22 @@ export default function FooterSection() {
             <h4 className="text-lg font-medium mb-4">Get in Touch</h4>
             <div className="space-y-3">
               <div>
-                <p className="text-sm text-slate-300">For Enquiries:</p>
-                <a href="mailto:enquiries@rise.institute" className="text-sm text-white hover:text-[#74B49B] transition-colors">
-                  enquiries@rise.institute
+                <p className="text-sm text-slate-300">Call Us:</p>
+                <a href="tel:+919334332340" className="text-sm text-white hover:text-[#74B49B] transition-colors block">
+                  +91 93343 323 40
+                </a>
+                <a href="tel:+918552517726" className="text-sm text-white hover:text-[#74B49B] transition-colors block mt-1">
+                  +91 85525 177 26
                 </a>
               </div>
-              <div>
-                <p className="text-sm text-slate-300">For Admissions:</p>
-                <a href="mailto:admissions@rise.institute" className="text-sm text-white hover:text-[#74B49B] transition-colors">
-                  admissions@rise.institute
-                </a>
-              </div>
+
               <div className="pt-2">
-                <a
+                <Link
                   href="/enquire"
                   className="inline-block px-4 py-2 bg-[#F4A261] text-[#1A3C5E] text-sm font-medium rounded hover:bg-[#F4A261]/90 transition-colors"
                 >
                   Enquire Now
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -71,7 +71,7 @@ export default function FooterSection() {
         <div className="mt-12 pt-8 border-t border-slate-700">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-sm text-slate-400">
-              © 2024 RISE Institute. All rights reserved.
+              © 2025 RISE Institute. All rights reserved.
             </p>
             <p className="text-sm text-slate-400">
               Building academic confidence through structured mentorship.
