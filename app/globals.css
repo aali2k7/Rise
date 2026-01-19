@@ -605,3 +605,42 @@ body {
 
   mix-blend-mode: normal;
 }
+
+/* =========================
+   HEADER GLASS - PREMIUM TEAL TINT
+   (Apple-like, Cold Glass)
+========================= */
+.header-glass {
+  /* Translucent White Base for Legibility */
+  background-color: rgba(255, 255, 255, 0.70);
+
+  /* Strong Blur */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  /* Subtle Border */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+
+  /* Soft Shadow */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+
+  /* Positioning for pseudo-element tint */
+  position: relative;
+  z-index: 50;
+}
+
+/* Explicit Teal Tint Layer */
+.header-glass::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  /* The requested tint: 20, 120, 110 at ~8% */
+  background-color: rgba(20, 120, 110, 0.08);
+
+  pointer-events: none;
+  z-index: -1;
+}

@@ -33,6 +33,13 @@ export default function HeroSection() {
         className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
       >
         <div
+          className="absolute inset-0 opacity-[0.03] mix-blend-overlay"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+            backgroundRepeat: 'repeat',
+          }}
+        />
+        <div
           className="absolute right-[15%] top-[35%] h-[520px] w-[520px]
                      rounded-full bg-emerald-300/20 blur-[130px]
                      animate-orb"
@@ -46,11 +53,6 @@ export default function HeroSection() {
       <div className="relative z-10">
         <div className="grid items-center gap-12 lg:grid-cols-2 pl-6 lg:pl-16">
           <div>
-            {/* Eyebrow */}
-            <p className="text-support font-medium tracking-wide text-slate-600">
-              Premium coaching, built around mentorship
-            </p>
-
             {/* Main headline */}
             <h1 className="mt-4 max-w-2xl text-4xl font-semibold leading-tight text-[#1A3C5E] sm:text-5xl">
               Structured guidance for every stage of your child's academic journey —{" "}
@@ -84,10 +86,13 @@ export default function HeroSection() {
               </a>
             </div>
 
-            {/* Reassurance */}
-            <p className="mt-5 max-w-xl text-support text-slate-500">
-              For parents who value consistency, accountability, and calm, expert guidance.
-            </p>
+            {/* Trust Indicator */}
+            <div className="mt-12 flex items-center gap-3 opacity-80">
+              <div className="h-px w-8 bg-slate-400/50"></div>
+              <p className="text-xs font-medium tracking-wide text-slate-500 uppercase">
+                A unit of Visual Informatics — guiding students since 1999
+              </p>
+            </div>
           </div>
         </div>
       </div>
