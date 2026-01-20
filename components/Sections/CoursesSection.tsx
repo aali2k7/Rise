@@ -147,27 +147,32 @@ function PremiumCourseCard({ course, index }: { course: typeof premiumCourses[0]
 // --- Variant 2: Original Home Page Layout (Safekeep) ---
 function HomePageVariant() {
     return (
-        <section id="programs" className="w-full bg-[#fcfcfd]">
-            <div className="mx-auto max-w-7xl px-6 py-16 sm:py-20 lg:py-24">
-                <header className="max-w-3xl">
-                    <h2 className="text-3xl font-semibold leading-tight text-[#1A3C5E] sm:text-4xl">
-                        Programs Built Around Academic Stages
+        <section id="programs" className="w-full bg-[#F8FAFC]">
+            <div className="mx-auto max-w-7xl px-6 py-20 lg:py-28">
+                <header className="max-w-3xl mb-16">
+                    <h2 className="text-3xl font-bold tracking-tight text-[#1E3A8A] sm:text-5xl">
+                        Programs Built Around <span className="text-[#10B981]">Academic Stages</span>
                     </h2>
-                    <p className="mt-4 text-base leading-relaxed text-slate-600 sm:text-lg">
+                    <p className="mt-6 text-lg leading-relaxed text-slate-600">
                         Each stage needs a different kind of guidance. Our programs evolve with your child&rsquo;s
-                        phase — building foundations early, then adding structure, revision, and exam readiness
-                        with consistent mentor support.
+                        phase — building foundations early, then adding structure, revision, and exam readiness.
                     </p>
                 </header>
 
-                <div className="mt-10 grid grid-cols-1 gap-6 sm:mt-12 sm:grid-cols-2 lg:grid-cols-3">
-                    {/* Class 5-8 */}
+                <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                    {/* Class 5-8 - Foundation (Blue) */}
                     <div id="foundation" className="scroll-mt-32">
                         <ProgramCard
                             title="Class 5–8"
                             subtitle="School Exam Excellence"
+                            colorTheme={{
+                                main: "text-[#1E3A8A]",
+                                accent: "text-blue-600 border-blue-500",
+                                bg: "bg-blue-50/50",
+                                gradient: "from-blue-50 to-white"
+                            }}
                             frontContent={
-                                <ul className="mt-6 list-disc space-y-2 pl-5 text-sm leading-relaxed text-slate-600">
+                                <ul className="mt-6 list-disc space-y-3 pl-5 text-sm leading-relaxed text-slate-700 marker:text-blue-500">
                                     <li>Building the habit of daily, disciplined self-study.</li>
                                     <li>Strengthening core concepts in Maths and Science.</li>
                                     <li>Improving answer-writing skills for school exams.</li>
@@ -178,17 +183,23 @@ function HomePageVariant() {
                                 duration: "1 Year (Renewable) | 3 days/week",
                                 reason: "Early mentorship prevents the need for intense pressure in later years."
                             }}
-                            backCTA="Enquire Now →"
+                            backCTA="Enquire Now"
                         />
                     </div>
 
-                    {/* Class 9-10 */}
+                    {/* Class 9-10 - Board Prep (Emerald) */}
                     <div className="scroll-mt-32">
                         <ProgramCard
                             title="Class 9–10"
                             subtitle="Board Exam Mastery"
+                            colorTheme={{
+                                main: "text-[#064E3B]",
+                                accent: "text-emerald-600 border-emerald-500",
+                                bg: "bg-emerald-50/50",
+                                gradient: "from-emerald-50 to-white"
+                            }}
                             frontContent={
-                                <ul className="mt-6 list-disc space-y-2 pl-5 text-sm leading-relaxed text-slate-600">
+                                <ul className="mt-6 list-disc space-y-3 pl-5 text-sm leading-relaxed text-slate-700 marker:text-emerald-500">
                                     <li>Comprehensive coverage of Board syllabus with revision.</li>
                                     <li>Regular testing to eliminate fear of exams.</li>
                                     <li>Balancing school curriculum with competitive foundations.</li>
@@ -199,17 +210,23 @@ function HomePageVariant() {
                                 duration: "1 Year | 4 days/week",
                                 reason: "We stabilize performance so students enter Class 11 with momentum."
                             }}
-                            backCTA="Enquire Now →"
+                            backCTA="Enquire Now"
                         />
                     </div>
 
-                    {/* Class 11-12 (Medical) */}
+                    {/* Class 11-12 (Medical) - Deep Indigo/Purple? User said Green is medical usually, but we used Emerald for Boards. Let's use Cyan/Teal for Medical or stick to Brand colors. Plan said Blue/Green/Amber. Let's use Blue-Indigo for Medical. */}
                     <div id="doctor" className="scroll-mt-32">
                         <ProgramCard
                             title="Class 11–12 (Medical)"
                             subtitle="Boards + NEET Preparation"
+                            colorTheme={{
+                                main: "text-[#1E3A8A]",
+                                accent: "text-indigo-600 border-indigo-500",
+                                bg: "bg-indigo-50/40",
+                                gradient: "from-indigo-50 to-white"
+                            }}
                             frontContent={
-                                <ul className="mt-6 list-disc space-y-2 pl-5 text-sm leading-relaxed text-slate-600">
+                                <ul className="mt-6 list-disc space-y-3 pl-5 text-sm leading-relaxed text-slate-700 marker:text-indigo-500">
                                     <li>Strict adherence to NCERT with deep conceptual clarity.</li>
                                     <li>Continuous revision cycles to build high retention.</li>
                                     <li>Weekly mock tests to perfect speed and accuracy.</li>
@@ -220,17 +237,23 @@ function HomePageVariant() {
                                 duration: "2 Years | Integrated Program",
                                 reason: "NEET requires stamina and precision. We build both day by day."
                             }}
-                            backCTA="Enquire Now →"
+                            backCTA="Enquire Now"
                         />
                     </div>
 
-                    {/* Class 11-12 (Engineering) */}
+                    {/* Class 11-12 (Engineering) - Amber/Orange */}
                     <div id="engineer" className="scroll-mt-32">
                         <ProgramCard
                             title="Class 11–12 (Engineering)"
                             subtitle="Boards + JEE Preparation"
+                            colorTheme={{
+                                main: "text-[#7C2D12]", // Dark Orange/Brown for readability
+                                accent: "text-orange-600 border-orange-500",
+                                bg: "bg-orange-50/50",
+                                gradient: "from-orange-50 to-white"
+                            }}
                             frontContent={
-                                <ul className="mt-6 list-disc space-y-2 pl-5 text-sm leading-relaxed text-slate-600">
+                                <ul className="mt-6 list-disc space-y-3 pl-5 text-sm leading-relaxed text-slate-700 marker:text-orange-500">
                                     <li>Advanced logic building and problem-solving techniques.</li>
                                     <li>Focus on application-based learning for JEE Mains & Advanced.</li>
                                     <li>Strategic error analysis to minimize negative marking.</li>
@@ -241,17 +264,23 @@ function HomePageVariant() {
                                 duration: "2 Years | Integrated Program",
                                 reason: "We move beyond rote learning to true problem-solving intuition."
                             }}
-                            backCTA="Enquire Now →"
+                            backCTA="Enquire Now"
                         />
                     </div>
 
-                    {/* Class 11-12 (Commerce) */}
+                    {/* Class 11-12 (Commerce) - Amber (Warm) or Slate? Let's use Amber variant or Slate. */}
                     <div id="commerce" className="scroll-mt-32">
                         <ProgramCard
                             title="Class 11–12 (Commerce)"
                             subtitle="Boards + Professional Prep"
+                            colorTheme={{
+                                main: "text-slate-800",
+                                accent: "text-amber-600 border-amber-500",
+                                bg: "bg-amber-50/30",
+                                gradient: "from-amber-50 to-white"
+                            }}
                             frontContent={
-                                <ul className="mt-6 list-disc space-y-2 pl-5 text-sm leading-relaxed text-slate-600">
+                                <ul className="mt-6 list-disc space-y-3 pl-5 text-sm leading-relaxed text-slate-700 marker:text-amber-500">
                                     <li>Conceptual mastery of Accountancy, Economics, and Business.</li>
                                     <li>Preparation for Board exams and professional entrance tests.</li>
                                     <li>Focus on real-world application and financial literacy.</li>
@@ -262,23 +291,29 @@ function HomePageVariant() {
                                 duration: "2 Years | Integrated Program",
                                 reason: "Commerce mastery is about clarity, not just balancing balance sheets."
                             }}
-                            backCTA="Enquire Now →"
+                            backCTA="Enquire Now"
                         />
                     </div>
 
-                    {/* Class 11-12 (Arts) */}
+                    {/* Class 11-12 (Arts) - Slate/Neutral */}
                     <div id="arts" className="scroll-mt-32">
                         <ProgramCard
                             title="Class 11–12 (Arts)"
                             subtitle="Boards + Humanities"
+                            comingSoon={true}
+                            colorTheme={{
+                                main: "text-slate-700",
+                                accent: "text-slate-500 border-slate-400",
+                                bg: "bg-slate-50",
+                                gradient: "from-slate-50 to-white"
+                            }}
                             frontContent={
-                                <ul className="mt-6 list-disc space-y-2 pl-5 text-sm leading-relaxed text-slate-600">
+                                <ul className="mt-6 list-disc space-y-3 pl-5 text-sm leading-relaxed text-slate-600 marker:text-slate-400">
                                     <li>In-depth understanding of History, Political Science & Sociology.</li>
                                     <li>Develops critical thinking vs. just memorization.</li>
                                     <li>Guidance for future pathways in Law, Policy, and Civil Services.</li>
                                 </ul>
                             }
-                            comingSoon={true}
                             backContent={{
                                 benefits: "",
                                 duration: "",

@@ -5,7 +5,7 @@ export default function DirectorsDesk() {
              Constrained Reading Frame - Wider for 2 columns
              (Paper-like, centered, breathable)
            */}
-      <div className="relative z-10 mx-auto max-w-6xl px-8 py-16 lg:px-16 lg:py-20 letter-frame rounded-2xl">
+      <div className="relative z-10 mx-auto max-w-6xl px-8 py-12 lg:px-16 lg:py-16 letter-frame rounded-2xl">
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
 
@@ -17,7 +17,7 @@ export default function DirectorsDesk() {
               <h2 className="text-3xl md:text-3xl font-serif font-medium text-[#1A3C5E] tracking-tight text-left">
                 A message from the director
               </h2>
-              <div className="mt-4 h-px w-20 bg-slate-200" />
+              <div className="director-header-accent" />
             </header>
 
             {/* Content: Calm, Readable, Intentional */}
@@ -37,7 +37,7 @@ export default function DirectorsDesk() {
               </p>
 
               {/* Promise Line */}
-              <p className="pt-4 font-medium text-[#1A3C5E] text-xl">
+              <p className="director-promise-text pt-4 text-xl">
                 My promise to you is this: we will treat your child with the same
                 care and expectation we would want for our own.
               </p>
@@ -52,13 +52,13 @@ export default function DirectorsDesk() {
           </div>
 
           {/* RIGHT COLUMN: The Guiding Principle (Secondary - col-span-5) */}
-          <div className="lg:col-span-5 flex flex-col justify-center lg:border-l lg:border-slate-100 lg:pl-16">
+          <div className="lg:col-span-5 director-quote-zone">
             {/* 
                             Institutional Quote 
                             - Acts as an oath/principle on the wall
                             - Visually distinct but calm
                         */}
-            <blockquote className="quote-text text-xl lg:text-2xl text-slate-500 italic">
+            <blockquote className="quote-text text-xl lg:text-2xl italic">
               “Education is not the transfer of information, but the cultivation of judgment, discipline, and character — guided patiently over time.”
             </blockquote>
           </div>

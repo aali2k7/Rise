@@ -77,36 +77,39 @@ export default function SelectGoalSection() {
             <div className="absolute top-0 right-0 w-[800px] h-[600px] bg-gradient-to-b from-blue-50/50 to-purple-50/50 rounded-full blur-3xl opacity-40 translate-x-1/3 -translate-y-1/2 -z-10 pointer-events-none" />
 
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                {/* Premium bordered container wrapping the entire section */}
+                <div className="border border-t-2 border-slate-200 border-t-indigo-400 ring-1 ring-slate-200/70 rounded-[28px] bg-gradient-to-br from-white via-slate-50 to-white shadow-[0_10px_30px_rgba(15,23,42,0.06)] py-14 px-6 lg:px-10">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
-                    {/* LEFT COLUMN: Header Text (Anchor) */}
-                    <div className="lg:col-span-4 flex flex-col justify-center items-start text-left">
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-medium text-slate-800 tracking-tight leading-tight">
-                            Select your goal
-                        </h2>
-                        <p className="text-lg lg:text-xl text-slate-500 font-light mt-3 tracking-wide font-sans">
-                            to explore our courses
-                        </p>
-                        {/* Visionary decorative line */}
-                        <div className="mt-8 h-px w-24 bg-slate-200" />
-                    </div>
+                        {/* LEFT COLUMN: Header Text (Anchor) */}
+                        <div className="lg:col-span-4 flex flex-col justify-center items-start text-left">
+                            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-medium text-slate-800 tracking-tight leading-tight">
+                                Select your goal
+                            </h2>
+                            <p className="text-lg lg:text-xl text-slate-500 font-light mt-3 tracking-wide font-sans">
+                                to explore our courses
+                            </p>
+                            {/* Visionary decorative line */}
+                            <div className="mt-8 h-px w-24 bg-slate-200" />
+                        </div>
 
-                    {/* RIGHT COLUMN: Goal Pills Grid */}
-                    <div className="lg:col-span-8 w-full">
-                        {/* 
-                           Grid Layout:
-                           - Consistent gaps
-                           - Auto-fit logic for responsiveness 
-                           - Visual symmetry
-                        */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                            {goals.map((goal) => (
-                                <TiltButton
-                                    key={goal.label}
-                                    goal={goal}
-                                    onClick={() => scrollToSection(goal.target)}
-                                />
-                            ))}
+                        {/* RIGHT COLUMN: Goal Pills Grid */}
+                        <div className="lg:col-span-8 w-full">
+                            {/* 
+                               Grid Layout:
+                               - Consistent gaps
+                               - Auto-fit logic for responsiveness 
+                               - Visual symmetry
+                            */}
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                                {goals.map((goal) => (
+                                    <TiltButton
+                                        key={goal.label}
+                                        goal={goal}
+                                        onClick={() => scrollToSection(goal.target)}
+                                    />
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -142,7 +145,20 @@ function TiltButton({ goal, onClick }: { goal: Goal; onClick: () => void }) {
         "Explore": "#64748b",   // Slate
     };
 
+    // Contextual hover border colors
+    const getHoverBorderClass = (label: string) => {
+        switch (label) {
+            case "Doctor": return "hover:border-emerald-400/60";
+            case "Engineer": return "hover:border-indigo-400/60";
+            case "Commerce": return "hover:border-amber-400/60";
+            case "Classes 6–10": return "hover:border-sky-400/60";
+            case "Explore": return "hover:border-slate-400/60";
+            default: return "hover:border-slate-400/60";
+        }
+    };
+
     const bloomColor = bloomColorMap[goal.label] || "#64748b";
+    const hoverBorderClass = getHoverBorderClass(goal.label);
 
     return (
         <button
@@ -151,10 +167,15 @@ function TiltButton({ goal, onClick }: { goal: Goal; onClick: () => void }) {
             // Passing the bloom color as a CSS variable for the ::before pseudo-element
             style={{ "--bloom-color": bloomColor } as React.CSSProperties}
 
-            // OPTICAL GLASS CLASS APPLICATION
-            // - optical-glass: Base frosted surface + borders + depth
-            // - optical-bloom: Activates the internal color injection
-            className="group optical-glass optical-bloom relative flex items-center gap-4 px-6 py-4 w-full h-full min-h-[5rem] rounded-2xl text-left"
+            // PREMIUM BORDER SYSTEM
+            // - Default: Subtle slate border with soft inner ring
+            // - Hover: Contextual accent border with lift and shadow
+            className={`group optical-glass optical-bloom relative flex items-center gap-4 px-6 py-4 w-full h-full min-h-[5rem] rounded-2xl text-left
+                border border-slate-200 ring-1 ring-black/5
+                transition-all duration-300 ease-out
+                hover:-translate-y-1 hover:shadow-xl hover:border-2 hover:ring-0
+                ${hoverBorderClass}
+            `}
             aria-label={`Select ${goal.label}`}
         >
             {/* CONTENT WRAPPER - Ensures text/icon sits ABOVE the internal bloom */}

@@ -451,50 +451,258 @@ body {
 }
 
 /* =========================
-   DIRECTOR'S DESK - LETTER EFFECT
-   (Formal, Responsible, Calm)
+   DIRECTOR'S DESK - COLOR AS DEPTH
+   (Warm Authority, Architectural Palette)
 ========================= */
 
-/* The constrained reading frame */
+/* The Card Surface */
 .letter-frame {
   position: relative;
-  background-color: #ffffff;
-  /* Soft separation from page - "Paper on Desk" feel */
+  overflow: hidden;
+  /* For vignette masking */
+
+  /* 
+     1. CARD BACKGROUND (PRIMARY LAYER)
+     Directional Gradient: 135deg
+     Start: Warm ivory / parchment tone (#fffcf8)
+     End: Cool slate-blue tint (#f0f7ff)
+     Creates subtle warmth + seriousness overlap.
+  */
+  background: linear-gradient(135deg,
+      #fffcf8 0%,
+      #fcfdfd 40%,
+      #f4f8fb 100%);
+
+  /* 
+     5. DEPTH & ELEVATION (COLOR-ASSISTED)
+     Shadow system includes:
+     - Ambient neutral shadow (grounding)
+     - Slight cool-toned shadow (atmosphere)
+  */
   box-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.02),
-    0 4px 16px rgba(0, 0, 0, 0.02);
-  border: 1px solid rgba(226, 232, 240, 0.6);
-  /* Very subtle border */
+    0 1px 2px rgba(15, 23, 42, 0.03),
+    0 8px 16px rgba(15, 23, 42, 0.03),
+    /* Cool tone tint in large shadow */
+    0 24px 48px rgba(30, 58, 138, 0.03);
+
+  border: none;
 }
 
-/* Ceremonial Divider Line (Vertical Rhythm) */
-.letter-divider {
-  width: 100%;
-  height: 1px;
+/* 6. EDGE SOFTENING - Vignette */
+.letter-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  /* Very subtle inner glow/vignette to blend edges */
+  box-shadow: inset 0 0 40px rgba(255, 255, 255, 0.5);
+  background: radial-gradient(circle at center,
+      transparent 50%,
+      rgba(15, 23, 42, 0.01) 100%);
+  z-index: 10;
+}
+
+/* 3. TYPOGRAPHIC HIERARCHY - Heading Override */
+.letter-frame header h2 {
+  /* Deeper, more authoritative blue than standard */
+  color: #0d2845 !important;
+}
+
+/* 2. QUOTE COLUMN (SECONDARY COLOR ZONE) */
+.director-quote-zone {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  /* Muted blue-grey / desaturated navy wash */
+  /* Acts as a paper shadow inset */
+  background-color: rgba(236, 242, 248, 0.5);
+
+  /* Inner shadow for "carved" feel */
+  box-shadow: inset 20px 0 40px -20px rgba(30, 58, 138, 0.02);
+
+  padding-left: 3rem;
+  padding-right: 2rem;
+  border-radius: 0 1rem 1rem 0;
+}
+
+/* 4. ACCENT LINE - RISE Blue Gradient */
+.director-header-accent {
+  height: 2px;
+  width: 5rem;
+  /* Muted RISE blue -> transparent */
+  background: linear-gradient(to right, #1a3c5e, transparent);
+  margin-top: 1rem;
+  opacity: 0.8;
+}
+
+/* 3. TYPOGRAPHIC HIERARCHY - Promise Paragraph */
+.director-promise-text {
+  position: relative;
+  padding-left: 1.5rem;
+  color: #0d2845;
+  /* Deeper blue matching header */
+  font-weight: 500;
+
+  /* Soft highlight wash behind text - Emotional Anchor */
   background: linear-gradient(to right,
-      transparent,
-      rgba(26, 60, 94, 0.15),
+      rgba(235, 245, 255, 0.5),
       transparent);
-  margin: 2rem 0;
+  border-radius: 4px;
+  /* Slight padding adjustment for the wash */
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  margin-top: 0.5rem;
+  /* Optical spacing */
 }
 
-/* Institutional Quote Style */
+/* Accent line for promise */
+.director-promise-text::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.75rem;
+  bottom: 0.75rem;
+  width: 3px;
+  background: rgba(26, 60, 94, 0.2);
+  border-radius: 2px;
+}
+
+/* Institutional Quote Style - Adjusted for inset */
 .quote-text {
   font-family: var(--font-inter);
-  /* Use system sans/serif mix if preferred */
   font-weight: 500;
   color: #475569;
-  /* Slate 600 equivalent */
-  line-height: 1.6;
-  border-left: 2px solid rgba(26, 60, 94, 0.2);
-  /* Subtle institutional border */
-  padding-left: 1.5rem;
+  line-height: 1.7;
+  /* Clean, no border (zone provides separation) */
+  border: none;
+  padding: 0;
 }
 
 /* =========================
-   AMBIENT BLOOM - SIDE FRAMING
-   (Subtle visual hold for empty space)
+   STUDY RESOURCES - ACADEMIC SYSTEM
+   (Calm, Structured, Premium)
 ========================= */
+
+/* 1. SECTION BACKGROUND */
+#study-resources {
+  position: relative;
+  /* Soft vertical gradient: Warm Ivory -> Cool Blue/Grey */
+  background: linear-gradient(to bottom,
+      rgba(255, 252, 248, 1) 0%,
+      /* Warm Ivory Tint */
+      rgba(248, 250, 252, 0.4) 100%
+      /* Faint Cool Grey */
+    );
+}
+
+/* 2. HEADING EMPHASIS */
+#study-resources h2 {
+  color: #1e293b;
+  /* Deep slate-blue/navy */
+}
+
+.study-header-accent {
+  height: 1px;
+  width: 6rem;
+  margin: 1.5rem auto;
+  /* Muted RISE blue -> transparent */
+  background: linear-gradient(to right, transparent, #1a3c5e, transparent);
+  opacity: 0.6;
+}
+
+/* 3. COLUMN CARDS (Soft Academic Panels) */
+.resource-panel {
+  position: relative;
+  padding: 2.5rem 2rem;
+  border-radius: 1rem;
+  /* Micro-depth shadow */
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.01),
+    0 10px 15px -3px rgba(0, 0, 0, 0.01),
+    0 0 0 1px rgba(0, 0, 0, 0.01);
+  /* Subtle definition */
+  transition: transform 0.3s ease;
+}
+
+.resource-panel:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 10px 20px -5px rgba(0, 0, 0, 0.02),
+    0 20px 25px -5px rgba(0, 0, 0, 0.02);
+}
+
+/* Column 1: Warm parchment/ivory tint */
+.resource-panel-1 {
+  background-color: rgba(255, 252, 245, 0.6);
+}
+
+/* Column 2: Neutral light grey-blue */
+.resource-panel-2 {
+  background-color: rgba(248, 250, 252, 0.6);
+}
+
+/* Column 3: Faint cool slate-blue */
+.resource-panel-3 {
+  background-color: rgba(241, 245, 249, 0.4);
+}
+
+/* 4. WHY IT MATTERS - Label */
+.resource-label {
+  color: #ea580c;
+  /* Slightly deeper orange for readability */
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.resource-label::after {
+  content: "";
+  display: block;
+  width: 2rem;
+  height: 1px;
+  background: #ea580c;
+  margin-left: 0.75rem;
+  opacity: 0.4;
+}
+
+/* 5. BODY TEXT HIERARCHY */
+.resource-lead-text {
+  color: #334155;
+  /* Slate-700 -> slightly deeper */
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  padding-left: 1rem;
+  border-left: 2px solid rgba(244, 121, 32, 0.3);
+  /* Softer accent line */
+}
+
+/* 6. SEPARATORS (Editorial Lines) */
+.resource-separator {
+  position: relative;
+  padding-top: 0.75rem;
+  color: #64748b;
+  /* Slate-500 */
+  font-size: 0.95rem;
+  border-top: 1px solid transparent;
+}
+
+.resource-separator::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, rgba(148, 163, 184, 0.3), transparent);
+}
 
 .ambient-bloom-container {
   overflow: hidden;
@@ -523,6 +731,54 @@ body {
 /* Right Bloom */
 .ambient-bloom-container::after {
   right: -150px;
+}
+
+/* =========================
+   SECTION BOUNDARY - SUBTLE ETCH
+   (Architectural separation)
+   
+   Creates subconscious visual containment
+   without visible borders or boxes
+========================= */
+
+.section-boundary {
+  position: relative;
+}
+
+/* Top boundary - faint etched line */
+.section-boundary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(to right,
+      transparent 0%,
+      rgba(15, 23, 42, 0.06) 20%,
+      rgba(15, 23, 42, 0.08) 50%,
+      rgba(15, 23, 42, 0.06) 80%,
+      transparent 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Bottom boundary - matching etched line */
+.section-boundary::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(to right,
+      transparent 0%,
+      rgba(15, 23, 42, 0.06) 20%,
+      rgba(15, 23, 42, 0.08) 50%,
+      rgba(15, 23, 42, 0.06) 80%,
+      transparent 100%);
+  pointer-events: none;
+  z-index: 1;
 }
 
 /* =========================
@@ -643,4 +899,640 @@ body {
 
   pointer-events: none;
   z-index: -1;
+}
+
+/* =========================
+   STUDENT JOURNEY ANIMATIONS
+   (Live Character Presence)
+   
+   PASS 1: Foundation Layer
+   - Edge dissolution (mask-image)
+   - Contact shadows (ground anchoring)
+   - Global idle micro-motion (breathing + sway)
+========================= */
+
+/* --------------------------
+   ENTRY ANIMATIONS
+   Scroll-aware subtle emergence
+-------------------------- */
+@keyframes journey-emerge {
+  0% {
+    transform: translateY(24px) translateZ(0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0) translateZ(0);
+    opacity: 1;
+  }
+}
+
+@keyframes journey-emerge-left {
+  0% {
+    transform: translateX(-32px) translateY(16px) translateZ(0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0) translateY(0) translateZ(0);
+    opacity: 1;
+  }
+}
+
+@keyframes journey-emerge-right {
+  0% {
+    transform: translateX(32px) translateY(16px) translateZ(0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0) translateY(0) translateZ(0);
+    opacity: 1;
+  }
+}
+
+/* --------------------------
+   GLOBAL IDLE MICRO-MOTION
+   Premium breathing + sway
+   Duration: 8s, calm & subtle
+-------------------------- */
+
+/* Breathing: scaleY 1 → 1.015 + subtle vertical lift */
+@keyframes live-breathing {
+
+  0%,
+  100% {
+    transform: translateY(0) scaleY(1) translateZ(0);
+  }
+
+  50% {
+    transform: translateY(-4px) scaleY(1.015) translateZ(0);
+  }
+}
+
+/* Sway: gentle rotation ±0.4deg */
+@keyframes live-sway {
+
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(0.4deg);
+  }
+
+  75% {
+    transform: rotate(-0.4deg);
+  }
+}
+
+/* Combined: Breathing + Sway + micro head/shoulder shift */
+@keyframes live-presence {
+
+  0%,
+  100% {
+    transform: translateY(0) scaleY(1) rotate(0deg) translateZ(0);
+  }
+
+  20% {
+    transform: translateY(-2px) scaleY(1.008) rotate(0.3deg) translateZ(0);
+  }
+
+  50% {
+    transform: translateY(-4px) scaleY(1.015) rotate(0deg) translateZ(0);
+  }
+
+  70% {
+    transform: translateY(-2px) scaleY(1.008) rotate(-0.3deg) translateZ(0);
+  }
+}
+
+/* Legacy keyframes (preserved for compatibility) */
+@keyframes idle-breathe {
+
+  0%,
+  100% {
+    transform: translateY(0px) translateZ(0);
+  }
+
+  50% {
+    transform: translateY(-6px) translateZ(0);
+  }
+}
+
+@keyframes idle-sway {
+
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(0.5deg);
+  }
+
+  75% {
+    transform: rotate(-0.5deg);
+  }
+}
+
+@keyframes idle-presence {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg) translateZ(0);
+  }
+
+  25% {
+    transform: translateY(-3px) rotate(0.4deg) translateZ(0);
+  }
+
+  50% {
+    transform: translateY(-6px) rotate(0deg) translateZ(0);
+  }
+
+  75% {
+    transform: translateY(-3px) rotate(-0.4deg) translateZ(0);
+  }
+}
+
+@keyframes idle-nod {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(2px) rotate(0.3deg);
+  }
+}
+
+@keyframes idle-tilt {
+
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(1deg);
+  }
+}
+
+/* --------------------------
+   CONTACT SHADOW
+   Ground anchoring with
+   breathing-synced pulse
+-------------------------- */
+@keyframes ground-shadow-pulse {
+
+  0%,
+  100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 0.22;
+  }
+
+  50% {
+    transform: translateX(-50%) scale(0.88);
+    opacity: 0.14;
+  }
+}
+
+/* =========================
+   STEP-SPECIFIC GESTURES
+   Pass 2: Narrative-driven
+   Asymmetric, calm, distinct
+========================= */
+
+/* 
+   STEP 01 — Orientation & Academic Onboarding
+   Girl approaching RISE with curiosity
+   Motion: subtle forward lean + arrival intent
+   Duration: 9s (asymmetric feel)
+*/
+@keyframes step01-arrive {
+
+  0%,
+  100% {
+    transform: translateY(0) translateX(0) scaleY(1) rotate(0deg);
+  }
+
+  15% {
+    transform: translateY(-2px) translateX(1px) scaleY(1.008) rotate(0.2deg);
+  }
+
+  40% {
+    transform: translateY(-4px) translateX(3px) scaleY(1.015) rotate(0.4deg);
+  }
+
+  65% {
+    transform: translateY(-3px) translateX(2px) scaleY(1.012) rotate(0.3deg);
+  }
+
+  85% {
+    transform: translateY(-1px) translateX(1px) scaleY(1.005) rotate(0.1deg);
+  }
+}
+
+/* 
+   STEP 02 — Structured Study Material & Preparation
+   Boy holding books with weight shift
+   Motion: balance adjustment + book response to breathing
+   Duration: 8s
+*/
+@keyframes step02-ready {
+
+  0%,
+  100% {
+    transform: translateY(0) scaleY(1) rotate(0deg);
+  }
+
+  20% {
+    transform: translateY(-2px) scaleY(1.010) rotate(-0.35deg);
+  }
+
+  45% {
+    transform: translateY(-4px) scaleY(1.015) rotate(0.15deg);
+  }
+
+  70% {
+    transform: translateY(-3px) scaleY(1.012) rotate(-0.25deg);
+  }
+}
+
+/* 
+   STEP 03 — Batch Screening & Right-Fit Allotment
+   Main boy stands out with depth separation
+   Motion: confident presence + subtle forward depth
+   Duration: 8s
+*/
+@keyframes step03-standout {
+
+  0%,
+  100% {
+    transform: translateY(0) translateZ(0) scaleY(1) rotate(0deg);
+  }
+
+  18% {
+    transform: translateY(-2px) translateZ(3px) scaleY(1.008) rotate(0.15deg);
+  }
+
+  42% {
+    transform: translateY(-4px) translateZ(8px) scaleY(1.015) rotate(0deg);
+  }
+
+  68% {
+    transform: translateY(-3px) translateZ(5px) scaleY(1.010) rotate(-0.15deg);
+  }
+
+  88% {
+    transform: translateY(-1px) translateZ(2px) scaleY(1.004) rotate(0.05deg);
+  }
+}
+
+/* 
+   STEP 04 — Interactive Classes with Personal Attention
+   Boy engaging with mentor in dialogue
+   Motion: subtle gesture rhythm + calm engagement
+   Duration: 10s (slower for calm dialogue)
+*/
+@keyframes step04-engage {
+
+  0%,
+  100% {
+    transform: translateY(0) scaleY(1) rotate(0deg);
+  }
+
+  12% {
+    transform: translateY(-1px) scaleY(1.005) rotate(0.25deg);
+  }
+
+  28% {
+    transform: translateY(-3px) scaleY(1.012) rotate(0.4deg);
+  }
+
+  48% {
+    transform: translateY(-2px) scaleY(1.010) rotate(0.15deg);
+  }
+
+  65% {
+    transform: translateY(-3px) scaleY(1.012) rotate(-0.2deg);
+  }
+
+  82% {
+    transform: translateY(-1px) scaleY(1.006) rotate(-0.1deg);
+  }
+}
+
+/* 
+   STEP 05 — Regular Tests, Feedback & Improvement
+   Child seated with parents and mentor
+   Motion: calm collective breathing + document awareness
+   Duration: 10s (very calm)
+*/
+@keyframes step05-meeting {
+
+  0%,
+  100% {
+    transform: translateY(0) scaleY(1) rotate(0deg);
+  }
+
+  25% {
+    transform: translateY(-1.5px) scaleY(1.008) rotate(0.12deg);
+  }
+
+  50% {
+    transform: translateY(-3px) scaleY(1.012) rotate(0deg);
+  }
+
+  75% {
+    transform: translateY(-1.5px) scaleY(1.008) rotate(-0.12deg);
+  }
+}
+
+/* 
+   STEP 06 — Ace Exams, Rise & Fly with Confidence
+   Boy holding achievement with earned pride
+   Motion: chest lifted + confident head tilt upward
+   Duration: 9s
+*/
+@keyframes step06-achieve {
+
+  0%,
+  100% {
+    transform: translateY(0) scaleY(1) rotate(0deg);
+  }
+
+  18% {
+    transform: translateY(-3px) scaleY(1.015) rotate(0.25deg);
+  }
+
+  45% {
+    transform: translateY(-5px) scaleY(1.022) rotate(0.1deg);
+  }
+
+  72% {
+    transform: translateY(-4px) scaleY(1.018) rotate(-0.2deg);
+  }
+
+  90% {
+    transform: translateY(-2px) scaleY(1.010) rotate(-0.05deg);
+  }
+}
+
+/* =========================
+   CHARACTER CONTAINER
+   (Depth & Emergence Illusion)
+========================= */
+
+.journey-character {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+
+  /* Depth illusion */
+  transform: translateZ(0);
+  filter: drop-shadow(0 20px 40px rgba(15, 23, 42, 0.15));
+
+  /* Entry animation */
+  opacity: 0;
+  animation: journey-emerge 1.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.journey-character.from-left {
+  animation: journey-emerge-left 1.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.journey-character.from-right {
+  animation: journey-emerge-right 1.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Ground Shadow - Anchors character in space */
+.journey-character::after {
+  content: "";
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  width: 60%;
+  height: 12px;
+  background: radial-gradient(ellipse, rgba(0, 0, 0, 0.22), transparent 70%);
+  transform: translateX(-50%);
+  border-radius: 50%;
+  z-index: -1;
+  animation: ground-shadow-pulse 8s ease-in-out infinite;
+  animation-delay: 1.8s;
+  /* Start after entry */
+}
+
+/* Character Image - Continuous micro-motion */
+.journey-character-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+
+  /* Micro-motion: Idle breathing + sway */
+  animation: idle-presence 8s ease-in-out infinite;
+  animation-delay: 1.8s;
+  /* Start after entry completes */
+
+  /* Ensure no image box edges */
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+/* Variant: Interaction scene (teacher/student) */
+.journey-character-img.interaction {
+  animation: idle-nod 6s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+/* Variant: Document holder (clipboard, certificate) */
+.journey-character-img.with-document {
+  animation: idle-presence 7s ease-in-out infinite, idle-tilt 10s ease-in-out infinite;
+  animation-delay: 1.8s, 3s;
+}
+
+/* =========================
+   LEGACY SUPPORT
+   (Keep existing class names working)
+========================= */
+
+.journey-animation {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+
+  /* Depth illusion with perspective */
+  transform: translateZ(0);
+  perspective: 800px;
+  filter: drop-shadow(0 20px 40px rgba(15, 23, 42, 0.12));
+
+  /* 
+     EDGE DISSOLUTION
+     Gradient alpha mask dissolves edges into page
+     No visible rectangular boundaries
+  */
+  -webkit-mask-image: linear-gradient(to bottom,
+      transparent 0%,
+      black 6%,
+      black 94%,
+      transparent 100%);
+  mask-image: linear-gradient(to bottom,
+      transparent 0%,
+      black 6%,
+      black 94%,
+      transparent 100%);
+
+  /* Entry animation */
+  opacity: 0;
+  animation: journey-emerge 1.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+
+  /* Transform origin for breathing effect */
+  transform-origin: bottom center;
+}
+
+.journey-animation.from-left {
+  animation: journey-emerge-left 1.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.journey-animation.from-right {
+  animation: journey-emerge-right 1.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* 
+   CONTACT SHADOW
+   Soft elliptical shadow anchoring feet to page
+   Synced with breathing pulse
+*/
+.journey-animation::after {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  width: 60%;
+  height: 14px;
+  background: radial-gradient(ellipse, rgba(0, 0, 0, 0.18), transparent 70%);
+  transform: translateX(-50%);
+  border-radius: 50%;
+  z-index: -1;
+  animation: ground-shadow-pulse 8s ease-in-out infinite;
+  animation-delay: 1.8s;
+  /* Start after entry */
+}
+
+/* 
+   CHARACTER IMAGE
+   Live presence micro-motion (breathing + sway)
+   8s duration for calm, premium feel
+*/
+.journey-animation img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+
+  /* Transform origin at feet for natural breathing */
+  transform-origin: bottom center;
+
+  /* Live presence: breathing + sway (default fallback) */
+  animation: live-presence 8s ease-in-out infinite;
+  animation-delay: 1.8s;
+  /* Start after entry completes */
+
+  /* Ensure no visible image edges */
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+/* =========================
+   STEP-SPECIFIC ANIMATIONS
+   Each step has distinct motion
+========================= */
+
+/* Step 01: Girl approaching - arrival intent */
+.journey-animation.step-01 img {
+  animation: step01-arrive 9s ease-in-out infinite;
+  animation-delay: 1.8s;
+}
+
+/* Step 02: Boy with books - weight shift */
+.journey-animation.step-02 img {
+  animation: step02-ready 8s ease-in-out infinite;
+  animation-delay: 1.8s;
+}
+
+/* Step 03: Batch screening - confident depth */
+.journey-animation.step-03 img {
+  animation: step03-standout 8s ease-in-out infinite;
+  animation-delay: 1.8s;
+}
+
+/* Step 04: Interactive class - dialogue engagement */
+.journey-animation.step-04 img {
+  animation: step04-engage 10s ease-in-out infinite;
+  animation-delay: 1.8s;
+}
+
+/* Step 05: Feedback meeting - calm collective */
+.journey-animation.step-05 img {
+  animation: step05-meeting 10s ease-in-out infinite;
+  animation-delay: 1.8s;
+}
+
+/* Step 06: Achievement - earned confidence */
+.journey-animation.step-06 img {
+  animation: step06-achieve 9s ease-in-out infinite;
+  animation-delay: 1.8s;
+}
+
+/* =========================
+   ACCESSIBILITY & PERFORMANCE
+========================= */
+
+/* Respect User Preferences */
+@media (prefers-reduced-motion: reduce) {
+
+  .journey-character,
+  .journey-character *,
+  .journey-animation,
+  .journey-animation * {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: translateZ(0) !important;
+  }
+
+  .journey-character::after,
+  .journey-animation::after {
+    animation: none !important;
+    transform: translateX(-50%) !important;
+  }
+}
+
+/* Pause animations when off-screen (managed via JS IntersectionObserver) */
+.journey-character.paused,
+.journey-character.paused *,
+.journey-animation.paused,
+.journey-animation.paused * {
+  animation-play-state: paused !important;
+}
+
+/* Mobile: Reduce motion intensity */
+@media (max-width: 1023px) {
+
+  .journey-character,
+  .journey-animation {
+    max-width: 240px;
+  }
+
+  .journey-character-img,
+  .journey-animation img {
+    animation-duration: 12s;
+    /* Slower = less distracting */
+  }
 }

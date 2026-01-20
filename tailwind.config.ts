@@ -9,26 +9,25 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Premium color system: formal, academic, trustworthy
-        // Base: off-white / soft neutral backgrounds
+        // RISE Brand Color System (Strict)
+        brand: {
+          primary: "#1E3A8A",    // Deep Indigo / Royal Blue
+          secondary: "#0F172A",  // Dark Slate
+          accent: {
+            emerald: "#10B981",  // Success, growth
+            amber: "#F59E0B",    // Highlights, CTAs
+          },
+          background: {
+            sky: "#EFF6FF",      // Soft Sky Blue (contrast)
+            light: "#F8FAFC",    // Light Gray
+            dark: "#0F172A",     // Dark Slate (same as secondary)
+          }
+        },
+        // Keeping legacy semantic names mapped to new system where appropriate
         base: {
-          light: "#FBFBFB",      // Pure off-white for main background
-          DEFAULT: "#F7F7F7",    // Soft neutral for sections
-          subtle: "#F0F0F0",     // Subtle divider/background
-        },
-        // Accent: deep navy (primary) OR muted emerald (alternative)
-        accent: {
-          navy: "#0F172A",        // Deep navy - primary accent (formal, trustworthy)
-          "navy-light": "#1E293B", // Lighter navy for hovers
-          emerald: "#2D5A4E",     // Muted emerald alternative
-          "emerald-light": "#3D6A5E",
-        },
-        // Text: deep charcoal / near-black for maximum readability
-        text: {
-          primary: "#0A0A0A",    // Near-black for headings
-          DEFAULT: "#1A1A1A",    // Deep charcoal for body
-          secondary: "#4A4A4A",  // Medium gray for secondary text
-          muted: "#6B6B6B",      // Light gray for muted text
+          light: "#F8FAFC",
+          DEFAULT: "#EFF6FF",
+          subtle: "#F1F5F9",
         },
       },
       fontFamily: {

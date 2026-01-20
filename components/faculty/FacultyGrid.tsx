@@ -123,10 +123,9 @@ export default function FacultyGrid() {
     };
 
     return (
-        <div className="w-full relative">
-            {/* Background Gradient for Depth */}
-            <div className="absolute inset-0 bg-gradient-radial from-green-900/5 to-transparent opacity-0 pointer-events-none transition-opacity duration-500"
-                style={{ opacity: hoveredId ? 0.4 : 0 }} />
+        <div className="w-full relative py-12 rounded-3xl bg-[#EFF6FF]">
+            {/* Background Gradient for Depth - Subtle Sky */}
+            <div className="absolute inset-0 bg-gradient-to-b from-white/40 to-transparent pointer-events-none rounded-3xl" />
 
             {/* Tabs */}
             <div className="flex flex-wrap justify-center gap-3 mb-12 relative z-10">

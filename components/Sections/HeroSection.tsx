@@ -24,75 +24,72 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative h-[calc(100vh-80px)] w-full overflow-hidden
-                 bg-[radial-gradient(circle_at_70%_50%,rgba(116,180,155,0.08),transparent_60%)]"
+      className="relative flex min-h-[calc(100vh-80px)] w-full items-center overflow-hidden bg-gradient-to-br from-[#EFF6FF] via-white to-indigo-50/50"
     >
-      {/* Ambient pulsating orb */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
-      >
-        <div
-          className="absolute inset-0 opacity-[0.03] mix-blend-overlay"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat',
-          }}
-        />
-        <div
-          className="absolute right-[15%] top-[35%] h-[520px] w-[520px]
-                     rounded-full bg-emerald-300/20 blur-[130px]
-                     animate-orb"
-        />
+      {/* Decorative Abstract Shapes (Blurred Blobs) */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Top Right Blob */}
+        <div className="absolute -top-20 -right-20 w-[600px] h-[600px] bg-[#1E3A8A]/5 rounded-full blur-[100px] mix-blend-multiply" />
+        {/* Bottom Left Blob */}
+        <div className="absolute -bottom-20 -left-20 w-[500px] h-[500px] bg-[#10B981]/10 rounded-full blur-[80px] mix-blend-multiply" />
+        {/* Center Accent */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#F59E0B]/5 rounded-full blur-[120px] opacity-60" />
       </div>
 
-      {/* Scientific Mandala */}
-      <ScientificMandala />
+      {/* Scientific Mandala (Preserved but styled if needed) */}
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 z-0 opacity-80 scale-90 lg:scale-100">
+        <ScientificMandala />
+      </div>
 
       {/* Content */}
-      <div className="relative z-10">
-        <div className="grid items-center gap-12 lg:grid-cols-2 pl-6 lg:pl-16">
-          <div>
-            {/* Main headline */}
-            <h1 className="mt-4 max-w-2xl text-4xl font-semibold leading-tight text-[#1A3C5E] sm:text-5xl">
-              Structured guidance for every stage of your child&apos;s academic journey —{" "}
-              <span className="text-[#74B49B]">
-                with long-term mentorship
-              </span>{" "}
-              at the core.
-            </h1>
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12">
+        <div className="max-w-3xl">
+          {/* Main Headline */}
+          <h1 className="text-5xl lg:text-7xl font-extrabold tracking-tight text-[#1E3A8A] leading-[1.1]">
+            <span className="relative inline-block">
+              Structured
+              <svg className="absolute w-full h-3 -bottom-1 left-0 text-[#10B981] opacity-60" viewBox="0 0 100 10" preserveAspectRatio="none">
+                <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="3" fill="none" />
+              </svg>
+            </span>{" "}
+            guidance for your child&apos;s{" "}
+            <span className="text-[#10B981]">Academic Journey</span> — with{" "}
+            <span className="text-[#F59E0B]">Mentorship</span> at the core.
+          </h1>
 
-            {/* Divider for rhythm */}
-            <div className="mt-10 mb-4 h-px w-16 bg-slate-300" />
-
-            {/* TYPEWRITER STATEMENT */}
-            <h2 className="max-w-xl text-3xl font-bold leading-tight text-[#1A3C5E]">
-              {visibleText.replace("Rise", "")}
-              <span className="text-[#74B49B]">
-                {visibleText.includes("Rise") ? "Rise" : ""}
-              </span>
+          {/* Typewriter Subheading */}
+          <div className="mt-8 flex items-center gap-4">
+            <div className="h-px w-12 bg-[#1E3A8A]/30"></div>
+            <h2 className="text-2xl lg:text-3xl font-bold text-[#0F172A]">
+              {visibleText}
+              <span className="animate-pulse text-[#F59E0B]">|</span>
             </h2>
+          </div>
 
-            {/* CTAs */}
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <a href="/enquire" className="btn-primary">
-                Enquire Now
-              </a>
-              <a
-                href="#footer"
-                className="rounded-md border border-[#1A3C5E]/25 px-6 py-3 text-sm font-semibold text-[#1A3C5E]"
-              >
-                Talk to a Counselor
-              </a>
-            </div>
+          {/* CTAs */}
+          <div className="mt-10 flex flex-col sm:flex-row gap-5">
+            {/* Primary CTA */}
+            <a
+              href="/enquire"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-300 bg-gradient-to-r from-[#1E3A8A] to-blue-600 rounded-xl shadow-lg hover:shadow-xl hover:scale-[1.02] hover:-translate-y-1"
+            >
+              Enquire Now
+            </a>
 
-            {/* Trust Indicator */}
-            <div className="mt-12 flex items-center gap-3 opacity-80">
-              <div className="h-px w-8 bg-slate-400/50"></div>
-              <p className="text-xs font-medium tracking-wide text-slate-500 uppercase">
-                A unit of Visual Informatics — guiding students since 1999
-              </p>
-            </div>
+            {/* Secondary CTA */}
+            <a
+              href="#footer"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-[#1E3A8A] transition-all duration-300 bg-transparent border-2 border-[#1E3A8A]/10 rounded-xl hover:bg-[#F59E0B]/10 hover:border-[#F59E0B]/20 hover:text-[#F59E0B]"
+            >
+              Talk to a Counselor
+            </a>
+          </div>
+
+          {/* Trust Indicator */}
+          <div className="mt-16 flex items-center gap-4 text-[#0F172A]/60">
+            <p className="text-sm font-semibold uppercase tracking-widest">
+              A unit of Visual Informatics • Est. 1999
+            </p>
           </div>
         </div>
       </div>

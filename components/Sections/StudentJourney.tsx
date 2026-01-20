@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
+import JourneyAnimation from "../Visuals/JourneyAnimation";
 
 const steps = [
     {
@@ -93,7 +94,7 @@ export default function StudentJourney() {
                 </div>
 
                 {/* CTA */}
-                <div className="mt-32 text-center">
+                <div className="section-boundary mt-32 pt-16 pb-8 text-center">
                     <button
                         onClick={() => router.push('/enquire')}
                         className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white transition-all duration-200 bg-[#f47920] rounded-full hover:bg-[#e06510] hover:shadow-lg hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
@@ -159,8 +160,60 @@ function JourneyStep({ step, index }: { step: typeof steps[0]; index: number }) 
                 </div>
             </div>
 
-            {/* Empty Side for Balance (Desktop only) */}
-            <div className="flex-1 hidden lg:block" />
+            {/* Animation Side - Educational Character Storytelling */}
+            <div className="flex-1 hidden lg:flex items-center justify-center">
+                {/* Step 01: Girl entering RISE - default breathing */}
+                {index === 0 && (
+                    <JourneyAnimation
+                        stepId="01"
+                        illustration="/animations/step-01-girl.png"
+                        side="right"
+                    />
+                )}
+                {/* Step 02: Boy with books - default breathing */}
+                {index === 1 && (
+                    <JourneyAnimation
+                        stepId="02"
+                        illustration="/animations/step-02-boy-books.png"
+                        side="left"
+                    />
+                )}
+                {/* Step 03: Batch screening - default breathing */}
+                {index === 2 && (
+                    <JourneyAnimation
+                        stepId="03"
+                        illustration="/animations/step-03-batch.png"
+                        side="right"
+                    />
+                )}
+                {/* Step 04: Teacher interaction - nod micro-motion */}
+                {index === 3 && (
+                    <JourneyAnimation
+                        stepId="04"
+                        illustration="/animations/step-04-mentorship.png"
+                        side="left"
+                        variant="interaction"
+                    />
+                )}
+                {/* Step 05: Parent meeting - clipboard tilt */}
+                {index === 4 && (
+                    <JourneyAnimation
+                        stepId="05"
+                        illustration="/animations/step-05-parents.png"
+                        side="right"
+                        variant="document"
+                    />
+                )}
+                {/* Step 06: Achievement - certificate presence */}
+                {index === 5 && (
+                    <JourneyAnimation
+                        stepId="06"
+                        illustration="/animations/step-06-achievement.png"
+                        side="left"
+                        variant="document"
+                    />
+                )}
+            </div>
 
             {/* Mobile-only connector (visual aid for mobile vertical rhythm) */}
             <div className="md:hidden flex items-center gap-4 mb-2">
