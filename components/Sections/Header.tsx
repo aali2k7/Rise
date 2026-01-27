@@ -102,7 +102,7 @@ export default function Header() {
 
                 {/* Mobile Dropdown Menu */}
                 <div
-                    className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                    className={`lg:hidden transition-all duration-300 ease-in-out ${isOpen ? "max-h-[85vh] opacity-100 overflow-y-auto" : "max-h-0 opacity-0 overflow-hidden"
                         }`}
                 >
                     <div className="pb-6 space-y-1 border-t border-slate-100 mt-2">

@@ -273,8 +273,17 @@ body {
   border-radius: 0.75rem;
 }
 
-/* Hover State - Scale & Shadow */
-.group:hover .flip-card-inner {
+/* Hover State - Scale & Shadow (Desktop Only) */
+@media (hover: hover) {
+  .group:hover .flip-card-inner {
+    transform: rotateY(180deg) scale(1.02);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+}
+
+/* Flipped State (Mobile/Click) */
+.flip-card-inner.flipped {
   transform: rotateY(180deg) scale(1.02);
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
     0 10px 10px -5px rgba(0, 0, 0, 0.04);

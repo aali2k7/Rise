@@ -49,7 +49,7 @@ export default function ResultsSection() {
         </header>
 
         {/* Metrics Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-y-16 gap-x-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-y-16 gap-x-8">
           {metrics.map((metric, index) => (
             <div
               key={index}

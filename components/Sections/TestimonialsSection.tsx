@@ -46,7 +46,7 @@ export default function TestimonialsSection() {
                         {[...testimonials, ...testimonials].map((item, index) => (
                             <div
                                 key={index}
-                                className="w-[320px] md:w-[450px] flex-shrink-0 bg-white rounded-2xl p-8 shadow-[0_2px_15px_-4px_rgba(0,0,0,0.05),0_0_2px_rgba(0,0,0,0.02)] border border-slate-100/50 
+                                className="w-[85vw] sm:w-[320px] md:w-[450px] flex-shrink-0 bg-white rounded-2xl p-8 shadow-[0_2px_15px_-4px_rgba(0,0,0,0.05),0_0_2px_rgba(0,0,0,0.02)] border border-slate-100/50 
                                          relative group transition-all duration-300 ease-out hover:-translate-y-[2px] hover:shadow-[0_8px_30px_-6px_rgba(0,0,0,0.08)] select-none"
                             >
                                 {/* Quote Icon (Decoration) */}

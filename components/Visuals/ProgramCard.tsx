@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { useState } from "react";
 
 interface ProgramCardProps {
     title: string;
@@ -34,6 +35,8 @@ export default function ProgramCard({
         gradient: "from-white to-slate-50"
     }
 }: ProgramCardProps) {
+    const [isFlipped, setIsFlipped] = useState(false);
+
     if (comingSoon) {
         return (
             <div className={`h-full rounded-xl border border-slate-200/60 ${colorTheme.bg} p-7 shadow-sm opacity-70 cursor-not-allowed backdrop-blur-sm`}>
@@ -57,13 +60,18 @@ export default function ProgramCard({
         );
     }
 
+
+
     return (
-        <div className="group h-[420px] w-full perspective-1200 bg-transparent">
-            {/* 
+        <div
+            className="group h-[420px] w-full perspective-1200 bg-transparent cursor-pointer"
+            onClick={() => setIsFlipped(!isFlipped)}
+        >
+            {/*
         The inner container handles the flip rotation, scale, and general shape.
         The faces allow the glass effect to be visible.
       */}
-            <div className="flip-card-inner transition-all duration-300 ease-out group-hover:shadow-xl">
+            <div className={`flip-card-inner transition-all duration-300 ease-out group-hover:shadow-xl ${isFlipped ? "flipped" : ""}`}>
 
                 {/* FRONT SIDE */}
                 <div className={`flip-card-front flex flex-col p-7 border border-white/50 shadow-sm ${colorTheme.bg} backdrop-blur-md relative overflow-hidden`}>

@@ -49,6 +49,7 @@ export default function FacultyCard({ name, role, department, tagline, image, is
                         src={image}
                         alt={name}
                         fill
+                        sizes="112px"
                         className="object-cover"
                     />
                 ) : (

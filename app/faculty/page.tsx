@@ -1,4 +1,9 @@
-"use client";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Our Faculty | RISE",
+  description: "Learn from the masters. Our experienced faculty provides mentorship and guidance for JEE and NEET aspirants.",
+};
 
 import FacultyGrid from "@/components/faculty/FacultyGrid";
 

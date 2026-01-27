@@ -1,4 +1,9 @@
-"use client";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Our Courses | RISE",
+  description: "Explore our structured programs for Class 11, Class 12, JEE, and NEET preparation. Comprehensive syllabus coverage with expert guidance.",
+};
 
 /**
  * Premium Courses Page
