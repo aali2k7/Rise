@@ -3,6 +3,9 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Contact Us | RISE",
   description: "Get in touch with RISE Institute. Visit our campus in Ranchi or call us for admissions and enquiries.",
+  alternates: {
+    canonical: "/contact",
+  },
 };
 
 /**

@@ -93,6 +93,7 @@ export default function JourneyAnimation({
                 height={320}
                 className={`w-full h-auto object-contain ${variantClass}`}
                 priority={stepId === "01"} // Prioritize first visible image
+                sizes="(max-width: 768px) 100vw, 320px"
                 style={{
                     // Ensure no visible image edges
                     background: "transparent",

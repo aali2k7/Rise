@@ -29,7 +29,7 @@ export default function Header() {
                             alt="RISE"
                             width={48}
                             height={48}
-                            priority
+                            priority={true}
                             className="rounded-md"
                         />
                         <div className="flex flex-col">

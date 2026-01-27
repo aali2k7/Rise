@@ -3,6 +3,9 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Teaching Approach | RISE",
   description: "Discover our unique teaching methodology built on discipline, concept clarity, consistency, and mentorship.",
+  alternates: {
+    canonical: "/approach",
+  },
 };
 
 import { Check, ArrowRight } from "lucide-react";

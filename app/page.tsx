@@ -3,6 +3,9 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Best JEE & NEET Coaching | RISE Institute",
   description: "RISE helps students crack JEE and NEET with disciplined mentorship and concept mastery. Join the best coaching institute in Ranchi.",
+  alternates: {
+    canonical: "/",
+  },
 };
 
 

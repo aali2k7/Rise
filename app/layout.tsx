@@ -9,7 +9,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://rise.edu.in"), // Replace with actual domain if known, placeholder for now
+  metadataBase: new URL("https://rise.edu.in"),
   title: {
     default: "RISE - Our Effort. Your Rise.",
     template: "%s | RISE",
@@ -20,8 +20,46 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
   authors: [{ name: "RISE Institute" }],
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    url: "https://rise.edu.in",
+    siteName: "RISE Institute",
+    title: {
+      default: "RISE - Our Effort. Your Rise.",
+      template: "%s | RISE",
+    },
+    description: "Premium coaching institute for JEE and NEET aspirants.",
+    images: [{
+      url: "/opengraph-image.png", // Assuming a default OG image exists or will be picked up if placed in root
+      width: 1200,
+      height: 630,
+      alt: "RISE Institute",
+    }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: {
+      default: "RISE - Our Effort. Your Rise.",
+      template: "%s | RISE",
+    },
+    description: "Premium coaching institute for JEE and NEET aspirants.",
+    images: ["/twitter-image.png"], // Assuming default
+  },
 };
 
 export default function RootLayout({
@@ -34,13 +72,7 @@ export default function RootLayout({
     "@type": "EducationalOrganization",
     "name": "RISE",
     "url": "https://rise.edu.in",
-    "description": "Premium coaching institute for JEE and NEET aspirants.",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Srinagar",
-      "addressRegion": "Jammu and Kashmir",
-      "addressCountry": "IN"
-    },
+    "logo": "https://rise.edu.in/brand/RISE%20Logo.jpeg",
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+91-8252517726",
