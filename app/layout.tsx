@@ -3,6 +3,15 @@ import "./globals.css";
 import Header from "@/components/Sections/Header";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
+import { IBM_Plex_Sans } from "next/font/google";
+
+const ibmPlexSans = IBM_Plex_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-ibm-plex",
+  display: "swap",
+});
+
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
@@ -88,7 +97,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body>
+      <body className={ibmPlexSans.className}>
         <Header />
 
         <main>{children}</main>
