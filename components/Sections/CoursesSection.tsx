@@ -183,7 +183,8 @@ function HomePageVariant() {
                                 duration: "1 Year (Renewable) | 3 days/week",
                                 reason: "Early mentorship prevents the need for intense pressure in later years."
                             }}
-                            backCTA="Enquire Now"
+                            backCTA="View Program"
+                            ctaLink="/foundation-classes-ranchi"
                         />
                     </div>
 
@@ -210,7 +211,8 @@ function HomePageVariant() {
                                 duration: "1 Year | 4 days/week",
                                 reason: "We stabilize performance so students enter Class 11 with momentum."
                             }}
-                            backCTA="Enquire Now"
+                            backCTA="View Program"
+                            ctaLink="/foundation-classes-ranchi"
                         />
                     </div>
 
@@ -237,7 +239,8 @@ function HomePageVariant() {
                                 duration: "2 Years | Integrated Program",
                                 reason: "NEET requires stamina and precision. We build both day by day."
                             }}
-                            backCTA="Enquire Now"
+                            backCTA="View Program"
+                            ctaLink="/neet-coaching-ranchi"
                         />
                     </div>
 
@@ -264,7 +267,8 @@ function HomePageVariant() {
                                 duration: "2 Years | Integrated Program",
                                 reason: "We move beyond rote learning to true problem-solving intuition."
                             }}
-                            backCTA="Enquire Now"
+                            backCTA="View Program"
+                            ctaLink="/jee-coaching-ranchi"
                         />
                     </div>
 
@@ -291,7 +295,8 @@ function HomePageVariant() {
                                 duration: "2 Years | Integrated Program",
                                 reason: "Commerce mastery is about clarity, not just balancing balance sheets."
                             }}
-                            backCTA="Enquire Now"
+                            backCTA="View Program"
+                            ctaLink="/commerce-coaching-ranchi"
                         />
                     </div>
 

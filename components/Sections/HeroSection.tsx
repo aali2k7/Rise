@@ -47,14 +47,14 @@ export default function HeroSection() {
           {/* Main Headline */}
           <h1 className="text-5xl lg:text-7xl font-extrabold tracking-tight text-[#1E3A8A] leading-[1.1]">
             <span className="relative inline-block">
-              Structured
+              Best Coaching
               <svg className="absolute w-full h-3 -bottom-1 left-0 text-[#10B981] opacity-60" viewBox="0 0 100 10" preserveAspectRatio="none">
                 <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="3" fill="none" />
               </svg>
             </span>{" "}
-            guidance for your child&apos;s{" "}
-            <span className="text-[#10B981]">Academic Journey</span> — with{" "}
-            <span className="text-[#F59E0B]">Mentorship</span> at the core.
+            Institute in{" "}
+            <span className="text-[#10B981]">Doranda, Ranchi</span> —{" "}
+            <span className="text-[#F59E0B]">RISE Coaching Institute</span>
           </h1>
 
           {/* Typewriter Subheading */}

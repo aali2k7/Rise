@@ -67,10 +67,10 @@ export default function FooterSection() {
           <div>
             <h4 className="text-base font-bold mb-6 text-white uppercase tracking-wider">Programs</h4>
             <ul className="space-y-4">
-              <li><Link href="/#programs" className="text-slate-400 hover:text-[#10B981] transition-colors">Foundation (5–8)</Link></li>
-              <li><Link href="/#programs" className="text-slate-400 hover:text-[#10B981] transition-colors">Boards (9–10)</Link></li>
-              <li><Link href="/#programs" className="text-slate-400 hover:text-[#10B981] transition-colors">Medical (NEET)</Link></li>
-              <li><Link href="/#programs" className="text-slate-400 hover:text-[#10B981] transition-colors">Engineering (JEE)</Link></li>
+              <li><Link href="/foundation-classes-ranchi" className="text-slate-400 hover:text-[#10B981] transition-colors">Foundation (Class 8-10)</Link></li>
+              <li><Link href="/commerce-coaching-ranchi" className="text-slate-400 hover:text-[#10B981] transition-colors">Commerce (11-12)</Link></li>
+              <li><Link href="/neet-coaching-ranchi" className="text-slate-400 hover:text-[#10B981] transition-colors">Medical (NEET)</Link></li>
+              <li><Link href="/jee-coaching-ranchi" className="text-slate-400 hover:text-[#10B981] transition-colors">Engineering (JEE)</Link></li>
             </ul>
           </div>
 

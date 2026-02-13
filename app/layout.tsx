@@ -15,17 +15,28 @@ const ibmPlexSans = IBM_Plex_Sans({
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
+  themeColor: "#ffffff",
 };
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://rise.edu.in"),
   title: {
-    default: "RISE - Our Effort. Your Rise.",
-    template: "%s | RISE",
+    default: "RISE Coaching Institute - Best JEE, NEET & Foundation Coaching in Ranchi",
+    template: "%s | RISE Coaching Institute",
   },
   description:
-    "Premium coaching institute for JEE and NEET aspirants. Class 11 and 12 preparation with discipline, consistency, and results.",
-  keywords: ["JEE Coaching", "NEET Coaching", "Rise Institute", "Medical Entrance", "Engineering Entrance", "Class 11", "Class 12"],
+    "Empowering students in Ranchi & Doranda to excel in JEE, NEET, and Foundation. Best coaching institute for personalized mentorship and proven results.",
+  keywords: [
+    "JEE Coaching in Ranchi",
+    "NEET Coaching in Ranchi",
+    "Foundation Classes Doranda",
+    "Best Coaching Institute Ranchi",
+    "Commerce Coaching Ranchi",
+    "RISE Institute",
+  ],
+  authors: [{ name: "RISE Coaching Institute" }],
+  creator: "RISE Coaching Institute",
+  publisher: "RISE Coaching Institute",
   robots: {
     index: true,
     follow: true,
@@ -37,37 +48,39 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  authors: [{ name: "RISE Institute" }],
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+  alternates: {
+    canonical: "/",
   },
   openGraph: {
     type: "website",
     locale: "en_IN",
     url: "https://rise.edu.in",
-    siteName: "RISE Institute",
+    siteName: "RISE Coaching Institute",
     title: {
-      default: "RISE - Our Effort. Your Rise.",
-      template: "%s | RISE",
+      default: "RISE - Best Coaching for JEE, NEET & Foundation in Ranchi",
+      template: "%s | RISE Coaching Institute",
     },
-    description: "Premium coaching institute for JEE and NEET aspirants.",
+    description: "Join Ranchi's premier coaching institute in Doranda. Expert faculty for JEE, NEET, Class 8-12, and Commerce.",
     images: [{
-      url: "/opengraph-image.png", // Assuming a default OG image exists or will be picked up if placed in root
+      url: "/opengraph-image.png",
       width: 1200,
       height: 630,
-      alt: "RISE Institute",
+      alt: "RISE Coaching Institute Classroom",
     }],
   },
   twitter: {
     card: "summary_large_image",
     title: {
-      default: "RISE - Our Effort. Your Rise.",
+      default: "RISE Coaching Institute - Ranchi's Top Choice",
       template: "%s | RISE",
     },
-    description: "Premium coaching institute for JEE and NEET aspirants.",
-    images: ["/twitter-image.png"], // Assuming default
+    description: "Best coaching for JEE, NEET & Foundation in Doranda, Ranchi.",
+    images: ["/twitter-image.png"],
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
 };
 
@@ -78,15 +91,75 @@ export default function RootLayout({
 }>) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "EducationalOrganization",
-    "name": "RISE",
-    "url": "https://rise.edu.in",
-    "logo": "https://rise.edu.in/brand/RISE%20Logo.jpeg",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+91-8252517726",
-      "contactType": "customer service"
-    }
+    "@graph": [
+      {
+        "@type": "EducationalOrganization",
+        "@id": "https://rise.edu.in/#organization",
+        "name": "RISE Coaching Institute",
+        "url": "https://rise.edu.in",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://rise.edu.in/brand/RISE%20Logo.jpeg",
+          "width": 112,
+          "height": 112
+        },
+        "sameAs": [
+          "https://www.facebook.com/rise.edu.in",
+          "https://www.instagram.com/rise.edu.in"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Doranda",
+          "addressLocality": "Ranchi",
+          "addressRegion": "Jharkhand",
+          "postalCode": "834002",
+          "addressCountry": "IN"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+91-8252517726",
+          "contactType": "customer service",
+          "areaServed": "Ranchi",
+          "availableLanguage": ["en", "hi"]
+        }
+      },
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://rise.edu.in/#localbusiness",
+        "name": "RISE Coaching Institute",
+        "image": "https://rise.edu.in/opengraph-image.png",
+        "url": "https://rise.edu.in",
+        "telephone": "+91-8252517726",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Doranda",
+          "addressLocality": "Ranchi",
+          "addressRegion": "Jharkhand",
+          "postalCode": "834002",
+          "addressCountry": "IN"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "23.3441",
+          "longitude": "85.3096"
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "opens": "09:00",
+          "closes": "20:00"
+        },
+        "areaServed": "Ranchi",
+        "priceRange": "₹₹"
+      }
+    ]
   };
 
   return (

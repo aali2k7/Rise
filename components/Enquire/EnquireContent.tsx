@@ -5,7 +5,7 @@ import { useState } from "react";
 /**
  * Enquiry Page Content
  * Intent: Distraction-free, direct enquiry form.
- * Endpoint: https://formspree.io/f/mjggwoqz
+ * Endpoint: /api/enquire (Proxied to Formspree)
  */
 export default function EnquireContent() {
     const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
@@ -14,22 +14,26 @@ export default function EnquireContent() {
         e.preventDefault();
         setFormStatus('submitting');
 
-        const formData = new FormData(e.currentTarget);
+        const form = e.currentTarget;
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
 
         try {
-            const response = await fetch("https://formspree.io/f/mjggwoqz", {
+            const response = await fetch("/api/enquire", {
                 method: "POST",
-                body: formData,
                 headers: {
+                    'Content-Type': 'application/json',
                     'Accept': 'application/json'
-                }
+                },
+                body: JSON.stringify(data)
             });
 
             if (response.ok) {
                 setFormStatus('success');
+                form.reset();
             } else {
                 setFormStatus('error');
-                alert("Something went wrong. Please try again.");
+                alert("Something went wrong. Please check your inputs.");
             }
         } catch (error) {
             setFormStatus('error');

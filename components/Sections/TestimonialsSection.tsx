@@ -1,5 +1,15 @@
-export default function TestimonialsSection() {
-    const testimonials = [
+interface Testimonial {
+    text: string;
+    author: string;
+    year: string;
+}
+
+interface TestimonialsSectionProps {
+    testimonials?: Testimonial[];
+}
+
+export default function TestimonialsSection({ testimonials: customTestimonials }: TestimonialsSectionProps) {
+    const defaultTestimonials: Testimonial[] = [
         {
             text: "The structured approach at RISE helped my daughter build confidence in mathematics. The regular progress updates and personalized attention made all the difference.",
             author: "Parent of Grade 10 Student",
@@ -16,6 +26,8 @@ export default function TestimonialsSection() {
             year: "Academic Year 2023-24",
         }
     ];
+
+    const testimonials = customTestimonials || defaultTestimonials;
 
     return (
         <section className="w-full py-20 sm:py-24 lg:py-28 bg-slate-50 relative overflow-hidden text-left">

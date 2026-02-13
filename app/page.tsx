@@ -9,6 +9,7 @@ export const metadata: Metadata = {
 };
 
 
+
 import DirectorsDesk from "@/components/Sections/DirectorsDesk";
 
 import FooterSection from "@/components/Sections/FooterSection";
@@ -21,6 +22,8 @@ import StudentJourney from "@/components/Sections/StudentJourney";
 import TestimonialsSection from "@/components/Sections/TestimonialsSection";
 import ValueHighlights from "@/components/Sections/ValueHighlights";
 
+import MapSection from "@/components/Sections/MapSection";
+
 export default function Home() {
   return (
     <div className="bg-white">
@@ -28,6 +31,8 @@ export default function Home() {
 
       {/* Select Goal Section - Navigation Aid */}
       <SelectGoalSection />
+
+
 
       {/* Alternating sections with visual rhythm */}
       <div className="relative">
@@ -67,6 +72,9 @@ export default function Home() {
         <div className="bg-section-primary section-divider">
           <StudyResources />
         </div>
+
+        {/* Map Section */}
+        <MapSection />
 
 
       </div>

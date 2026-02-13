@@ -13,6 +13,7 @@ interface ProgramCardProps {
     };
     comingSoon?: boolean;
     backCTA?: string;
+    ctaLink?: string;
     colorTheme?: {
         main: string;    // Text color (e.g., text-blue-900)
         accent: string;  // Border/Highlight (e.g., border-blue-500, text-blue-600)
@@ -28,6 +29,7 @@ export default function ProgramCard({
     backContent,
     comingSoon = false,
     backCTA,
+    ctaLink = "/enquire",
     colorTheme = {
         main: "text-[#1E3A8A]",
         accent: "border-[#1E3A8A]",
@@ -138,7 +140,7 @@ export default function ProgramCard({
                         {backCTA && (
                             <div className="mt-auto pt-6 border-t border-slate-100">
                                 <Link
-                                    href="/enquire"
+                                    href={ctaLink}
                                     className={`inline-flex items-center gap-2 text-sm font-bold ${colorTheme.accent} hover:underline decoration-2 underline-offset-4 transition-all`}
                                 >
                                     {backCTA}
