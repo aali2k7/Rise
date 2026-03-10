@@ -30,8 +30,8 @@ export default function Header() {
         <header
             className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-out
                 ${scrolled
-                    ? "bg-white/[0.12] backdrop-blur-[20px] border-b border-white/15 shadow-[0_4px_30px_rgba(0,0,0,0.08)] h-16"
-                    : "bg-white/[0.08] backdrop-blur-[20px] border-b border-white/15 shadow-[0_4px_30px_rgba(0,0,0,0.04)] h-24"
+                    ? "bg-white/[0.14] backdrop-blur-[20px] border-b border-white/15 shadow-[0_4px_30px_rgba(0,0,0,0.08)] h-14"
+                    : "bg-white/[0.08] backdrop-blur-[20px] border-b border-white/15 shadow-[0_4px_30px_rgba(0,0,0,0.04)] h-[72px]"
                 }`}
         >
             <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 h-full">
@@ -41,10 +41,10 @@ export default function Header() {
                         <Image
                             src="/brand/RISE Logo.jpeg"
                             alt="RISE"
-                            width={scrolled ? 64 : 100}
-                            height={scrolled ? 64 : 100}
+                            width={scrolled ? 44 : 56}
+                            height={scrolled ? 44 : 56}
                             priority={true}
-                            className="transition-all duration-300 ease-out hover:scale-105"
+                            className="transition-all duration-300 ease-out hover:scale-105 rounded-lg"
                         />
                     </Link>
 

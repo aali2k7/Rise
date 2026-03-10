@@ -17,7 +17,6 @@ import HeroSection from "@/components/Sections/HeroSection";
 import MentorshipStatement from "@/components/Sections/MentorshipStatement";
 import CoursesSection from "@/components/Sections/CoursesSection";
 import SelectGoalSection from "@/components/Sections/SelectGoalSection";
-import StudyResources from "@/components/Sections/StudyResources";
 import StudentJourney from "@/components/Sections/StudentJourney";
 import TestimonialsSection from "@/components/Sections/TestimonialsSection";
 import ValueHighlights from "@/components/Sections/ValueHighlights";
@@ -66,11 +65,6 @@ export default function Home() {
         {/* Warm testimonial section */}
         <div className="bg-section-secondary">
           <TestimonialsSection />
-        </div>
-
-        {/* Primary beige canvas */}
-        <div className="bg-section-primary section-divider">
-          <StudyResources />
         </div>
 
         {/* Map Section */}
