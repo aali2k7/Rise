@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 import ProgramCard from "../Visuals/ProgramCard";
 import { useEffect, useRef, useState } from "react";
 
@@ -159,175 +160,297 @@ function HomePageVariant() {
                     </p>
                 </header>
 
-                <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                    {/* Class 5-8 - Foundation (Blue) */}
-                    <div id="foundation" className="scroll-mt-32">
-                        <ProgramCard
-                            title="Class 5–8"
-                            subtitle="School Exam Excellence"
-                            colorTheme={{
-                                main: "text-[#1E3A8A]",
-                                accent: "text-blue-600 border-blue-500",
-                                bg: "bg-blue-50/50",
-                                gradient: "from-blue-50 to-white"
-                            }}
-                            frontContent={
-                                <ul className="mt-6 list-disc space-y-3 pl-5 text-sm leading-relaxed text-slate-700 marker:text-blue-500">
-                                    <li>Building the habit of daily, disciplined self-study.</li>
-                                    <li>Strengthening core concepts in Maths and Science.</li>
-                                    <li>Improving answer-writing skills for school exams.</li>
-                                </ul>
-                            }
-                            backContent={{
-                                benefits: "Creates a calm, confident learner who enjoys the process of studying.",
-                                duration: "1 Year (Renewable) | 3 days/week",
-                                reason: "Early mentorship prevents the need for intense pressure in later years."
-                            }}
-                            backCTA="View Program"
-                            ctaLink="/foundation-classes-ranchi"
-                        />
+                <div className="space-y-12">
+                    {/* FIRST ROW: Foundation Stages */}
+                    <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+                        {/* Class 5-8 - Foundation (Blue) */}
+                        <div id="foundation" className="scroll-mt-32">
+                            <ProgramCard
+                                title="Class 5–8"
+                                subtitle="School Exam Excellence"
+                                colorTheme={{
+                                    main: "text-[#1E3A8A]",
+                                    accent: "text-blue-600 border-blue-500",
+                                    bg: "bg-blue-50/50",
+                                    gradient: "from-blue-100/20 to-white"
+                                }}
+                                frontContent={
+                                    <ul className="mt-6 list-disc space-y-3 pl-5 text-sm leading-relaxed text-slate-700 marker:text-blue-500">
+                                        <li>Building the habit of daily, disciplined self-study.</li>
+                                        <li>Strengthening core concepts in Maths and Science.</li>
+                                        <li>Improving answer-writing skills for school exams.</li>
+                                    </ul>
+                                }
+                                backContent={{
+                                    benefits: "Creates a calm, confident learner who enjoys the process of studying.",
+                                    duration: "1 Year (Renewable) | 3 days/week",
+                                    reason: "Early mentorship prevents the need for intense pressure in later years."
+                                }}
+                                backCTA="View Program"
+                                ctaLink="/foundation-classes-ranchi"
+                            />
+                        </div>
+
+                        {/* Class 9-10 - Board Prep (Emerald) */}
+                        <div className="scroll-mt-32">
+                            <ProgramCard
+                                title="Class 9–10"
+                                subtitle="Board Exam Mastery"
+                                colorTheme={{
+                                    main: "text-[#064E3B]",
+                                    accent: "text-emerald-600 border-emerald-500",
+                                    bg: "bg-emerald-50/50",
+                                    gradient: "from-emerald-100/20 to-white"
+                                }}
+                                frontContent={
+                                    <ul className="mt-6 list-disc space-y-3 pl-5 text-sm leading-relaxed text-slate-700 marker:text-emerald-500">
+                                        <li>Comprehensive coverage of Board syllabus with revision.</li>
+                                        <li>Regular testing to eliminate fear of exams.</li>
+                                        <li>Balancing school curriculum with competitive foundations.</li>
+                                    </ul>
+                                }
+                                backContent={{
+                                    benefits: "Ensures high Board percentage while subtly building competitive logic.",
+                                    duration: "1 Year | 4 days/week",
+                                    reason: "We stabilize performance so students enter Class 11 with momentum."
+                                }}
+                                backCTA="View Program"
+                                ctaLink="/foundation-classes-ranchi"
+                            />
+                        </div>
                     </div>
 
-                    {/* Class 9-10 - Board Prep (Emerald) */}
-                    <div className="scroll-mt-32">
-                        <ProgramCard
-                            title="Class 9–10"
-                            subtitle="Board Exam Mastery"
-                            colorTheme={{
-                                main: "text-[#064E3B]",
-                                accent: "text-emerald-600 border-emerald-500",
-                                bg: "bg-emerald-50/50",
-                                gradient: "from-emerald-50 to-white"
-                            }}
-                            frontContent={
-                                <ul className="mt-6 list-disc space-y-3 pl-5 text-sm leading-relaxed text-slate-700 marker:text-emerald-500">
-                                    <li>Comprehensive coverage of Board syllabus with revision.</li>
-                                    <li>Regular testing to eliminate fear of exams.</li>
-                                    <li>Balancing school curriculum with competitive foundations.</li>
-                                </ul>
-                            }
-                            backContent={{
-                                benefits: "Ensures high Board percentage while subtly building competitive logic.",
-                                duration: "1 Year | 4 days/week",
-                                reason: "We stabilize performance so students enter Class 11 with momentum."
-                            }}
-                            backCTA="View Program"
-                            ctaLink="/foundation-classes-ranchi"
-                        />
-                    </div>
-
-                    {/* Class 11-12 (Medical) - Deep Indigo/Purple? User said Green is medical usually, but we used Emerald for Boards. Let's use Cyan/Teal for Medical or stick to Brand colors. Plan said Blue/Green/Amber. Let's use Blue-Indigo for Medical. */}
-                    <div id="doctor" className="scroll-mt-32">
-                        <ProgramCard
-                            title="Class 11–12 (Medical)"
-                            subtitle="Boards + NEET Preparation"
-                            colorTheme={{
-                                main: "text-[#1E3A8A]",
-                                accent: "text-indigo-600 border-indigo-500",
-                                bg: "bg-indigo-50/40",
-                                gradient: "from-indigo-50 to-white"
-                            }}
-                            frontContent={
-                                <ul className="mt-6 list-disc space-y-3 pl-5 text-sm leading-relaxed text-slate-700 marker:text-indigo-500">
-                                    <li>Strict adherence to NCERT with deep conceptual clarity.</li>
-                                    <li>Continuous revision cycles to build high retention.</li>
-                                    <li>Weekly mock tests to perfect speed and accuracy.</li>
-                                </ul>
-                            }
-                            backContent={{
-                                benefits: "A disciplined system designed for high retention and rank consistency.",
-                                duration: "2 Years | Integrated Program",
-                                reason: "NEET requires stamina and precision. We build both day by day."
-                            }}
-                            backCTA="View Program"
-                            ctaLink="/neet-coaching-ranchi"
-                        />
-                    </div>
-
-                    {/* Class 11-12 (Engineering) - Amber/Orange */}
-                    <div id="engineer" className="scroll-mt-32">
-                        <ProgramCard
-                            title="Class 11–12 (Engineering)"
-                            subtitle="Boards + JEE Preparation"
-                            colorTheme={{
-                                main: "text-[#7C2D12]", // Dark Orange/Brown for readability
-                                accent: "text-orange-600 border-orange-500",
-                                bg: "bg-orange-50/50",
-                                gradient: "from-orange-50 to-white"
-                            }}
-                            frontContent={
-                                <ul className="mt-6 list-disc space-y-3 pl-5 text-sm leading-relaxed text-slate-700 marker:text-orange-500">
-                                    <li>Advanced logic building and problem-solving techniques for national level competitive examinations.</li>
-                                    <li>Focus on application-based learning for IIT JEE Main &amp; IIT JEE Advanced question papers.</li>
-                                    <li>Strategic error analysis to minimize negative marking in JEE Mains &amp; Advanced.</li>
-                                </ul>
-                            }
-                            backContent={{
-                                benefits: "Develops the analytical depth required to crack top engineering ranks.",
-                                duration: "2 Years | Integrated Program",
-                                reason: "We move beyond rote learning to true problem-solving intuition."
-                            }}
-                            backCTA="View Program"
-                            ctaLink="/jee-coaching-ranchi"
-                        />
-                    </div>
-
-                    {/* Class 11-12 (Commerce) - Amber (Warm) or Slate? Let's use Amber variant or Slate. */}
-                    <div id="commerce" className="scroll-mt-32">
-                        <ProgramCard
-                            title="Class 11–12 (Commerce)"
-                            subtitle="Boards + Professional Prep"
-                            colorTheme={{
-                                main: "text-slate-800",
-                                accent: "text-amber-600 border-amber-500",
-                                bg: "bg-amber-50/30",
-                                gradient: "from-amber-50 to-white"
-                            }}
-                            frontContent={
-                                <ul className="mt-6 list-disc space-y-3 pl-5 text-sm leading-relaxed text-slate-700 marker:text-amber-500">
-                                    <li>Conceptual mastery of Accountancy, Economics, and Business.</li>
-                                    <li>Preparation for Board exams and professional entrance tests.</li>
-                                    <li>Focus on real-world application and financial literacy.</li>
-                                </ul>
-                            }
-                            backContent={{
-                                benefits: "Secures top Board scores and lays a solid foundation for CA/CUET.",
-                                duration: "2 Years | Integrated Program",
-                                reason: "Commerce mastery is about clarity, not just balancing balance sheets."
-                            }}
-                            backCTA="View Program"
-                            ctaLink="/commerce-coaching-ranchi"
-                        />
-                    </div>
-
-                    {/* Class 11-12 (Arts) - Slate/Neutral */}
-                    <div id="arts" className="scroll-mt-32">
-                        <ProgramCard
-                            title="Class 11–12 (Arts)"
-                            subtitle="Boards + Humanities"
-                            comingSoon={true}
-                            colorTheme={{
-                                main: "text-slate-700",
-                                accent: "text-slate-500 border-slate-400",
-                                bg: "bg-slate-50",
-                                gradient: "from-slate-50 to-white"
-                            }}
-                            frontContent={
-                                <ul className="mt-6 list-disc space-y-3 pl-5 text-sm leading-relaxed text-slate-600 marker:text-slate-400">
-                                    <li>In-depth understanding of History, Political Science & Sociology.</li>
-                                    <li>Develops critical thinking vs. just memorization.</li>
-                                    <li>Guidance for future pathways in Law, Policy, and Civil Services.</li>
-                                </ul>
-                            }
-                            backContent={{
-                                benefits: "",
-                                duration: "",
-                                reason: ""
-                            }}
-                        />
+                    {/* SECOND ROW: Grouped 11-12 Section */}
+                    <div className="mt-8">
+                        <SeniorSecondaryGroup />
                     </div>
                 </div>
             </div>
         </section>
+    );
+}
+
+{/* --- NEW: Interactive Grouped Component for 11-12 --- */ }
+import { motion, AnimatePresence } from "framer-motion";
+
+function SeniorSecondaryGroup() {
+    const [activeStream, setActiveStream] = useState<'medical' | 'engineering' | 'commerce' | 'arts'>('medical');
+
+    const streams = {
+        medical: {
+            id: 'medical',
+            title: "Class 11–12 (Medical)",
+            subtitle: "Boards + NEET Preparation",
+            accent: "text-indigo-600",
+            bg: "bg-indigo-50/20",
+            gradient: "from-indigo-400 to-blue-500",
+            marker: "marker:text-indigo-500",
+            points: [
+                "Strict adherence to NCERT with deep conceptual clarity.",
+                "Continuous revision cycles to build high retention.",
+                "Weekly mock tests to perfect speed and accuracy."
+            ],
+            details: {
+                benefits: "A disciplined system designed for high retention and rank consistency.",
+                duration: "2 Years | Integrated Program",
+                cta: "/neet-coaching-ranchi"
+            }
+        },
+        engineering: {
+            id: 'engineering',
+            title: "Class 11–12 (Engineering)",
+            subtitle: "Boards + JEE Preparation",
+            accent: "text-orange-600",
+            bg: "bg-orange-50/20",
+            gradient: "from-orange-400 to-amber-500",
+            marker: "marker:text-orange-500",
+            points: [
+                "Advanced logic building and problem-solving for national level exams.",
+                "Focus on application-based learning for JEE Main & Advanced.",
+                "Strategic error analysis to minimize negative marking."
+            ],
+            details: {
+                benefits: "Develops the analytical depth required to crack top engineering ranks.",
+                duration: "2 Years | Integrated Program",
+                cta: "/jee-coaching-ranchi"
+            }
+        },
+        commerce: {
+            id: 'commerce',
+            title: "Class 11–12 (Commerce)",
+            subtitle: "Boards + Professional Prep",
+            accent: "text-amber-600",
+            bg: "bg-amber-50/20",
+            gradient: "from-amber-400 to-yellow-500",
+            marker: "marker:text-amber-500",
+            points: [
+                "Conceptual mastery of Accountancy, Economics, and Business.",
+                "Preparation for Board exams and professional entrance tests.",
+                "Focus on real-world application and financial literacy."
+            ],
+            details: {
+                benefits: "Secures top Board scores and lays a solid foundation for CA/CUET.",
+                duration: "2 Years | Integrated Program",
+                cta: "/commerce-coaching-ranchi"
+            }
+        },
+        arts: {
+            id: 'arts',
+            title: "Class 11–12 (Arts)",
+            subtitle: "Coming Soon",
+            accent: "text-slate-500",
+            bg: "bg-slate-50/20",
+            gradient: "from-slate-400 to-slate-500",
+            marker: "marker:text-slate-400",
+            points: [
+                "In-depth understanding of History, Political Science & Sociology.",
+                "Develops critical thinking vs. just memorization.",
+                "Guidance for future pathways in Law and Civil Services."
+            ],
+            details: {
+                benefits: "Coming Soon",
+                duration: "N/A",
+                cta: "#"
+            }
+        }
+    };
+
+    const current = streams[activeStream];
+
+    return (
+        <div className="w-full bg-white rounded-3xl border border-slate-200/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden">
+            <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[400px]">
+                {/* LEFT: Tab Navigation */}
+                <div className="lg:col-span-4 bg-slate-50/50 p-6 lg:p-8 border-b lg:border-b-0 lg:border-r border-slate-100/80">
+                    <div className="mb-8">
+                        <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-amber-50 border border-amber-100 mb-3">
+                            <div className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+                            <span className="text-[10px] font-bold uppercase tracking-widest text-amber-700">Stage 3</span>
+                        </div>
+                        <h3 className="text-xl lg:text-2xl font-bold text-slate-900 tracking-tight">Senior Secondary</h3>
+                        <p className="text-[13px] text-slate-500 font-medium mt-1">Select your path to excellence</p>
+                    </div>
+
+                    <div className="space-y-1.5 relative">
+                        {/* THEME: Floating indicator background */}
+                        <div className="absolute inset-0 pointer-events-none">
+                            {(Object.keys(streams) as Array<keyof typeof streams>).map((key, i) => (
+                                activeStream === key && (
+                                    <motion.div
+                                        key="indicator"
+                                        layoutId="tab-indicator"
+                                        className="absolute left-0 right-0 h-[56px] bg-white rounded-xl shadow-[0_2px_10px_-4px_rgba(0,0,0,0.08)] border border-slate-200/60"
+                                        initial={false}
+                                        transition={{ type: "spring", bounce: 0.15, duration: 0.5 }}
+                                        style={{ top: i * (56 + 6) }} // Adjusting for height + gap
+                                    />
+                                )
+                            ))}
+                        </div>
+
+                        {(Object.keys(streams) as Array<keyof typeof streams>).map((key) => {
+                            const isActive = activeStream === key;
+                            return (
+                                <button
+                                    key={key}
+                                    onClick={() => setActiveStream(key)}
+                                    className={`w-full h-[56px] text-left px-5 rounded-xl transition-all duration-300 relative group flex items-center justify-between z-10 ${isActive
+                                        ? "text-slate-900"
+                                        : "text-slate-500 hover:text-slate-700"
+                                        }`}
+                                >
+                                    <div className="flex items-center gap-3">
+                                        <div className={`w-2 h-2 rounded-full bg-gradient-to-br ${streams[key].gradient} ${isActive ? 'scale-110 shadow-sm' : 'opacity-30 scale-90 group-hover:opacity-100'} transition-all duration-300`} />
+                                        <span className={`font-semibold tracking-tight transition-all duration-300 ${isActive ? 'text-[15px]' : 'text-[14px]'}`}>
+                                            {key.charAt(0).toUpperCase() + key.slice(1)}
+                                        </span>
+                                    </div>
+
+                                    <div className={`w-4 h-4 rounded-full flex items-center justify-center transition-all duration-300 ${isActive ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-2'}`}>
+                                        <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-br ${current.gradient} animate-pulse`} />
+                                    </div>
+                                </button>
+                            );
+                        })}
+                    </div>
+                </div>
+
+                {/* RIGHT: Dynamic Content Body with Smooth Transitions */}
+                <div className="lg:col-span-8 p-6 lg:p-10 flex flex-col justify-center bg-white relative overflow-hidden">
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={activeStream}
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                            transition={{ duration: 0.3, ease: "easeOut" }}
+                            className="flex flex-col h-full relative z-10"
+                        >
+                            {/* Theme background glow */}
+                            <div className={`absolute -top-32 -right-32 w-[400px] h-[400px] bg-gradient-to-br ${current.gradient} opacity-[0.03] blur-3xl rounded-full pointer-events-none`} />
+
+                            <div className="mb-8">
+                                <span className={`inline-block text-[11px] font-bold uppercase tracking-widest ${current.accent} mb-2`}>
+                                    {current.subtitle}
+                                </span>
+                                <h4 className="text-2xl lg:text-3xl font-bold text-slate-900 tracking-tight leading-snug">
+                                    {current.title}
+                                </h4>
+                            </div>
+
+                            <div className="space-y-6 flex-grow">
+                                <ul className={`space-y-4 ${current.marker} pl-4`}>
+                                    {current.points.map((point, i) => (
+                                        <motion.li
+                                            initial={{ opacity: 0, x: -5 }}
+                                            animate={{ opacity: 1, x: 0 }}
+                                            transition={{ delay: 0.1 + (i * 0.05) }}
+                                            key={i}
+                                            className="text-slate-600 text-[14px] leading-relaxed font-medium"
+                                        >
+                                            {point}
+                                        </motion.li>
+                                    ))}
+                                </ul>
+
+                                <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 pt-6 border-t border-slate-100">
+                                    <div>
+                                        <h5 className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1.5">Core Benefit</h5>
+                                        <p className="text-[14px] text-slate-800 font-semibold leading-relaxed">{current.details.benefits}</p>
+                                    </div>
+                                    <div>
+                                        <h5 className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1.5">Duration</h5>
+                                        <p className="text-[14px] text-slate-800 font-semibold leading-relaxed">{current.details.duration}</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="mt-8 pt-6 flex items-center justify-between border-t border-slate-100">
+                                <p className="hidden sm:block text-[11px] font-medium text-slate-400">
+                                    Personalized mentorship included.
+                                </p>
+
+                                {current.id !== 'arts' ? (
+                                    <Link
+                                        href={current.details.cta}
+                                        className={`group px-6 py-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-[13px] font-semibold transition-all shadow-sm flex items-center gap-2`}
+                                    >
+                                        View Syllabus
+                                        <svg className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                        </svg>
+                                    </Link>
+                                ) : (
+                                    <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-50 border border-slate-100">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-pulse" />
+                                        <span className="text-slate-500 text-[11px] font-semibold uppercase tracking-widest">June 2026</span>
+                                    </div>
+                                )}
+                            </div>
+                        </motion.div>
+                    </AnimatePresence>
+                </div>
+            </div>
+        </div>
     );
 }

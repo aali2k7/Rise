@@ -1,4 +1,10 @@
 import { Metadata } from "next";
+import {
+  Target, Lightbulb, Activity, Users,
+  ArrowRight, Check, X,
+  BookOpen, Brain, TrendingUp, Award,
+  Focus
+} from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Teaching Approach | RISE",
@@ -8,159 +14,197 @@ export const metadata: Metadata = {
   },
 };
 
-import { Check, ArrowRight } from "lucide-react";
-
-/**
- * Premium Teaching Approach Page
- * Design: Structured principles, elegant cards, formal presentation
- */
 export default function Approach() {
   return (
-    <div className="min-h-screen bg-[#FDFCFB]">
+    <div className="min-h-screen bg-[#FDFCFB] overflow-hidden">
 
-      {/* --- SECTION 1: HERO (REFINED) --- */}
-      <section className="relative w-full py-28 lg:py-36 border-b border-[#E8DFD3]/30" style={{ background: 'linear-gradient(180deg, #FAF9F6 0%, #FDFCFB 100%)' }}>
-        <div className="max-w-3xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#1A3C5E] mb-8">
-            Our Teaching Approach
+      {/* 1. HERO SECTION */}
+      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        {/* Background Decorative Elements */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
+          <div className="absolute -top-[10%] -right-[5%] w-[40%] h-[50%] rounded-full bg-orange-100/50 blur-3xl opacity-70" />
+          <div className="absolute top-[20%] -left-[10%] w-[30%] h-[40%] rounded-full bg-blue-100/50 blur-3xl opacity-60" />
+        </div>
+
+        <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200 shadow-sm text-orange-600 font-bold text-sm mb-8 scroll-reveal">
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-orange-500"></span>
+            </span>
+            The RISE Methodology
+          </div>
+
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-[#1A3C5E] tracking-tight mb-8 scroll-reveal" style={{ transitionDelay: '100ms' }}>
+            Not Just Teaching.<br className="hidden sm:block" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">
+              Cognitive Engineering.
+            </span>
           </h1>
-          <p className="text-lg sm:text-xl leading-relaxed text-slate-600 font-medium">
-            A methodology built on <span className="text-[#1A3C5E]">discipline</span>, <span className="text-[#1A3C5E]">clarity</span>, <span className="text-[#1A3C5E]">consistency</span>, and <span className="text-[#1A3C5E]">mentorship</span>.
+
+          <p className="text-lg sm:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed scroll-reveal font-medium" style={{ transitionDelay: '200ms' }}>
+            A rigorous, battle-tested ecosystem built on <strong className="text-slate-800">discipline</strong>, <strong className="text-slate-800">concept clarity</strong>, <strong className="text-slate-800">consistency</strong>, and <strong className="text-slate-800">mentorship</strong>. We don&apos;t just prepare you for exams; we rewire how you think.
           </p>
-
-          {/* Visual Anchor */}
-          <div className="mt-12 h-px w-32 bg-gradient-to-r from-transparent via-slate-300 to-transparent mx-auto" />
         </div>
       </section>
 
-      {/* --- SECTION 2: CORE PILLARS (2x2 GRID) --- */}
-      <section className="py-24 border-y border-[#E8DFD3]/20" style={{ background: 'linear-gradient(180deg, #FAF9F7 0%, #FDFCFB 100%)' }}>
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-[#1A3C5E] sm:text-4xl relative inline-block">
-              The Four Pillars of Excellence
-              <span className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-16 h-0.5 bg-orange-500/30 rounded-full"></span>
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Pillar 1: Discipline */}
+      {/* 2. CORE PILLARS OVERLAP */}
+      <section className="relative z-20 pb-24">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             <PillarCard
+              delay="0"
+              icon={Target}
               title="Discipline"
-
-              points={[
-                "Structured daily schedules",
-                "Regular attendance tracking",
-                "Accountability systems"
-              ]}
+              desc="Structured environments breed success. Our zero-tolerance policy for inconsistency ensures peak focus."
+              color="blue"
             />
-            {/* Pillar 2: Concept Clarity */}
             <PillarCard
+              delay="100ms"
+              icon={Lightbulb}
               title="Concept Clarity"
-
-              points={[
-                "Step-by-step concept building",
-                "Visual & interactive learning",
-                "Focus on 'Why' and 'How'"
-              ]}
+              desc="We destroy rote learning. We build from first principles so you can solve unseen problems instantly."
+              color="amber"
             />
-            {/* Pillar 3: Consistency */}
             <PillarCard
+              delay="200ms"
+              icon={Activity}
               title="Consistency"
-
-              points={[
-                "Daily practice routines",
-                "Incremental progress tracking",
-                "No last-minute cramming"
-              ]}
+              desc="Daily atomic habits compounded over time. Micro-tests and continuous tracking eliminate surprises."
+              color="emerald"
             />
-            {/* Pillar 4: Mentorship */}
             <PillarCard
+              delay="300ms"
+              icon={Users}
               title="Mentorship"
-
-              points={[
-                "One-on-one strategy sessions",
-                "Stress management support",
-                "Personalized course correction"
-              ]}
+              desc="You are never alone. 1-on-1 performance reviews and psychological support for peak temperament."
+              color="purple"
             />
           </div>
         </div>
       </section>
 
-      {/* --- SECTION 3: COMPARISON (WHY RISE) --- */}
-      <section className="py-24 bg-[#FDFCFB] border-y border-[#E8DFD3]/20">
-        <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-[#1A3C5E] sm:text-4xl">
-              Why RISE Stands Apart
-            </h2>
-            <p className="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
-              We focus on structural advantages that lead to better outcomes.
-            </p>
+      {/* 3. COMPARISON SECTION */}
+      <section className="py-24 lg:py-32 bg-slate-50 relative">
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
+
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16 scroll-reveal">
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1A3C5E] mb-6">Why RISE Stands Apart</h2>
+            <p className="text-lg md:text-xl text-slate-500 max-w-2xl mx-auto">See exactly how our structural advantages translate into better outcomes for our students.</p>
           </div>
 
-          <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
-            <div className="grid grid-cols-2 bg-slate-50 border-b border-slate-200">
-              <div className="p-6 text-sm font-semibold text-slate-500 uppercase tracking-wider text-center">Other Institutes</div>
-              <div className="p-6 text-sm font-bold text-[#f97316] uppercase tracking-wider text-center bg-orange-50/50">RISE Approach</div>
+          <div className="bg-white rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 overflow-hidden scroll-reveal">
+            {/* Table Header */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 bg-[#1A3C5E] text-white hidden lg:grid">
+              <div className="p-6 font-semibold text-lg border-r border-[#2A5A8E]">Feature</div>
+              <div className="p-6 font-semibold text-lg text-center border-r border-[#2A5A8E] text-slate-300">Traditional Coaching</div>
+              <div className="p-6 font-bold text-lg text-center text-orange-400">The RISE Approach</div>
             </div>
 
-            <ComparisonRow
-              label="Teaching Style"
-              other="Lectures focusing on rote memorization"
-              rise="Interactive sessions building logic"
-            />
-            <ComparisonRow
-              label="Doubt Resolution"
-              other="Limited availability, often crowded"
-              rise="Immediate, personalized attention"
-            />
-            <ComparisonRow
-              label="Batch Size"
-              other="Large batches (60-100+ students)"
-              rise="Small cohorts for individual focus"
-            />
-            <ComparisonRow
-              label="Mentorship"
-              other="Generic academic counseling"
-              rise="Dedicated mentor for every student"
-            />
-            <ComparisonRow
-              label="Testing"
-              other="Sporadic or purely score-focused"
-              rise="Diagnostic processing & feedback"
-            />
-            <ComparisonRow
-              label="Parent Connection"
-              other="Results-only communication"
-              rise="Continuous partnership & updates"
-            />
+            {/* Table Body */}
+            <div className="divide-y divide-slate-100">
+              <ComparisonRow
+                feature="Teaching Style"
+                traditional="Lectures focusing on rote memorization"
+                rise="Interactive sessions building deep logic"
+              />
+              <ComparisonRow
+                feature="Batch Size"
+                traditional="Large crowds (60-120+ students)"
+                rise="Strictly small cohorts (≤ 30 max)"
+              />
+              <ComparisonRow
+                feature="Doubt Resolution"
+                traditional="Limited availability, intimidating"
+                rise="Mandatory, immediate, personalized"
+              />
+              <ComparisonRow
+                feature="Testing Focus"
+                traditional="Sporadic, purely score-focused"
+                rise="Diagnostic micro-tracking & feedback"
+              />
+              <ComparisonRow
+                feature="Mentorship"
+                traditional="Generic academic counseling"
+                rise="Dedicated mentor for every single student"
+              />
+              <ComparisonRow
+                feature="Parent Connection"
+                traditional="Results-only communication at end"
+                rise="Continuous partnership & weekly updates"
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* --- SECTION 4: PROCESS FLOW --- */}
-      <section className="py-24" style={{ background: 'linear-gradient(180deg, #FDFCFB 0%, #FAF9F6 100%)' }}>
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-[#1A3C5E] sm:text-4xl">
-              The Path to Mastery
-            </h2>
+      {/* 4. PROCESS FLOW */}
+      <section className="py-24 lg:py-32 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-24 scroll-reveal">
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1A3C5E] mb-6">The Path to Mastery</h2>
+            <p className="text-lg md:text-xl text-slate-500 max-w-2xl mx-auto">A systematic, scientifically designed pipeline that transforms potential into top-tier ranks.</p>
           </div>
 
           <div className="relative">
             {/* Connecting Line (Desktop) */}
-            <div className="hidden lg:block absolute top-1/2 left-0 w-full h-0.5 bg-slate-200 -translate-y-1/2 z-0" />
+            <div className="hidden lg:block absolute top-[48px] left-[10%] right-[10%] h-[3px] bg-gradient-to-r from-slate-100 via-orange-300 to-slate-100 -z-10" />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 relative z-10">
-              <ProcessStep number="01" title="Enroll" desc="Assessment & Goal Setting" />
-              <ProcessStep number="02" title="Learn" desc="Concept Acquisition" />
-              <ProcessStep number="03" title="Practice" desc="Problem Solving Drills" />
-              <ProcessStep number="04" title="Test" desc="Performance Analysis" />
-              <ProcessStep number="05" title="Refine" desc="Feedback & Improvement" />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-6 relative z-10">
+              <ProcessStep
+                num="01"
+                icon={Focus}
+                title="Establish"
+                desc="Core baseline assessment & target setting."
+                delay="0ms"
+              />
+              <ProcessStep
+                num="02"
+                icon={BookOpen}
+                title="Absorb"
+                desc="Immersive concept acquisition from experts."
+                delay="100ms"
+              />
+              <ProcessStep
+                num="03"
+                icon={Brain}
+                title="Apply"
+                desc="Rigorous, graded problem-solving drills."
+                delay="200ms"
+              />
+              <ProcessStep
+                num="04"
+                icon={TrendingUp}
+                title="Diagnose"
+                desc="High-frequency testing with analysis."
+                delay="300ms"
+              />
+              <ProcessStep
+                num="05"
+                icon={Award}
+                title="Conquer"
+                desc="Iterative refinement leading to peak ranks."
+                delay="400ms"
+              />
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* CTA SECTION */}
+      <section className="py-24 lg:py-32 bg-[#1A3C5E] relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10"></div>
+        <div className="absolute -top-[50%] -right-[10%] w-[50%] h-[100%] rounded-full bg-orange-500/10 blur-[100px]" />
+
+        <div className="max-w-5xl mx-auto px-6 text-center relative z-10 scroll-reveal">
+          <h2 className="text-4xl md:text-6xl font-bold text-white mb-8">Experience the RISE Difference</h2>
+          <p className="text-slate-300 text-xl font-medium mb-12 max-w-3xl mx-auto">
+            Stop gambling with your future. Join the system that consistently architects top ranks in JEE and NEET.
+          </p>
+          <a href="/enquire" className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-400 hover:to-orange-500 text-white px-10 py-5 rounded-2xl font-bold text-lg transition-all hover:scale-105 shadow-[0_0_40px_rgba(249,115,22,0.4)]">
+            Book a Free Counseling Session <ArrowRight className="w-6 h-6" />
+          </a>
         </div>
       </section>
 
@@ -170,53 +214,63 @@ export default function Approach() {
 
 // --- SUB-COMPONENTS ---
 
-function PillarCard({ title, points }: { title: string, points: string[] }) {
+function PillarCard({ icon: Icon, title, desc, color, delay }: any) {
+  const colorMap: any = {
+    blue: "bg-blue-50 text-blue-600 border-blue-100 shadow-blue-500/10",
+    amber: "bg-amber-50 text-amber-600 border-amber-100 shadow-amber-500/10",
+    emerald: "bg-emerald-50 text-emerald-600 border-emerald-100 shadow-emerald-500/10",
+    purple: "bg-purple-50 text-purple-600 border-purple-100 shadow-purple-500/10"
+  };
+
   return (
-    <div className="group bg-white/70 backdrop-blur-md p-6 lg:p-7 rounded-2xl border border-slate-200/60 shadow-lg hover:shadow-xl transition-shadow duration-200 ease-out supports-[backdrop-filter]:bg-white/60">
-      <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-3 group-hover:text-orange-600 transition-colors">
+    <div
+      className="group bg-white p-8 lg:p-10 rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-slate-200 hover:-translate-y-2 transition-all duration-300 scroll-reveal"
+      style={{ transitionDelay: delay }}
+    >
+      <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-8 shadow-sm border ${colorMap[color]}`}>
+        <Icon strokeWidth={2} className="w-8 h-8" />
+      </div>
+      <h3 className="text-2xl font-bold text-[#1A3C5E] mb-4 group-hover:text-orange-500 transition-colors">
         {title}
       </h3>
-
-      <ul className="space-y-2">
-        {points.map((point, i) => (
-          <li key={i} className="flex items-start text-sm font-medium text-slate-900">
-            <Check className="w-4 h-4 text-orange-600 mr-2.5 mt-0.5 shrink-0" strokeWidth={2.5} />
-            {point}
-          </li>
-        ))}
-      </ul>
+      <p className="text-slate-500 leading-relaxed font-medium text-lg">
+        {desc}
+      </p>
     </div>
   );
 }
 
-function ComparisonRow({ label, other, rise }: { label: string, other: string, rise: string }) {
+function ComparisonRow({ feature, traditional, rise }: any) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 border-b border-slate-100 last:border-0 group">
-      {/* Mobile Label (Visible only on small screens) */}
-      <div className="md:hidden p-4 bg-slate-50 font-semibold text-slate-700 text-center border-b border-slate-100">
-        {label}
+    <div className="grid grid-cols-1 lg:grid-cols-3 hover:bg-slate-50 transition-colors">
+      <div className="p-6 lg:p-8 font-bold text-xl text-slate-800 border-b lg:border-b-0 lg:border-r border-slate-200 flex items-center bg-slate-100 lg:bg-transparent">
+        {feature}
       </div>
-
-      <div className="p-6 text-slate-500 text-center flex flex-col justify-center border-r border-slate-100 md:border-r-0">
-        <span className="md:hidden text-xs uppercase tracking-wide mb-1 opacity-70">Other Institutes</span>
-        {other}
+      <div className="p-6 lg:p-8 border-b lg:border-b-0 lg:border-r border-slate-200 flex items-center gap-4">
+        <X className="w-6 h-6 text-red-500 shrink-0 mt-0.5" strokeWidth={3} />
+        <span className="font-medium text-base md:text-lg text-slate-600">{traditional}</span>
       </div>
-      <div className="p-6 text-[#1A3C5E] font-medium text-center bg-orange-50/10 group-hover:bg-orange-50/30 transition-colors flex flex-col justify-center">
-        <span className="md:hidden text-xs uppercase tracking-wide mb-1 text-orange-600 opacity-80">RISE</span>
-        {rise}
+      <div className="p-6 lg:p-8 font-semibold bg-orange-50 flex items-center gap-4">
+        <Check className="w-6 h-6 text-green-600 shrink-0 mt-0.5 shadow-sm rounded-full bg-white p-1" strokeWidth={4} />
+        <span className="text-base md:text-lg text-slate-900">{rise}</span>
       </div>
     </div>
   );
 }
 
-function ProcessStep({ number, title, desc }: { number: string, title: string, desc: string }) {
+function ProcessStep({ num, icon: Icon, title, desc, delay }: any) {
   return (
-    <div className="flex flex-col items-center text-center bg-white p-6 rounded-xl border border-slate-100 shadow-sm lg:shadow-none lg:border-none lg:bg-transparent">
-      <div className="w-12 h-12 rounded-full bg-white border-2 border-orange-500 text-orange-600 font-bold flex items-center justify-center mb-4 text-lg shadow-sm z-10 relative">
-        {number}
+    <div className="flex flex-col items-center text-center scroll-reveal relative group" style={{ transitionDelay: delay }}>
+      {/* Icon Circle */}
+      <div className="w-24 h-24 lg:w-28 lg:h-28 rounded-full bg-white border border-slate-200 shadow-xl shadow-slate-200/50 flex flex-col items-center justify-center mb-6 relative z-10 group-hover:-translate-y-2 transition-transform duration-300">
+        <div className="absolute -top-2 -right-2 bg-[#1A3C5E] text-white text-sm font-bold px-3 py-1 rounded-xl shadow-sm border border-[#2A5A8E]">
+          {num}
+        </div>
+        <Icon className="w-10 h-10 lg:w-12 lg:h-12 text-orange-500" strokeWidth={1.5} />
       </div>
-      <h4 className="text-lg font-bold text-[#1A3C5E] mb-1">{title}</h4>
-      <p className="text-sm text-slate-500">{desc}</p>
+
+      <h4 className="text-xl lg:text-2xl font-bold text-[#1A3C5E] mb-3">{title}</h4>
+      <p className="text-slate-500 text-base leading-relaxed max-w-[220px] font-medium">{desc}</p>
     </div>
   );
 }

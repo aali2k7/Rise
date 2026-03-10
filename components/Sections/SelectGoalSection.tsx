@@ -72,36 +72,39 @@ export default function SelectGoalSection() {
     };
 
     return (
-        <section className="relative w-full py-20 lg:py-24 overflow-hidden bg-base-light border-b border-white/50">
-            {/* Abstract fluid background shape */}
-            <div className="absolute top-0 right-0 w-[800px] h-[600px] bg-gradient-to-b from-blue-50/50 to-purple-50/50 rounded-full blur-3xl opacity-40 translate-x-1/3 -translate-y-1/2 -z-10 pointer-events-none" />
+        <section className="relative w-full py-16 lg:py-24 overflow-hidden bg-white">
+            {/* Abstract fluid background shape - subtle & professional */}
+            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-slate-50 rounded-full blur-[100px] opacity-40 translate-x-1/3 -translate-y-1/3 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-50/20 rounded-full blur-[100px] opacity-40 -translate-x-1/3 translate-y-1/3 pointer-events-none" />
 
-            <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                {/* Premium bordered container wrapping the entire section */}
-                <div className="border border-t-2 border-slate-200 border-t-indigo-400 ring-1 ring-slate-200/70 rounded-[28px] bg-gradient-to-br from-white via-slate-50 to-white shadow-[0_10px_30px_rgba(15,23,42,0.06)] py-14 px-6 lg:px-10">
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            <div className="mx-auto max-w-7xl px-6 lg:px-12 relative z-10">
+                {/* Removed card box styling to create an open architectural flow */}
+                <div className="relative">
+
+                    {/* Subtle inner decorative glow */}
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-slate-50/50 rounded-full blur-2xl pointer-events-none" />
+
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10">
 
                         {/* LEFT COLUMN: Header Text (Anchor) */}
-                        <div className="lg:col-span-4 flex flex-col justify-center items-start text-left">
-                            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-medium text-slate-800 tracking-tight leading-tight">
-                                Select your goal
+                        <div className="lg:col-span-5 flex flex-col justify-center items-start text-left">
+                            {/* Eyebrow Intro */}
+                            <span className="text-amber-600 font-bold tracking-[0.2em] text-xs uppercase mb-4 block">
+                                Your Journey Begins
+                            </span>
+
+                            <h2 className="text-4xl md:text-5xl lg:text-[3.25rem] font-extrabold text-[#1A3C5E] tracking-tight leading-[1.1] mb-6">
+                                Select your <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#DFBC74] to-[#B48E4B]">goal.</span>
                             </h2>
-                            <p className="text-lg lg:text-xl text-slate-500 font-light mt-3 tracking-wide font-sans">
-                                to explore our courses
+
+                            <p className="text-base lg:text-lg text-slate-500 font-medium leading-relaxed max-w-md">
+                                Choose your desired path to explore our specialized coaching programs and methodologies tailored for uncompromising success.
                             </p>
-                            {/* Visionary decorative line */}
-                            <div className="mt-8 h-px w-24 bg-slate-200" />
                         </div>
 
                         {/* RIGHT COLUMN: Goal Pills Grid */}
-                        <div className="lg:col-span-8 w-full">
-                            {/* 
-                               Grid Layout:
-                               - Consistent gaps
-                               - Auto-fit logic for responsiveness 
-                               - Visual symmetry
-                            */}
-                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                        <div className="lg:col-span-7 w-full">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
                                 {goals.map((goal) => (
                                     <TiltButton
                                         key={goal.label}
@@ -124,11 +127,11 @@ function TiltButton({ goal, onClick }: { goal: Goal; onClick: () => void }) {
     useEffect(() => {
         if (tiltRef.current) {
             VanillaTilt.init(tiltRef.current, {
-                max: 5,             // Calm tilt
+                max: 3,             // Calm tilt
                 speed: 1000,        // Slow transition
                 glare: true,
-                "max-glare": 0.15,  // Very subtle glare (optical glass)
-                scale: 1.01,        // Micro scale
+                "max-glare": 0.05,  // Very subtle glare
+                scale: 1.02,        // Micro scale
                 perspective: 1000,
                 transition: true,
                 gyroscope: false,
@@ -136,60 +139,52 @@ function TiltButton({ goal, onClick }: { goal: Goal; onClick: () => void }) {
         }
     }, []);
 
-    // Helper to determine the "Ink Drop" color for the internal bloom
-    const bloomColorMap: Record<string, string> = {
-        "Doctor": "#10b981",    // Emerald
-        "Engineer": "#3b82f6",  // Blue
-        "Commerce": "#f59e0b",  // Amber
-        "Classes 6–10": "#6366f1", // Indigo
-        "Explore": "#64748b",   // Slate
+    // Helper to determine the rich color themes for hover states
+    const colorThemes: Record<string, { gradient: string, glow: string, border: string, textHover: string, iconBg: string }> = {
+        "Doctor": { gradient: "from-emerald-500/10 to-emerald-500/0", glow: "group-hover:shadow-[0_8px_30px_-5px_rgba(16,185,129,0.25)]", border: "group-hover:border-emerald-500/30", textHover: "group-hover:text-emerald-700", iconBg: "group-hover:bg-emerald-50 group-hover:border-emerald-200/50" },
+        "Engineer": { gradient: "from-blue-500/10 to-blue-500/0", glow: "group-hover:shadow-[0_8px_30px_-5px_rgba(59,130,246,0.25)]", border: "group-hover:border-blue-500/30", textHover: "group-hover:text-blue-700", iconBg: "group-hover:bg-blue-50 group-hover:border-blue-200/50" },
+        "Commerce": { gradient: "from-amber-500/10 to-amber-500/0", glow: "group-hover:shadow-[0_8px_30px_-5px_rgba(245,158,11,0.25)]", border: "group-hover:border-amber-500/30", textHover: "group-hover:text-amber-700", iconBg: "group-hover:bg-amber-50 group-hover:border-amber-200/50" },
+        "Classes 6–10": { gradient: "from-indigo-500/10 to-indigo-500/0", glow: "group-hover:shadow-[0_8px_30px_-5px_rgba(99,102,241,0.25)]", border: "group-hover:border-indigo-500/30", textHover: "group-hover:text-indigo-700", iconBg: "group-hover:bg-indigo-50 group-hover:border-indigo-200/50" },
+        "Explore": { gradient: "from-slate-500/10 to-slate-500/0", glow: "group-hover:shadow-[0_8px_30px_-5px_rgba(100,116,139,0.25)]", border: "group-hover:border-slate-400/30", textHover: "group-hover:text-slate-800", iconBg: "group-hover:bg-slate-100 group-hover:border-slate-300/50" },
     };
 
-    // Contextual hover border colors
-    const getHoverBorderClass = (label: string) => {
-        switch (label) {
-            case "Doctor": return "hover:border-emerald-400/60";
-            case "Engineer": return "hover:border-indigo-400/60";
-            case "Commerce": return "hover:border-amber-400/60";
-            case "Classes 6–10": return "hover:border-sky-400/60";
-            case "Explore": return "hover:border-slate-400/60";
-            default: return "hover:border-slate-400/60";
-        }
-    };
-
-    const bloomColor = bloomColorMap[goal.label] || "#64748b";
-    const hoverBorderClass = getHoverBorderClass(goal.label);
+    const theme = colorThemes[goal.label] || colorThemes["Explore"];
 
     return (
         <button
             ref={tiltRef}
             onClick={onClick}
-            // Passing the bloom color as a CSS variable for the ::before pseudo-element
-            style={{ "--bloom-color": bloomColor } as React.CSSProperties}
-
-            // PREMIUM BORDER SYSTEM
-            // - Default: Subtle slate border with soft inner ring
-            // - Hover: Contextual accent border with lift and shadow
-            className={`group optical-glass optical-bloom relative flex items-center gap-4 px-6 py-4 w-full h-full min-h-[5rem] rounded-2xl text-left
-                border border-slate-200 ring-1 ring-black/5
-                transition-all duration-300 ease-out
-                hover:-translate-y-1 hover:shadow-xl hover:border-2 hover:ring-0
-                ${hoverBorderClass}
+            // PREMIUM ANIMATION SYSTEM
+            // - Lifts up more gracefully
+            // - Triggers a colored volumetric glow & border matched to the card type
+            className={`group relative flex items-center justify-between px-6 py-5 w-full h-full min-h-[5.5rem] rounded-2xl text-left
+                bg-white border border-slate-100 shadow-sm
+                transition-all duration-500 ease-out overflow-hidden
+                hover:-translate-y-1.5 ${theme.border} ${theme.glow}
             `}
             aria-label={`Select ${goal.label}`}
         >
-            {/* CONTENT WRAPPER - Ensures text/icon sits ABOVE the internal bloom */}
-            <div className="optical-content flex items-center gap-4 w-full">
+            {/* Subtle Gradient Overlay that fades in on hover */}
+            <div className={`absolute inset-0 bg-gradient-to-br ${theme.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`} />
 
-                {/* Icon wrapper - Monoline styling */}
-                <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-full bg-white/40 border border-white/30 text-slate-700 group-hover:bg-white/80 transition-colors duration-500">
+            {/* CONTENT WRAPPER */}
+            <div className="relative z-10 flex items-center gap-4 w-full">
+                {/* Icon wrapper - Smooth background transition */}
+                <div className={`flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-full border border-slate-100/60 bg-slate-50/50 text-slate-700 ${theme.iconBg} transition-colors duration-500`}>
                     <goal.icon />
                 </div>
 
                 {/* Typography */}
-                <span className="text-base lg:text-lg font-semibold tracking-tight text-slate-700 group-hover:text-slate-900 transition-colors">
+                <span className={`text-base lg:text-lg font-bold tracking-tight text-slate-700 ${theme.textHover} transition-colors duration-500`}>
                     {goal.label}
                 </span>
+            </div>
+
+            {/* Premium Animated Sliding Arrow */}
+            <div className="relative z-10 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-out">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className={theme.textHover.replace('group-hover:', '')}>
+                    <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
             </div>
         </button>
     );

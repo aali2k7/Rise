@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Header from "@/components/Sections/Header";
 import ScrollRevealProvider from "@/components/UI/ScrollRevealProvider";
+import GlobalPreloader from "@/components/UI/GlobalPreloader";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 
@@ -196,6 +197,7 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <GlobalPreloader />
         <ScrollRevealProvider>
           <Header />
 

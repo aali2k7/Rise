@@ -76,33 +76,35 @@ export default function ProgramCard({
             <div className={`flip-card-inner transition-all duration-300 ease-out group-hover:shadow-xl ${isFlipped ? "flipped" : ""}`}>
 
                 {/* FRONT SIDE */}
-                <div className={`flip-card-front flex flex-col p-7 border border-white/50 shadow-sm ${colorTheme.bg} backdrop-blur-md relative overflow-hidden`}>
-                    {/* Top Accent Strip */}
-                    <div className={`absolute top-0 left-0 w-full h-1.5 ${colorTheme.accent.replace('text-', 'bg-').replace('border-', 'bg-')}`} />
+                <div className={`flip-card-front flex flex-col p-8 rounded-[1.5rem] border border-slate-100/80 ring-1 ring-slate-100/40 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.08)] bg-white/80 backdrop-blur-xl relative overflow-hidden h-full w-full`}>
+                    {/* Ambient Glow based on theme */}
+                    <div className={`absolute inset-0 bg-gradient-to-br ${colorTheme.gradient} opacity-60 pointer-events-none`} />
 
-                    <div className="max-w-md mb-6 pt-2">
-                        <h3 className={`text-xl font-bold leading-snug ${colorTheme.main}`}>
+                    <div className="max-w-md mb-6 relative z-10">
+                        <h3 className={`text-xl sm:text-2xl font-bold leading-tight ${colorTheme.main}`}>
                             {title}
                         </h3>
-                        <p className={`mt-1 text-sm font-medium ${colorTheme.main} opacity-80`}>
+                        <p className={`mt-2 text-sm font-semibold tracking-wide uppercase ${colorTheme.main} opacity-70`}>
                             {subtitle}
                         </p>
                     </div>
-                    <div className="flex-grow relative z-10">
+
+                    <div className="flex-grow flex flex-col relative z-10">
                         {frontContent}
                     </div>
+
                     {/* Hover Hint */}
-                    <div className="mt-auto pt-4 flex justify-end">
-                        <div className={`text-xs font-semibold ${colorTheme.accent} opacity-60 group-hover:opacity-100 transition-opacity`}>
-                            View Details →
+                    <div className="mt-auto pt-6 flex justify-end relative z-10">
+                        <div className={`inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest ${colorTheme.accent} opacity-60 group-hover:opacity-100 transition-all duration-300`}>
+                            Flip to Details <span className="group-hover:translate-x-1 transition-transform">→</span>
                         </div>
                     </div>
                 </div>
 
                 {/* BACK SIDE */}
-                <div className={`flip-card-back flex flex-col justify-center p-8 bg-white border border-slate-100 shadow-inner relative overflow-hidden`}>
-                    {/* Top Accent Strip (Back) */}
-                    <div className={`absolute top-0 left-0 w-full h-1.5 ${colorTheme.accent.replace('text-', 'bg-').replace('border-', 'bg-')} opacity-80`} />
+                <div className={`flip-card-back flex flex-col justify-center p-8 rounded-[1.5rem] border border-slate-100 bg-white shadow-[0_12px_40px_-12px_rgba(0,0,0,0.12)] relative overflow-hidden h-full w-full`}>
+                    {/* Subtle Ambient Glow for back side */}
+                    <div className={`absolute inset-0 bg-gradient-to-tl ${colorTheme.gradient} opacity-20 pointer-events-none`} />
 
                     <div className="space-y-6 relative z-10">
 

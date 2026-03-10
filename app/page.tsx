@@ -19,7 +19,7 @@ import CoursesSection from "@/components/Sections/CoursesSection";
 import SelectGoalSection from "@/components/Sections/SelectGoalSection";
 import StudentJourney from "@/components/Sections/StudentJourney";
 import TestimonialsSection from "@/components/Sections/TestimonialsSection";
-import ValueHighlights from "@/components/Sections/ValueHighlights";
+import WhyChooseRise from "@/components/Sections/WhyChooseRise";
 
 import MapSection from "@/components/Sections/MapSection";
 
@@ -37,7 +37,7 @@ export default function Home() {
       <div className="relative">
         {/* Warm beige wash */}
         <div className="bg-section-warm">
-          <ValueHighlights />
+          <WhyChooseRise />
         </div>
 
         {/* Primary beige canvas */}
