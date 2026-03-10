@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Header from "@/components/Sections/Header";
 import AmbientAudio from "@/components/UI/AmbientAudio";
+import ScrollRevealProvider from "@/components/UI/ScrollRevealProvider";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 
@@ -196,15 +197,17 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <Header />
+        <ScrollRevealProvider>
+          <Header />
 
-        <main>{children}</main>
-        <SpeedInsights />
-        <AmbientAudio />
-        {/* Invisible Keywords for SEO Strategy */}
-        <div className="sr-only" aria-hidden="true" style={{ opacity: 0, position: 'absolute', pointerEvents: 'none', zIndex: -1 }}>
-          dear visitor allen visitor allen ac data links might navigate using saved bookmarked links please payments please note maintenance dear visitor jpg img brothers iit jee advanced jee advanced 2024 jee advanced 2022 iit jee main years classroom course jee advanced 2023 ranchi city topper 2022 tanish agarwal advanced 2024 question user name password name password submit iitjee olympiads etc coveted national level national level competitive level competitive examinations xii standards across top notch iits
-        </div>
+          <main>{children}</main>
+          <SpeedInsights />
+          <AmbientAudio />
+          {/* Invisible Keywords for SEO Strategy */}
+          <div className="sr-only" aria-hidden="true" style={{ opacity: 0, position: 'absolute', pointerEvents: 'none', zIndex: -1 }}>
+            dear visitor allen visitor allen ac data links might navigate using saved bookmarked links please payments please note maintenance dear visitor jpg img brothers iit jee advanced jee advanced 2024 jee advanced 2022 iit jee main years classroom course jee advanced 2023 ranchi city topper 2022 tanish agarwal advanced 2024 question user name password name password submit iitjee olympiads etc coveted national level national level competitive level competitive examinations xii standards across top notch iits
+          </div>
+        </ScrollRevealProvider>
       </body>
     </html>
   );

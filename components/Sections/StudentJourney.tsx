@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import JourneyAnimation from "../Visuals/JourneyAnimation";
+import { useScroll, useTransform, motion } from "framer-motion";
 
 const steps = [
     {
@@ -69,8 +70,35 @@ const steps = [
 
 export default function StudentJourney() {
     const router = useRouter();
+    const ref = useRef<HTMLDivElement>(null);
+    const containerRef = useRef<HTMLDivElement>(null);
+    const [height, setHeight] = useState(0);
+
+    useEffect(() => {
+        if (ref.current) {
+            const updateHeight = () => {
+                if (ref.current) {
+                    const rect = ref.current.getBoundingClientRect();
+                    setHeight(rect.height);
+                }
+            };
+            updateHeight();
+            const resizeObserver = new ResizeObserver(() => updateHeight());
+            resizeObserver.observe(ref.current);
+            return () => resizeObserver.disconnect();
+        }
+    }, [ref]);
+
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start 10%", "end 50%"],
+    });
+
+    const heightTransform = useTransform(scrollYProgress, [0, 1], [0, height]);
+    const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
+
     return (
-        <section className="relative w-full py-24 overflow-hidden" style={{ background: 'linear-gradient(180deg, #FDFCFB 0%, #FAF9F6 50%, #FDFCFB 100%)' }}>
+        <section ref={containerRef} className="relative w-full py-24 overflow-hidden" style={{ background: 'linear-gradient(180deg, #FDFCFB 0%, #FAF9F6 50%, #FDFCFB 100%)' }}>
             {/* Decorative warm glow */}
             <div className="absolute bottom-0 right-0 w-[500px] h-[400px] bg-[#C9A96E]/[0.025] rounded-full blur-[120px] pointer-events-none" />
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -86,13 +114,23 @@ export default function StudentJourney() {
                 </header>
 
                 {/* Vertical Timeline */}
-                <div className="relative flex flex-col gap-24 lg:gap-32">
-                    {/* Vertical Line — warm sand tone */}
-                    <div className="absolute left-6 lg:left-1/2 top-0 bottom-0 w-px bg-[#D4B896]/40 lg:-translate-x-1/2 hidden md:block" />
+                <div ref={ref} className="relative w-full pb-20 mt-10">
+                    {/* Animated Vertical Line Container */}
+                    <div
+                        style={{ height: height + "px" }}
+                        className="absolute left-6 lg:left-1/2 top-0 overflow-hidden w-[2px] bg-gradient-to-b from-transparent via-[#D4B896]/50 to-transparent lg:-translate-x-1/2 hidden md:block [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)] z-0"
+                    >
+                        <motion.div
+                            style={{ height: heightTransform, opacity: opacityTransform }}
+                            className="absolute inset-x-0 top-0 w-[2px] bg-gradient-to-t from-[#f47920] via-orange-400 to-transparent rounded-full"
+                        />
+                    </div>
 
-                    {steps.map((step, index) => (
-                        <JourneyStep key={step.id} step={step} index={index} />
-                    ))}
+                    <div className="flex flex-col gap-24 lg:gap-32 w-full relative z-10">
+                        {steps.map((step, index) => (
+                            <JourneyStep key={step.id} step={step} index={index} />
+                        ))}
+                    </div>
                 </div>
 
                 {/* CTA */}

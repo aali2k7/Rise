@@ -2,12 +2,20 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 
 export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
     const pathname = usePathname();
+
+    useEffect(() => {
+        const onScroll = () => setScrolled(window.scrollY > 20);
+        onScroll(); // check on mount
+        window.addEventListener("scroll", onScroll, { passive: true });
+        return () => window.removeEventListener("scroll", onScroll);
+    }, []);
 
     const navLinks = [
         { href: "/", label: "Home" },
@@ -19,27 +27,25 @@ export default function Header() {
     ];
 
     return (
-        <header className="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md shadow-sm">
-            <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-                <div className="flex justify-between items-center h-20">
-                    {/* Logo Section (Left) */}
-                    <Link href="/" className="flex items-center gap-3 group">
+        <header
+            className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-out
+                ${scrolled
+                    ? "bg-white/[0.12] backdrop-blur-[20px] border-b border-white/15 shadow-[0_4px_30px_rgba(0,0,0,0.08)] h-16"
+                    : "bg-white/[0.08] backdrop-blur-[20px] border-b border-white/15 shadow-[0_4px_30px_rgba(0,0,0,0.04)] h-24"
+                }`}
+        >
+            <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 h-full">
+                <div className="flex justify-between items-center h-full">
+                    {/* Logo — Free-form, no pill container */}
+                    <Link href="/" className="flex items-center shrink-0">
                         <Image
                             src="/brand/RISE Logo.jpeg"
                             alt="RISE"
-                            width={48}
-                            height={48}
+                            width={scrolled ? 64 : 100}
+                            height={scrolled ? 64 : 100}
                             priority={true}
-                            className="rounded-md"
+                            className="transition-all duration-300 ease-out hover:scale-105"
                         />
-                        <div className="flex flex-col">
-                            <span className="text-2xl font-bold text-[#1A3C5E] tracking-tight group-hover:opacity-80 transition-all leading-none">
-                                RISE
-                            </span>
-                            <span className="text-[0.6rem] font-medium text-slate-500 tracking-[0.15em] uppercase leading-tight mt-0.5 group-hover:text-[#1A3C5E] transition-colors">
-                                Our Effort. Your Rise
-                            </span>
-                        </div>
                     </Link>
 
                     {/* Navigation Links (Center) */}
@@ -50,14 +56,14 @@ export default function Header() {
                                 <Link
                                     key={link.href}
                                     href={link.href}
-                                    className={`text-sm font-medium transition-all relative group ${isActive
+                                    className={`text-sm font-medium transition-all duration-200 relative group ${isActive
                                         ? "text-[#1A3C5E]"
-                                        : "text-slate-600 hover:text-[#1A3C5E]"
+                                        : "text-slate-700 hover:text-[#1A3C5E]"
                                         }`}
                                 >
                                     {link.label}
                                     <span
-                                        className={`absolute bottom-0 left-0 h-0.5 bg-[#1A3C5E] transition-all duration-300 ${isActive ? "w-full" : "w-0 group-hover:w-full"
+                                        className={`absolute -bottom-1 left-0 h-[2px] bg-[#1A3C5E] transition-all duration-200 ease-out ${isActive ? "w-full" : "w-0 group-hover:w-full"
                                             }`}
                                     ></span>
                                 </Link>
@@ -69,7 +75,7 @@ export default function Header() {
                     <div className="flex items-center gap-4">
                         <Link
                             href="/enquire"
-                            className="hidden lg:inline-flex items-center justify-center rounded-md bg-[#1A3C5E] px-6 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#1A3C5E]/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1A3C5E] transition-all"
+                            className="no-animate hidden lg:inline-flex items-center justify-center rounded-xl bg-[#1A3C5E] px-6 py-2.5 text-sm font-semibold text-white shadow-md hover:shadow-lg hover:bg-[#1A3C5E]/90 hover:scale-[1.03] active:scale-[0.97] transition-all duration-200 ease-in-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1A3C5E]"
                         >
                             Enquire
                         </Link>
@@ -77,7 +83,7 @@ export default function Header() {
                         {/* Mobile Menu Toggle */}
                         <button
                             onClick={() => setIsOpen(!isOpen)}
-                            className="lg:hidden p-2 rounded-md text-slate-600 hover:bg-slate-100 transition-all focus:outline-none"
+                            className="no-animate lg:hidden p-2 rounded-md text-slate-600 hover:bg-slate-100 transition-all focus:outline-none"
                             aria-label="Toggle menu"
                             aria-expanded={isOpen}
                         >
