@@ -103,9 +103,9 @@ export const metadata: Metadata = {
     images: ["/twitter-image.png"],
   },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    icon: "/brand/RISE%20Logo.jpeg",
+    shortcut: "/brand/RISE%20Logo.jpeg",
+    apple: "/brand/RISE%20Logo.jpeg",
   },
 };
 
