@@ -42,8 +42,8 @@ export default function EnquireContent() {
     };
 
     return (
-        <div className="min-h-screen bg-slate-50 flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8 relative">
-            <div className="max-w-xl w-full space-y-8 bg-white p-10 rounded-2xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border border-slate-100 relative z-10">
+        <div className="min-h-screen bg-[#FDFCFB] flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8 relative">
+            <div className="max-w-xl w-full space-y-8 bg-white/80 backdrop-blur-sm p-10 rounded-2xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border border-[#E8DFD3]/30 relative z-10">
 
                 {/* Success Modal Overlay (Inline) */}
                 {formStatus === 'success' ? (
@@ -175,9 +175,9 @@ export default function EnquireContent() {
 
             {/* Background Decoration */}
             <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-                <div className="absolute top-0 left-0 w-full h-full bg-slate-50" />
-                <div className="absolute -top-40 -right-40 w-96 h-96 bg-[#1A3C5E]/5 rounded-full blur-3xl opacity-50" />
-                <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-[#059669]/5 rounded-full blur-3xl opacity-50" />
+                <div className="absolute top-0 left-0 w-full h-full bg-[#FDFCFB]" />
+                <div className="absolute -top-40 -right-40 w-96 h-96 bg-[#1A2E44]/[0.03] rounded-full blur-3xl opacity-50" />
+                <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-[#C9A96E]/[0.04] rounded-full blur-3xl opacity-50" />
             </div>
         </div>
     );

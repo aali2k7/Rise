@@ -7,7 +7,7 @@ export default function ScientificMandala() {
         <div
             aria-hidden="true"
             className="pointer-events-none absolute top-1/2 right-0 z-0
-                 h-[800px] w-[800px]
+                 h-[350px] w-[350px] sm:h-[500px] sm:w-[500px] lg:h-[800px] lg:w-[800px]
                  -translate-y-1/2 translate-x-1/2
                  mandala-shadow"
         >

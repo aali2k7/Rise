@@ -15,7 +15,7 @@ export const metadata: Metadata = {
  */
 export default function Contact() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#FDFCFB]">
       <section className="py-20 max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-semibold text-[#1A3C5E] mb-6 tracking-tight">
@@ -32,7 +32,7 @@ export default function Contact() {
           <div className="flex flex-col gap-12">
 
             {/* Phone Numbers */}
-            <div className="bg-slate-50 border border-slate-100 rounded-2xl p-8 md:p-10 text-center lg:text-left">
+            <div className="bg-[#FAF9F7] border border-[#E8DFD3]/30 rounded-2xl p-8 md:p-10 text-center lg:text-left">
               <h2 className="text-2xl font-semibold text-[#1A3C5E] mb-8">
                 Call Us
               </h2>

@@ -24,20 +24,21 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-[calc(100vh-80px)] w-full items-center overflow-hidden bg-gradient-to-br from-[#EFF6FF] via-white to-indigo-50/50"
+      className="relative flex min-h-[calc(100vh-80px)] w-full items-center overflow-hidden"
+      style={{ background: 'linear-gradient(135deg, #FDFCFB 0%, #FAF9F6 30%, #F9F7F4 60%, #FDFCFB 100%)' }}
     >
-      {/* Decorative Abstract Shapes (Blurred Blobs) */}
+      {/* Decorative Abstract Shapes — subtle warmth */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Top Right Blob */}
-        <div className="absolute -top-20 -right-20 w-[600px] h-[600px] bg-[#1E3A8A]/5 rounded-full blur-[100px] mix-blend-multiply" />
-        {/* Bottom Left Blob */}
-        <div className="absolute -bottom-20 -left-20 w-[500px] h-[500px] bg-[#10B981]/10 rounded-full blur-[80px] mix-blend-multiply" />
-        {/* Center Accent */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#F59E0B]/5 rounded-full blur-[120px] opacity-60" />
+        {/* Top Right — faint Navy */}
+        <div className="absolute -top-20 -right-20 w-[600px] h-[600px] bg-[#1A2E44]/[0.03] rounded-full blur-[100px] mix-blend-multiply" />
+        {/* Bottom Left — whisper of warmth */}
+        <div className="absolute -bottom-20 -left-20 w-[500px] h-[500px] bg-[#C9A96E]/[0.04] rounded-full blur-[80px] mix-blend-multiply" />
+        {/* Center — barely there gold */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#D4B896]/[0.02] rounded-full blur-[120px] opacity-60" />
       </div>
 
       {/* Scientific Mandala (Preserved but styled if needed) */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 z-0 opacity-80 scale-90 lg:scale-100">
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 z-0 opacity-15 sm:opacity-30 lg:opacity-80 scale-90 lg:scale-100 mix-blend-multiply pointer-events-none">
         <ScientificMandala />
       </div>
 

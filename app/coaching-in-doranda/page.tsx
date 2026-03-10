@@ -36,7 +36,7 @@ export default function DorandaLocationPage() {
     ];
 
     return (
-        <main className="bg-white">
+        <main className="bg-[#FDFCFB]">
             {/* Hero */}
             <section className="relative py-20 bg-blue-900 text-white">
                 <div className="max-w-7xl mx-auto px-6 text-center">

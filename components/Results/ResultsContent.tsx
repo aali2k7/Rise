@@ -76,14 +76,14 @@ export default function ResultsContent() {
     ];
 
     return (
-        <div className="min-h-screen bg-white">
+        <div className="min-h-screen bg-[#FDFCFB]">
             {/* 
         Goal: Make this section feel credible, premium, and confidence-driven. 
         Primary Audience: Parents & Students.
       */}
 
             {/* Page Header */}
-            <section className="bg-white py-20 border-b border-slate-100">
+            <section className="bg-[#FDFCFB] py-20 border-b border-[#E8DFD3]/20">
                 <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
                     <h1 className="text-4xl md:text-6xl font-semibold text-[#1A3C5E] mb-6 tracking-tight">
                         Results & Testimonials
@@ -101,7 +101,7 @@ export default function ResultsContent() {
                 <div className="absolute inset-0 bg-gradient-to-b from-[#F0FDF4]/30 via-white to-white pointer-events-none" />
 
                 {/* PART 1 REPLACEMENT: "WHAT WE STAND FOR" (MANIFESTO PILLARS) */}
-                <section className="py-24 relative z-10 bg-[#F8FCF8] border-b border-[#E2E8F0]/60">
+                <section className="py-24 relative z-10 bg-[#FAF9F7] border-b border-[#E8DFD3]/20">
                     <div className="max-w-7xl mx-auto px-6 lg:px-8">
                         <div className="text-center mb-16 md:mb-20">
                             <h2 className="text-3xl md:text-4xl font-semibold text-[#1A3C5E] mb-4 tracking-tight">
@@ -169,7 +169,7 @@ export default function ResultsContent() {
                 </section>
 
                 {/* PART 3: EXISTING TESTIMONIALS (STRUCTURAL REFINEMENT ONLY) */}
-                <section className="py-20 bg-white relative z-10">
+                <section className="py-20 bg-[#FDFCFB] relative z-10">
                     <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
                         <div className="text-center mb-16">
                             <h2 className="text-3xl font-semibold text-[#1A3C5E] mb-6">Student Success Stories</h2>
@@ -180,7 +180,7 @@ export default function ResultsContent() {
                             {testimonials.map((testimonial, index) => (
                                 <div
                                     key={index}
-                                    className="bg-slate-50 rounded-2xl p-8 md:p-10 border border-slate-100 flex flex-col h-full hover:shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] transition-shadow duration-300"
+                                    className="bg-[#FAF9F7] rounded-2xl p-8 md:p-10 border border-[#E8DFD3]/30 flex flex-col h-full hover:shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] transition-shadow duration-300"
                                 >
                                     <blockquote className="text-lg text-[#1A3C5E]/90 leading-relaxed mb-8 flex-grow italic relative">
                                         <span className="absolute -top-4 -left-2 text-6xl text-[#059669] opacity-10 font-serif">&ldquo;</span>
@@ -336,7 +336,7 @@ export default function ResultsContent() {
                 </section>
 
                 {/* Existing Outcomes Focus preserved as Footer-ish reinforcement */}
-                <section className="py-20 bg-slate-50 border-t border-slate-200">
+                <section className="py-20 bg-[#FAF9F7] border-t border-[#E8DFD3]/20">
                     <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
                         <div className="text-center mb-16">
                             <h2 className="text-2xl font-semibold text-[#1A3C5E] mb-6">What We Measure</h2>

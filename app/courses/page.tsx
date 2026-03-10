@@ -49,9 +49,9 @@ export default function Courses() {
   ];
 
   return (
-    <div className="min-h-screen bg-base-light">
+    <div className="min-h-screen bg-[#FDFCFB]">
       {/* Page Header - Premium typography */}
-      <section className="bg-white py-20 border-b border-base-subtle">
+      <section className="bg-[#FDFCFB] py-20 border-b border-[#E8DFD3]/20">
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
           <h1 className="text-h1 md:text-[3.5rem] text-text-primary mb-6">
             Our Courses
@@ -115,7 +115,7 @@ export default function Courses() {
       </section>
 
       {/* Program Structure - Elegant list */}
-      <section className="section bg-white">
+      <section className="section bg-[#FDFCFB]">
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="text-center mb-16">
             <h2 className="text-h2 text-text-primary mb-6">Program Structure</h2>

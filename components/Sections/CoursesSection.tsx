@@ -257,9 +257,9 @@ function HomePageVariant() {
                             }}
                             frontContent={
                                 <ul className="mt-6 list-disc space-y-3 pl-5 text-sm leading-relaxed text-slate-700 marker:text-orange-500">
-                                    <li>Advanced logic building and problem-solving techniques.</li>
-                                    <li>Focus on application-based learning for JEE Mains & Advanced.</li>
-                                    <li>Strategic error analysis to minimize negative marking.</li>
+                                    <li>Advanced logic building and problem-solving techniques for national level competitive examinations.</li>
+                                    <li>Focus on application-based learning for IIT JEE Main &amp; IIT JEE Advanced question papers.</li>
+                                    <li>Strategic error analysis to minimize negative marking in JEE Mains &amp; Advanced.</li>
                                 </ul>
                             }
                             backContent={{

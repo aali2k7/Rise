@@ -1,16 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Header from "@/components/Sections/Header";
+import AmbientAudio from "@/components/UI/AmbientAudio";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
-import { IBM_Plex_Sans } from "next/font/google";
 
-const ibmPlexSans = IBM_Plex_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-ibm-plex",
-  display: "swap",
-});
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -33,10 +27,41 @@ export const metadata: Metadata = {
     "Best Coaching Institute Ranchi",
     "Commerce Coaching Ranchi",
     "RISE Institute",
+    "dear visitor allen",
+    "visitor allen ac",
+    "data links might",
+    "navigate using saved",
+    "bookmarked links please",
+    "payments please note",
+    "maintenance dear visitor",
+    "jpg img brothers",
+    "iit jee advanced",
+    "jee advanced 2024",
+    "jee advanced 2022",
+    "iit jee main",
+    "years classroom course",
+    "jee advanced 2023",
+    "ranchi city topper",
+    "2022 tanish agarwal",
+    "advanced 2024 question",
+    "user name password",
+    "name password submit",
+    "iitjee olympiads etc",
+    "coveted national level",
+    "national level competitive",
+    "level competitive examinations",
+    "xii standards across",
+    "top notch iits"
   ],
   authors: [{ name: "RISE Coaching Institute" }],
   creator: "RISE Coaching Institute",
   publisher: "RISE Coaching Institute",
+  category: "Education",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   robots: {
     index: true,
     follow: true,
@@ -170,11 +195,16 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={ibmPlexSans.className}>
+      <body>
         <Header />
 
         <main>{children}</main>
         <SpeedInsights />
+        <AmbientAudio />
+        {/* Invisible Keywords for SEO Strategy */}
+        <div className="sr-only" aria-hidden="true" style={{ opacity: 0, position: 'absolute', pointerEvents: 'none', zIndex: -1 }}>
+          dear visitor allen visitor allen ac data links might navigate using saved bookmarked links please payments please note maintenance dear visitor jpg img brothers iit jee advanced jee advanced 2024 jee advanced 2022 iit jee main years classroom course jee advanced 2023 ranchi city topper 2022 tanish agarwal advanced 2024 question user name password name password submit iitjee olympiads etc coveted national level national level competitive level competitive examinations xii standards across top notch iits
+        </div>
       </body>
     </html>
   );

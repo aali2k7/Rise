@@ -30,17 +30,17 @@ export default function TestimonialsSection({ testimonials: customTestimonials }
     const testimonials = customTestimonials || defaultTestimonials;
 
     return (
-        <section className="w-full py-20 sm:py-24 lg:py-28 bg-slate-50 relative overflow-hidden text-left">
-            {/* Background Decoration (Subtle Gradient from Results) */}
-            <div className="absolute inset-0 bg-gradient-to-b from-slate-50 to-[#fdfdfd] pointer-events-none" />
+        <section className="w-full py-20 sm:py-24 lg:py-28 relative overflow-hidden text-left" style={{ background: 'linear-gradient(180deg, #FAF9F7 0%, #FDFCFB 50%, #FAF9F7 100%)' }}>
+            {/* Background Decoration — Warm Glow */}
+            <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-[#D4B896]/[0.025] rounded-full blur-[100px] pointer-events-none" />
 
             <div className="mx-auto max-w-7xl px-6 relative z-10">
                 <header className="mb-20 text-center">
-                    <h2 className="text-3xl font-semibold text-[#1A3C5E] sm:text-4xl leading-tight">
+                    <h2 className="text-3xl font-semibold text-[#1A2E44] sm:text-4xl leading-tight">
                         What Parents Say
                     </h2>
-                    <div className="mt-6 h-px w-16 bg-[#94A3B8] mx-auto opacity-50" />
-                    <p className="mt-6 text-lg text-slate-600 max-w-2xl mx-auto font-medium">
+                    <div className="mt-6 h-px w-16 bg-[#C9A96E] mx-auto opacity-30" />
+                    <p className="mt-6 text-lg text-[#4A5568] max-w-2xl mx-auto font-medium">
                         Experiences from families who have trusted us with their children&apos;s academic journey.
                     </p>
                 </header>
@@ -48,9 +48,9 @@ export default function TestimonialsSection({ testimonials: customTestimonials }
                 {/* Scrollable Container (Mask) */}
                 <div className="relative w-full overflow-hidden ticker-container">
 
-                    {/* Gradient Masks for smooth fade edges */}
-                    <div className="absolute left-0 top-0 bottom-0 w-24 z-20 bg-gradient-to-r from-slate-50 to-transparent pointer-events-none" />
-                    <div className="absolute right-0 top-0 bottom-0 w-24 z-20 bg-gradient-to-l from-slate-50 to-transparent pointer-events-none" />
+                    {/* Gradient Masks — near-white fade */}
+                    <div className="absolute left-0 top-0 bottom-0 w-24 z-20 pointer-events-none" style={{ background: 'linear-gradient(to right, #FCFBF9, transparent)' }} />
+                    <div className="absolute right-0 top-0 bottom-0 w-24 z-20 pointer-events-none" style={{ background: 'linear-gradient(to left, #FCFBF9, transparent)' }} />
 
                     {/* Animated Track */}
                     <div className="flex w-max animate-marquee-infinite gap-8 hover:[animation-play-state:paused] py-10 pl-6 pr-2">
@@ -58,7 +58,7 @@ export default function TestimonialsSection({ testimonials: customTestimonials }
                         {[...testimonials, ...testimonials].map((item, index) => (
                             <div
                                 key={index}
-                                className="w-[85vw] sm:w-[320px] md:w-[450px] flex-shrink-0 bg-white rounded-2xl p-8 shadow-[0_2px_15px_-4px_rgba(0,0,0,0.05),0_0_2px_rgba(0,0,0,0.02)] border border-slate-100/50 
+                                className="w-[85vw] sm:w-[320px] md:w-[450px] flex-shrink-0 bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-[0_2px_15px_-4px_rgba(0,0,0,0.05),0_0_2px_rgba(0,0,0,0.02)] border border-[#E8DFD3]/50 
                                          relative group transition-all duration-300 ease-out hover:-translate-y-[2px] hover:shadow-[0_8px_30px_-6px_rgba(0,0,0,0.08)] select-none"
                             >
                                 {/* Quote Icon (Decoration) */}

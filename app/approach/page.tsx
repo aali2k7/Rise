@@ -16,10 +16,10 @@ import { Check, ArrowRight } from "lucide-react";
  */
 export default function Approach() {
   return (
-    <div className="min-h-screen bg-[#fcfcfd]">
+    <div className="min-h-screen bg-[#FDFCFB]">
 
       {/* --- SECTION 1: HERO (REFINED) --- */}
-      <section className="relative w-full py-28 lg:py-36 bg-gradient-to-b from-slate-50/80 via-white to-white border-b border-slate-100">
+      <section className="relative w-full py-28 lg:py-36 border-b border-[#E8DFD3]/30" style={{ background: 'linear-gradient(180deg, #FAF9F6 0%, #FDFCFB 100%)' }}>
         <div className="max-w-3xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#1A3C5E] mb-8">
             Our Teaching Approach
@@ -34,7 +34,7 @@ export default function Approach() {
       </section>
 
       {/* --- SECTION 2: CORE PILLARS (2x2 GRID) --- */}
-      <section className="py-24 bg-slate-50 border-y border-slate-100/50">
+      <section className="py-24 border-y border-[#E8DFD3]/20" style={{ background: 'linear-gradient(180deg, #FAF9F7 0%, #FDFCFB 100%)' }}>
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold tracking-tight text-[#1A3C5E] sm:text-4xl relative inline-block">
@@ -89,7 +89,7 @@ export default function Approach() {
       </section>
 
       {/* --- SECTION 3: COMPARISON (WHY RISE) --- */}
-      <section className="py-24 bg-white border-y border-slate-100">
+      <section className="py-24 bg-[#FDFCFB] border-y border-[#E8DFD3]/20">
         <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold tracking-tight text-[#1A3C5E] sm:text-4xl">
@@ -141,7 +141,7 @@ export default function Approach() {
       </section>
 
       {/* --- SECTION 4: PROCESS FLOW --- */}
-      <section className="py-24 bg-[#f8fafc]">
+      <section className="py-24" style={{ background: 'linear-gradient(180deg, #FDFCFB 0%, #FAF9F6 100%)' }}>
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold tracking-tight text-[#1A3C5E] sm:text-4xl">

@@ -70,23 +70,25 @@ const steps = [
 export default function StudentJourney() {
     const router = useRouter();
     return (
-        <section className="relative w-full py-24 bg-slate-50 overflow-hidden">
+        <section className="relative w-full py-24 overflow-hidden" style={{ background: 'linear-gradient(180deg, #FDFCFB 0%, #FAF9F6 50%, #FDFCFB 100%)' }}>
+            {/* Decorative warm glow */}
+            <div className="absolute bottom-0 right-0 w-[500px] h-[400px] bg-[#C9A96E]/[0.025] rounded-full blur-[120px] pointer-events-none" />
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
                 {/* Header */}
                 <header className="text-center mb-24">
-                    <h2 className="text-3xl font-bold text-[#1A3C5E] tracking-tight sm:text-4xl mb-6">
+                    <h2 className="text-3xl font-bold text-[#1A2E44] tracking-tight sm:text-4xl mb-6">
                         The RISE Student Journey
                     </h2>
-                    <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+                    <p className="text-lg text-[#4A5568] max-w-2xl mx-auto">
                         From orientation to outcomes — a structured path, guided at every step.
                     </p>
                 </header>
 
                 {/* Vertical Timeline */}
                 <div className="relative flex flex-col gap-24 lg:gap-32">
-                    {/* Vertical Line */}
-                    <div className="absolute left-6 lg:left-1/2 top-0 bottom-0 w-px bg-slate-200 lg:-translate-x-1/2 hidden md:block" />
+                    {/* Vertical Line — warm sand tone */}
+                    <div className="absolute left-6 lg:left-1/2 top-0 bottom-0 w-px bg-[#D4B896]/40 lg:-translate-x-1/2 hidden md:block" />
 
                     {steps.map((step, index) => (
                         <JourneyStep key={step.id} step={step} index={index} />

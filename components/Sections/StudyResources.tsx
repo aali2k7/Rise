@@ -5,6 +5,14 @@ export default function StudyResources() {
         <section id="study-resources" className="w-full bg-gradient-to-b from-[#f8fafc] to-[#f1f5f9] py-24">
             <div className="max-w-7xl mx-auto px-6">
 
+                {/* Visitor Notice */}
+                <div className="mb-12 rounded-xl border border-orange-200 bg-orange-50 px-6 py-4 flex flex-col sm:flex-row items-start sm:items-center gap-3">
+                    <span className="text-orange-500 text-lg font-bold shrink-0">📌 Dear Visitor</span>
+                    <p className="text-sm text-slate-700 leading-relaxed">
+                        You can navigate using saved bookmarked links for quick access to study materials, course details, and enquiry forms. For payments, please note that all fee-related information is available at the front desk. The site may undergo brief maintenance — dear visitor, we appreciate your patience.
+                    </p>
+                </div>
+
                 {/* Header */}
                 <header className="text-center mb-20">
                     <h2 className="text-3xl font-bold text-slate-800 tracking-tight sm:text-4xl mb-6">

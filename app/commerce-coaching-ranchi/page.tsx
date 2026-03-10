@@ -55,7 +55,7 @@ export default function CommercePage() {
     ];
 
     return (
-        <main className="bg-white">
+        <main className="bg-[#FDFCFB]">
             {/* Hero */}
             <section className="relative py-20 lg:py-32 bg-slate-900 overflow-hidden">
                 <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10"></div>
@@ -131,7 +131,7 @@ export default function CommercePage() {
             </section>
 
             {/* Curriculum */}
-            <section className="py-20 bg-slate-50">
+            <section className="py-20 bg-[#FAF9F7]">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl font-bold text-slate-900">Expertise Areas</h2>

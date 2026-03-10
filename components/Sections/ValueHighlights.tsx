@@ -1,4 +1,4 @@
-import { Users, Clock, MessageCircle, TrendingUp, ClipboardCheck } from "lucide-react";
+import { Users, Clock, MessageCircle, TrendingUp, ClipboardCheck, Trophy } from "lucide-react";
 
 export default function ValueHighlights() {
     const highlights = [
@@ -32,6 +32,12 @@ export default function ValueHighlights() {
             description: "We operate with radical transparency. Detailed performance audits and attendance logs are shared directly with parents weekly.",
             highlight: "radical transparency"
         },
+        {
+            icon: Trophy,
+            title: "IITJee, Olympiads & National Level Competitive Examinations",
+            description: "Our Class XI & XII standards curriculum is aligned to coveted national level competitive examinations — IIT JEE Main, JEE Advanced, and Olympiads — helping students from Ranchi reach top notch IITs.",
+            highlight: "top notch IITs"
+        },
     ];
 
     return (
@@ -56,16 +62,12 @@ export default function ValueHighlights() {
 
                 {/* Grid Layout */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {/* STEP 5: Top-row cards with stronger shadow */}
                     {highlights.slice(0, 3).map((item, index) => (
                         <PremiumPlacard key={index} {...item} isTopRow={true} />
                     ))}
-                    {/* Centering the last two - bottom row with softer shadow */}
-                    <div className="md:col-span-2 lg:col-span-3 grid md:grid-cols-2 gap-8 lg:w-2/3 lg:mx-auto">
-                        {highlights.slice(3, 5).map((item, index) => (
-                            <PremiumPlacard key={index + 3} {...item} isTopRow={false} />
-                        ))}
-                    </div>
+                    {highlights.slice(3, 6).map((item, index) => (
+                        <PremiumPlacard key={index + 3} {...item} isTopRow={false} />
+                    ))}
                 </div>
             </div>
         </section>

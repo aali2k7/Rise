@@ -31,7 +31,7 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-ibm-plex)", "IBM Plex Sans", "sans-serif"],
+        sans: ["'Microsoft Tai Le'", "sans-serif"],
       },
       fontSize: {
         // Professional typography scale with strong hierarchy

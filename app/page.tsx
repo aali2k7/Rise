@@ -36,39 +36,39 @@ export default function Home() {
 
       {/* Alternating sections with visual rhythm */}
       <div className="relative">
-        {/* Secondary background - light tint */}
-        <div className="bg-section-secondary">
+        {/* Warm beige wash */}
+        <div className="bg-section-warm">
           <ValueHighlights />
         </div>
 
-        {/* Primary background - white */}
+        {/* Primary beige canvas */}
         <div className="bg-section-primary section-divider">
           <CoursesSection />
         </div>
 
-        {/* Tertiary background - subtle gradient */}
+        {/* Warm parchment tint */}
         <div className="bg-section-tertiary">
           <MentorshipStatement />
         </div>
 
-        {/* Student Journey - Flow after Philosophy */}
-        <div className="bg-section-secondary">
+        {/* Student Journey - warm sand wash */}
+        <div className="bg-section-warm">
           <StudentJourney />
         </div>
 
-        {/* Primary background - white */}
+        {/* Primary beige canvas */}
         <div className="bg-section-primary section-divider">
           <DirectorsDesk />
         </div>
 
 
 
-        {/* Tertiary background - subtle gradient */}
-        <div className="bg-section-tertiary">
+        {/* Warm testimonial section */}
+        <div className="bg-section-secondary">
           <TestimonialsSection />
         </div>
 
-        {/* Primary background - white */}
+        {/* Primary beige canvas */}
         <div className="bg-section-primary section-divider">
           <StudyResources />
         </div>
