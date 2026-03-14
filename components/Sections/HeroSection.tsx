@@ -46,16 +46,16 @@ export default function HeroSection() {
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12">
         <div className="max-w-3xl">
           {/* Main Headline */}
-          <h1 className="text-5xl lg:text-7xl font-extrabold tracking-tight text-[#1E3A8A] leading-[1.1]">
-            <span className="relative inline-block">
+          <h1 className="text-3xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight text-[#1E3A8A] leading-[1.2] lg:leading-[1.1]">
+            <span className="relative inline-block mb-2 sm:mb-0">
               Best Coaching
-              <svg className="absolute w-full h-3 -bottom-1 left-0 text-[#10B981] opacity-60" viewBox="0 0 100 10" preserveAspectRatio="none">
+              <svg className="absolute w-full h-2 sm:h-3 -bottom-1 left-0 text-[#10B981] opacity-60" viewBox="0 0 100 10" preserveAspectRatio="none">
                 <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="3" fill="none" />
               </svg>
             </span>{" "}
             Institute in{" "}
-            <span className="text-[#10B981]">Doranda, Ranchi</span> —{" "}
-            <span className="text-[#F59E0B]">RISE Coaching Institute</span>
+            <span className="text-[#10B981] block sm:inline">Doranda, Ranchi</span> —{" "}
+            <span className="text-[#F59E0B] block lg:inline-block mt-2 lg:mt-0">RISE Coaching Institute</span>
           </h1>
 
           {/* Typewriter Subheading */}

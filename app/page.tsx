@@ -36,7 +36,7 @@ export default function Home() {
       {/* Alternating sections with visual rhythm */}
       <div className="relative">
         {/* Warm beige wash */}
-        <div className="bg-section-warm">
+        <div id="about" className="bg-section-warm">
           <WhyChooseRise />
         </div>
 

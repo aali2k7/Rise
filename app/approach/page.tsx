@@ -243,16 +243,16 @@ function PillarCard({ icon: Icon, title, desc, color, delay }: any) {
 function ComparisonRow({ feature, traditional, rise }: any) {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 hover:bg-slate-50 transition-colors">
-      <div className="p-6 lg:p-8 font-bold text-xl text-slate-800 border-b lg:border-b-0 lg:border-r border-slate-200 flex items-center bg-slate-100 lg:bg-transparent">
+      <div className="p-5 lg:p-8 font-bold text-lg lg:text-xl text-slate-800 border-b lg:border-b-0 lg:border-r border-slate-200 flex items-center bg-slate-50/50 lg:bg-transparent group-hover:bg-white transition-colors">
         {feature}
       </div>
-      <div className="p-6 lg:p-8 border-b lg:border-b-0 lg:border-r border-slate-200 flex items-center gap-4">
-        <X className="w-6 h-6 text-red-500 shrink-0 mt-0.5" strokeWidth={3} />
-        <span className="font-medium text-base md:text-lg text-slate-600">{traditional}</span>
+      <div className="p-5 lg:p-8 border-b lg:border-b-0 lg:border-r border-slate-200 flex items-center gap-3 lg:gap-4">
+        <X className="w-5 h-5 lg:w-6 lg:h-6 text-red-400 shrink-0 mt-0.5" strokeWidth={3} />
+        <span className="font-medium text-sm lg:text-lg text-slate-500">{traditional}</span>
       </div>
-      <div className="p-6 lg:p-8 font-semibold bg-orange-50 flex items-center gap-4">
-        <Check className="w-6 h-6 text-green-600 shrink-0 mt-0.5 shadow-sm rounded-full bg-white p-1" strokeWidth={4} />
-        <span className="text-base md:text-lg text-slate-900">{rise}</span>
+      <div className="p-5 lg:p-8 font-semibold bg-orange-50/50 lg:bg-orange-50 flex items-center gap-3 lg:gap-4">
+        <Check className="w-5 h-5 lg:w-6 lg:h-6 text-green-600 shrink-0 mt-0.5 shadow-sm rounded-full bg-white p-1" strokeWidth={4} />
+        <span className="text-sm lg:text-lg text-slate-900">{rise}</span>
       </div>
     </div>
   );
