@@ -30,12 +30,12 @@ export default function Home() {
       <HeroSection />
 
       {/* Select Goal Section - Navigation Aid */}
-      <SelectGoalSection />
-
-
+      <div className="border-b border-[#E8DFD3]/60">
+        <SelectGoalSection />
+      </div>
 
       {/* Alternating sections with visual rhythm */}
-      <div className="relative">
+      <div className="relative divide-y divide-[#E8DFD3]/60">
         {/* Warm beige wash */}
         <div className="bg-section-warm">
           <ValueHighlights />

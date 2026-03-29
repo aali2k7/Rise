@@ -2,20 +2,12 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { usePathname } from "next/navigation";
 
 export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
-    const [scrolled, setScrolled] = useState(false);
     const pathname = usePathname();
-
-    useEffect(() => {
-        const onScroll = () => setScrolled(window.scrollY > 20);
-        onScroll(); // check on mount
-        window.addEventListener("scroll", onScroll, { passive: true });
-        return () => window.removeEventListener("scroll", onScroll);
-    }, []);
 
     const navLinks = [
         { href: "/", label: "Home" },
@@ -28,23 +20,19 @@ export default function Header() {
 
     return (
         <header
-            className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-out
-                ${scrolled
-                    ? "bg-white/[0.12] backdrop-blur-[20px] border-b border-white/15 shadow-[0_4px_30px_rgba(0,0,0,0.08)] h-16"
-                    : "bg-white/[0.08] backdrop-blur-[20px] border-b border-white/15 shadow-[0_4px_30px_rgba(0,0,0,0.04)] h-24"
-                }`}
+            className="fixed top-0 left-0 w-full z-50 h-20 lg:h-24 bg-[#FAF8F5]/80 backdrop-blur-md border-b border-[#E8DFD3]/60 shadow-[0_4px_30px_rgba(0,0,0,0.03)] transition-all duration-300 ease-out"
         >
             <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 h-full">
                 <div className="flex justify-between items-center h-full">
-                    {/* Logo — Free-form, no pill container */}
-                    <Link href="/" className="flex items-center shrink-0">
+                    {/* Logo — Premium look with correct aspect ratio and styling */}
+                    <Link href="/" className="flex items-center shrink-0 h-full py-1.5 lg:py-2.5 focus:outline-none focus:ring-2 focus:ring-[#1A3C5E] rounded-xl">
                         <Image
                             src="/brand/RISE Logo.jpeg"
-                            alt="RISE"
-                            width={scrolled ? 64 : 100}
-                            height={scrolled ? 64 : 100}
+                            alt="RISE Institute"
+                            width={300}
+                            height={300}
                             priority={true}
-                            className="transition-all duration-300 ease-out hover:scale-105"
+                            className="h-full w-auto object-contain rounded-xl shadow-sm hover:shadow-md transition-all duration-300 ease-out hover:-translate-y-0.5"
                         />
                     </Link>
 

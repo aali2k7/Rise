@@ -2,93 +2,69 @@
 
 import { useEffect, useState } from "react";
 import ScientificMandala from "../Visuals/ScientificMandala";
+import Link from "next/link";
 
 export default function HeroSection() {
-  const fullText = "Our Effort. Your Rise";
   const [visibleText, setVisibleText] = useState("");
+  const fullText = "Our Effort. Your Rise";
 
   useEffect(() => {
     let index = 0;
     const interval = setInterval(() => {
       setVisibleText(fullText.slice(0, index + 1));
       index++;
-
-      if (index === fullText.length) {
-        clearInterval(interval);
-      }
+      if (index === fullText.length) clearInterval(interval);
     }, 70);
-
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <section
-      id="hero"
-      className="relative flex min-h-[calc(100vh-80px)] w-full items-center overflow-hidden"
-      style={{ background: 'linear-gradient(135deg, #FDFCFB 0%, #FAF9F6 30%, #F9F7F4 60%, #FDFCFB 100%)' }}
-    >
-      {/* Decorative Abstract Shapes — subtle warmth */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Top Right — faint Navy */}
-        <div className="absolute -top-20 -right-20 w-[600px] h-[600px] bg-[#1A2E44]/[0.03] rounded-full blur-[100px] mix-blend-multiply" />
-        {/* Bottom Left — whisper of warmth */}
-        <div className="absolute -bottom-20 -left-20 w-[500px] h-[500px] bg-[#C9A96E]/[0.04] rounded-full blur-[80px] mix-blend-multiply" />
-        {/* Center — barely there gold */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#D4B896]/[0.02] rounded-full blur-[120px] opacity-60" />
-      </div>
-
-      {/* Scientific Mandala (Preserved but styled if needed) */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 z-0 opacity-15 sm:opacity-30 lg:opacity-80 scale-90 lg:scale-100 mix-blend-multiply pointer-events-none">
+    <section className="relative flex min-h-[calc(100vh-80px)] w-full items-center overflow-hidden bg-white">
+      {/* Absolute faint background pattern */}
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 z-0 opacity-10 sm:opacity-20 lg:opacity-30 scale-100 pointer-events-none">
         <ScientificMandala />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 pt-20">
         <div className="max-w-3xl">
-          {/* Main Headline */}
-          <h1 className="text-5xl lg:text-7xl font-extrabold tracking-tight text-[#1E3A8A] leading-[1.1]">
-            <span className="relative inline-block">
-              Best Coaching
-              <svg className="absolute w-full h-3 -bottom-1 left-0 text-[#10B981] opacity-60" viewBox="0 0 100 10" preserveAspectRatio="none">
-                <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="3" fill="none" />
-              </svg>
-            </span>{" "}
-            Institute in{" "}
-            <span className="text-[#10B981]">Doranda, Ranchi</span> —{" "}
-            <span className="text-[#F59E0B]">RISE Coaching Institute</span>
+          <h1 className="text-5xl lg:text-[4.5rem] font-bold tracking-tight text-[#1A3C5E] leading-[1.1] relative">
+            <span className="relative z-10 block">
+              Best Coaching Institute
+              <span className="absolute left-0 -bottom-2 w-[85%] h-1 bg-emerald-400 opacity-80" style={{borderRadius: '4px'}} />
+            </span>
+            <span className="block mt-2">
+              in <span className="text-[#10B981]">Doranda, Ranchi</span> —
+            </span>
+            <span className="block text-[#F59E0B] mt-2">
+              RISE Coaching Institute
+            </span>
           </h1>
 
-          {/* Typewriter Subheading */}
-          <div className="mt-8 flex items-center gap-4">
-            <div className="h-px w-12 bg-[#1E3A8A]/30"></div>
-            <h2 className="text-2xl lg:text-3xl font-bold text-[#0F172A]">
+          <div className="mt-10 flex items-center gap-4">
+            <div className="h-px w-10 bg-slate-300"></div>
+            <h2 className="text-2xl lg:text-[1.75rem] font-bold text-[#0F172A]">
               {visibleText}
               <span className="animate-pulse text-[#F59E0B]">|</span>
             </h2>
           </div>
 
-          {/* CTAs */}
-          <div className="mt-10 flex flex-col sm:flex-row gap-5">
-            {/* Primary CTA */}
-            <a
+          <div className="mt-12 flex flex-col justify-start sm:flex-row gap-4">
+            <Link
               href="/enquire"
-              className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-300 bg-gradient-to-r from-[#1E3A8A] to-blue-600 rounded-xl shadow-lg hover:shadow-xl hover:scale-[1.02] hover:-translate-y-1"
+              className="inline-flex items-center justify-center px-8 py-3.5 text-base font-bold text-white transition-all duration-300 bg-[#1e40af] rounded-lg shadow-sm hover:bg-[#1e3a8a]"
             >
               Enquire Now
-            </a>
-
-            {/* Secondary CTA */}
-            <a
+            </Link>
+            <Link
               href="#footer"
-              className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-[#1E3A8A] transition-all duration-300 bg-transparent border-2 border-[#1E3A8A]/10 rounded-xl hover:bg-[#F59E0B]/10 hover:border-[#F59E0B]/20 hover:text-[#F59E0B]"
+              className="inline-flex items-center justify-center px-8 py-3.5 text-base font-bold text-blue-900 transition-all duration-300 bg-white border-2 border-blue-900 rounded-lg shadow-sm hover:bg-blue-50"
             >
               Talk to a Counselor
-            </a>
+            </Link>
           </div>
 
-          {/* Trust Indicator */}
-          <div className="mt-16 flex items-center gap-4 text-[#0F172A]/60">
-            <p className="text-sm font-semibold uppercase tracking-widest">
+          <div className="mt-16 flex items-center gap-4 text-slate-500">
+            <p className="text-xs font-bold uppercase tracking-widest">
               A unit of Visual Informatics • Est. 1999
             </p>
           </div>

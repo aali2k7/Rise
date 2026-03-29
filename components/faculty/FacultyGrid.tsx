@@ -6,10 +6,11 @@ import FacultyCard, { FacultyMember } from "./FacultyCard";
 const facultyData: FacultyMember[] = [
     {
         id: 1,
-        name: "Dr. A. Rahman",
-        role: "Physics HOD",
-        department: "medical",
-        tagline: "Unraveling the universe, one equation at a time."
+        name: "Abhishek Ghosh",
+        role: "Senior Faculty",
+        department: "engineering",
+        tagline: "Empowering minds and engineering futures.",
+        image: "/faculty/Abhishek%20Ghosh/IMG_20260123_083054863_HDR.jpg.jpeg"
     },
     {
         id: 2,

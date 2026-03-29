@@ -15,7 +15,7 @@ export default function FacultyPage() {
     <div className="min-h-screen bg-[#FDFCFB]">
 
       {/* Header Section */}
-      <section className="pt-32 pb-12 lg:pt-40 lg:pb-20 overflow-hidden">
+      <section className="pt-32 pb-12 lg:pt-40 lg:pb-20 overflow-hidden border-b border-[#E8DFD3]/60">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 text-center relative z-10">
           <h1 className="text-4xl font-bold tracking-tight text-[#1A3C5E] sm:text-5xl mb-6">
             Mentored by Masters

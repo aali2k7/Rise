@@ -115,7 +115,7 @@ export default function Courses() {
       </section>
 
       {/* Program Structure - Elegant list */}
-      <section className="section bg-[#FDFCFB]">
+      <section className="section bg-[#FDFCFB] border-t border-[#E8DFD3]/60">
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="text-center mb-16">
             <h2 className="text-h2 text-text-primary mb-6">Program Structure</h2>

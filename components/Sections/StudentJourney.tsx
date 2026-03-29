@@ -70,32 +70,21 @@ const steps = [
 
 export default function StudentJourney() {
     const router = useRouter();
-    const ref = useRef<HTMLDivElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
-    const [height, setHeight] = useState(0);
-
-    useEffect(() => {
-        if (ref.current) {
-            const updateHeight = () => {
-                if (ref.current) {
-                    const rect = ref.current.getBoundingClientRect();
-                    setHeight(rect.height);
-                }
-            };
-            updateHeight();
-            const resizeObserver = new ResizeObserver(() => updateHeight());
-            resizeObserver.observe(ref.current);
-            return () => resizeObserver.disconnect();
-        }
-    }, [ref]);
 
     const { scrollYProgress } = useScroll({
         target: containerRef,
-        offset: ["start 10%", "end 50%"],
+        offset: ["start 10%", "end 60%"],
     });
 
-    const heightTransform = useTransform(scrollYProgress, [0, 1], [0, height]);
+    const heightTransform = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
     const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
+
+    const buttonGlow = useTransform(scrollYProgress, [0.85, 1], [
+        "0px 0px 0px 0px rgba(244,121,32,0)",
+        "0px 0px 40px 12px rgba(244,121,32,0.6)"
+    ]);
+    const buttonScale = useTransform(scrollYProgress, [0.85, 1], [1, 1.05]);
 
     return (
         <section ref={containerRef} className="relative w-full py-24 overflow-hidden" style={{ background: 'linear-gradient(180deg, #FDFCFB 0%, #FAF9F6 50%, #FDFCFB 100%)' }}>
@@ -104,7 +93,7 @@ export default function StudentJourney() {
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
                 {/* Header */}
-                <header className="text-center mb-24">
+                <header className="text-center mb-20">
                     <h2 className="text-3xl font-bold text-[#1A2E44] tracking-tight sm:text-4xl mb-6">
                         The RISE Student Journey
                     </h2>
@@ -113,16 +102,15 @@ export default function StudentJourney() {
                     </p>
                 </header>
 
-                {/* Vertical Timeline */}
-                <div ref={ref} className="relative w-full pb-20 mt-10">
-                    {/* Animated Vertical Line Container */}
+                {/* Unified Timeline & CTA */}
+                <div className="relative w-full mt-10 flex flex-col">
+                    {/* Animated Vertical Line Container - Now joins the button */}
                     <div
-                        style={{ height: height + "px" }}
-                        className="absolute left-6 lg:left-1/2 top-0 overflow-hidden w-[2px] bg-gradient-to-b from-transparent via-[#D4B896]/50 to-transparent lg:-translate-x-1/2 hidden md:block [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)] z-0"
+                        className="absolute left-6 lg:left-1/2 top-0 bottom-[5rem] overflow-hidden w-[2px] bg-gradient-to-b from-transparent via-[#D4B896]/50 to-[#f47920]/80 lg:-translate-x-1/2 hidden md:block [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_100%)] z-0"
                     >
                         <motion.div
                             style={{ height: heightTransform, opacity: opacityTransform }}
-                            className="absolute inset-x-0 top-0 w-[2px] bg-gradient-to-t from-[#f47920] via-orange-400 to-transparent rounded-full"
+                            className="absolute inset-x-0 top-0 w-[2px] bg-gradient-to-t from-[#f47920] via-orange-400 to-transparent rounded-full shadow-[0_0_10px_2px_rgba(244,121,32,0.6)]"
                         />
                     </div>
 
@@ -131,16 +119,20 @@ export default function StudentJourney() {
                             <JourneyStep key={step.id} step={step} index={index} />
                         ))}
                     </div>
-                </div>
 
-                {/* CTA */}
-                <div className="section-boundary mt-32 pt-16 pb-8 text-center">
-                    <button
-                        onClick={() => router.push('/enquire')}
-                        className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white transition-all duration-200 bg-[#f47920] rounded-full hover:bg-[#e06510] hover:shadow-lg hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
-                    >
-                        Start Your Journey Today
-                    </button>
+                    {/* CTA Button joined to the line */}
+                    <div className="mt-16 pt-8 pb-8 text-center relative z-20 flex justify-center">
+                        <motion.button
+                            style={{
+                                boxShadow: buttonGlow,
+                                scale: buttonScale
+                            }}
+                            onClick={() => router.push('/enquire')}
+                            className="inline-flex items-center justify-center px-10 py-4 text-lg font-semibold text-white bg-[#f47920] rounded-full hover:bg-[#e06510] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 relative transition-colors duration-200"
+                        >
+                            Start Your Journey Today
+                        </motion.button>
+                    </div>
                 </div>
 
             </div>

@@ -196,7 +196,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body>
+      <body className="bg-[#FAF8F5] text-[#0F172A] antialiased selection:bg-[#B48446] selection:text-white relative">
         <ScrollRevealProvider>
           <Header />
 
