@@ -1,35 +1,96 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { Quote } from "lucide-react";
+
 export default function MentorshipStatement() {
   return (
-    <section id="mentorship" className="w-full relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #FDFCFB 0%, #FAF9F6 40%, #F9F7F4 100%)' }}>
-      {/* Subtle navy glow accent */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#1A2E44]/[0.02] rounded-full blur-[100px] pointer-events-none" />
-      <div className="content-container section-spacing">
-        <div className="max-w-4xl">
-          <header>
-            <p className="text-[#C9A96E] font-bold uppercase tracking-wider text-sm">
-              Our Philosophy
-            </p>
-            <h2 className="mt-4 text-4xl font-bold tracking-tight text-[#1A2E44] sm:text-5xl">
-              Mentorship that stays with a student — not just through an exam.
-            </h2>
-          </header>
+    <section id="mentorship" className="w-full relative py-16 sm:py-32 lg:py-48 overflow-hidden bg-white">
+      {/* 
+          ELITE BACKGROUND: 
+          Minimalist and surgical. Using high-diffusion gradients to create depth without clutter.
+      */}
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-blue-50/30 rounded-full blur-[140px] pointer-events-none -translate-y-1/2 translate-x-1/4" />
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-amber-50/20 rounded-full blur-[120px] pointer-events-none translate-y-1/2 -translate-x-1/4" />
 
-          <div className="mt-8 h-px w-24 bg-gradient-to-r from-[#C9A96E] to-[#D4B896]" />
+      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
 
-          <div className="mt-12 bg-white/70 backdrop-blur-sm rounded-2xl border border-[#E8DFD3] shadow-sm p-8 hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
-            <p className="text-xl font-semibold tracking-tight text-[#1A2E44]">
-              RISE is not just coaching. It is a long-term mentorship ecosystem designed to support a
-              child&apos;s academic growth — and the discipline, confidence, and clarity that sustain it.
-            </p>
+          {/* LEFT: The "Manifesto" Header */}
+          <div className="lg:col-span-12 xl:col-span-5">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-50 border border-slate-200/60 mb-8">
+                <div className="w-1 h-1 rounded-full bg-slate-400" />
+                <span className="text-[10px] font-black uppercase tracking-[0.25em] text-slate-500">The Rise Philosophy</span>
+              </div>
 
-            <p className="mt-6 text-lg leading-relaxed text-[#4A5568]">
-              Mentorship at RISE is practical and consistent: academic planning that fits the student&apos;s
-              phase, regular tracking that highlights what is improving and what needs attention, and
-              individual guidance that helps students correct course early. Parents are kept involved
-              through steady updates and open communication — so expectations remain clear and progress
-              is never left to guesswork.
-            </p>
+              <h2 className="text-3xl sm:text-5xl lg:text-7xl font-bold text-slate-900 tracking-tight leading-[0.95] mb-6 sm:mb-10">
+                Mentorship that <br />
+                <span className="text-slate-300 italic font-serif font-light italic">stays.</span>
+              </h2>
+
+              <p className="text-[1rem] sm:text-xl text-slate-500 font-medium leading-relaxed max-w-sm">
+                We believe education is a relationship, not a transaction. Our goal is to stay with a student until they reach their peak.
+              </p>
+            </motion.div>
           </div>
+
+          {/* RIGHT: The Premium Statement Card */}
+          <div className="lg:col-span-12 xl:col-span-7">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+              className="relative group"
+            >
+              {/* Architectural Shadow/Glow Case */}
+              <div className="absolute -inset-1 bg-gradient-to-b from-slate-100 to-transparent rounded-[3rem] blur-xl opacity-50 transition-opacity duration-1000 group-hover:opacity-100 pointer-events-none" />
+
+              <div className="relative bg-white border border-slate-100 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.03)] rounded-2xl sm:rounded-[2.5rem] p-6 sm:p-10 lg:p-16 overflow-hidden">
+                {/* Visual Anchor: Giant soft quote mark */}
+                <span className="absolute -top-10 -right-4 text-[12rem] font-serif text-slate-50 opacity-40 select-none pointer-events-none italic">
+                  &ldquo;
+                </span>
+
+                <div className="relative z-10">
+                  <div className="flex items-center gap-4 mb-10">
+                    <div className="h-0.5 w-12 bg-amber-500/40" />
+                    <span className="text-[11px] font-black uppercase tracking-widest text-amber-600">Core Commitment</span>
+                  </div>
+
+                  <p className="text-lg sm:text-2xl lg:text-3xl font-bold tracking-tight text-slate-900 leading-snug mb-8 sm:mb-12">
+                    RISE is not just coaching. It is a <span className="underline decoration-amber-200 decoration-4 underline-offset-8">long-term mentorship ecosystem</span> designed to support academic growth and clarity.
+                  </p>
+
+                  <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
+                    <div className="md:col-span-12 lg:col-span-11">
+                      <p className="text-lg leading-relaxed text-slate-500 font-medium border-l-2 border-slate-100 pl-8">
+                        Our approach is deeply personal. We don&apos;t just track scores; we track progress, confidence, and the discipline required to maintain it. Parents are equal partners in this journey, kept informed through consistent, honest mapping of a student&apos;s trajectory.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="mt-16 flex items-center gap-6">
+                    <div className="w-12 h-12 rounded-full bg-slate-900 flex items-center justify-center text-white font-serif italic text-lg shadow-lg">
+                      R
+                    </div>
+                    <div>
+                      <p className="text-sm font-black text-slate-900 uppercase tracking-widest">The RISE Promise</p>
+                      <p className="text-xs text-slate-400 font-bold uppercase tracking-tight mt-0.5">Established excellence in Ranchi</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
         </div>
       </div>
     </section>

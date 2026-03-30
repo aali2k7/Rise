@@ -75,7 +75,7 @@ export default function Courses() {
                 {/* Header with badge */}
                 <div className="flex items-start justify-between mb-6">
                   <h2 className="text-h3 text-text-primary">{course.title}</h2>
-                  <span className="text-body-sm text-text-secondary bg-base px-3 py-1.5 rounded-full font-medium">
+                  <span className="text-body-sm text-text-secondary bg-blue-50 px-3 py-1.5 rounded-full font-medium">
                     {course.duration}
                   </span>
                 </div>
@@ -103,7 +103,7 @@ export default function Courses() {
                 </div>
 
                 {/* Focus */}
-                <div className="pt-6 border-t border-base-subtle">
+                <div className="pt-6 border-t border-slate-100">
                   <p className="text-body-sm font-medium text-text-primary">
                     Focus: <span className="text-text-secondary font-normal">{course.focus}</span>
                   </p>

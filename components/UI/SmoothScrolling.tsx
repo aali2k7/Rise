@@ -58,7 +58,7 @@ export default function SmoothScrolling({ children }: { children: React.ReactNod
         // Exclude certain specific elements if needed
         setTimeout(() => {
             const revealElements = document.querySelectorAll(
-                'section h1, section h2, section h3, section p:not(.director-promise-text), .card-glass, .focus-card, .scroll-reveal-target'
+                'section h1, section h2, section h3, section p:not(.director-promise-text), .card-glass, .focus-card, .scroll-reveal-target, .scroll-reveal, .scroll-reveal-scale'
             );
 
             revealElements.forEach((el, index) => {

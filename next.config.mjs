@@ -4,7 +4,7 @@ const nextConfig = {
   poweredByHeader: false,
   productionBrowserSourceMaps: false,
 
-  // output: 'export', // Disabled for Middleware & API Routes support
+  output: 'export', // Enabled for Hostinger static export (Note: Middleware is disabled in this mode)
   images: {
     unoptimized: true,
   },

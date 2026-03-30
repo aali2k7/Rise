@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 export default function ScrollRevealProvider({ children }: { children: React.ReactNode }) {
+    const pathname = usePathname();
 
     useEffect(() => {
         // Respect prefers-reduced-motion
@@ -27,7 +29,7 @@ export default function ScrollRevealProvider({ children }: { children: React.Rea
         // Slight delay so DOM is fully painted
         const timer = setTimeout(() => {
             const targets = document.querySelectorAll(
-                "section h1, section h2, section h3, section p:not(.director-promise-text), .card-glass, .focus-card, .scroll-reveal-target"
+                "section h1, section h2, section h3, section p:not(.director-promise-text), .card-glass, .focus-card, .scroll-reveal-target, .scroll-reveal, .scroll-reveal-scale"
             );
 
             targets.forEach((el, index) => {
@@ -50,7 +52,7 @@ export default function ScrollRevealProvider({ children }: { children: React.Rea
             clearTimeout(timer);
             observer.disconnect();
         };
-    }, []);
+    }, [pathname]);
 
     return <>{children}</>;
 }

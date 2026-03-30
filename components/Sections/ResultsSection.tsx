@@ -48,7 +48,7 @@ export default function ResultsSection() {
   ];
 
   return (
-    <section id="results" className="w-full relative overflow-hidden py-24 lg:py-32" style={{ background: 'linear-gradient(135deg, #0F1A2E 0%, #1A2E44 40%, #0F1A2E 100%)' }}>
+    <section id="results" className="w-full relative overflow-hidden py-16 sm:py-24 lg:py-32" style={{ background: 'linear-gradient(135deg, #0F1A2E 0%, #1A2E44 40%, #0F1A2E 100%)' }}>
       {/* Background Glows — warm gold + deep emerald */}
       <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-[#1A2E44]/40 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#10B981]/[0.08] rounded-full blur-3xl pointer-events-none" />
@@ -57,40 +57,40 @@ export default function ResultsSection() {
       <div className="mx-auto max-w-7xl px-6 relative z-10">
 
         {/* Header */}
-        <header className="text-center mb-24">
+        <header className="text-center mb-12 sm:mb-24">
           <div className="inline-block relative">
-            <h2 className="text-3xl font-bold text-white sm:text-5xl leading-tight relative z-10">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white sm:text-5xl leading-tight relative z-10">
               Consistent <span className="text-[#10B981]">Academic Progress</span>
             </h2>
             {/* Decorative underline */}
             <div className="mt-6 h-1 w-24 bg-gradient-to-r from-[#10B981] to-[#C9A96E] mx-auto rounded-full" />
           </div>
-          <p className="mt-6 text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed font-medium">
+          <p className="mt-4 sm:mt-6 text-[1rem] sm:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed font-medium">
             Our students demonstrate steady improvement through structured mentorship and consistent guidance.
           </p>
         </header>
 
         {/* Metrics Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-y-16 gap-x-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-y-10 sm:gap-y-16 gap-x-4 sm:gap-x-8">
           {metrics.map((metric, index) => (
             <div
               key={index}
               className="group relative flex flex-col items-center text-center p-4 md:p-6 rounded-2xl transition-all duration-300 hover:bg-slate-800/50 hover:shadow-2xl hover:-translate-y-2"
             >
               {/* Value */}
-              <div className="relative mb-4">
-                <span className={`text-5xl sm:text-6xl font-extrabold tracking-tight ${metric.color}`}>
+              <div className="relative mb-3 sm:mb-4">
+                <span className={`text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight ${metric.color}`}>
                   {metric.value}
                 </span>
               </div>
 
               {/* Label */}
-              <h3 className="text-xl font-bold text-white mb-2">
+              <h3 className="text-[1rem] sm:text-xl font-bold text-white mb-1 sm:mb-2">
                 {metric.label}
               </h3>
 
               {/* Description */}
-              <p className="text-sm text-slate-400 font-medium opacity-80 max-w-[160px] leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-400 font-medium opacity-80 max-w-[160px] leading-relaxed">
                 {metric.description}
               </p>
             </div>

@@ -23,12 +23,6 @@ const config: Config = {
             dark: "#0F172A",     // Dark Slate (same as secondary)
           }
         },
-        // Keeping legacy semantic names mapped to new system where appropriate
-        base: {
-          light: "#F8FAFC",
-          DEFAULT: "#EFF6FF",
-          subtle: "#F1F5F9",
-        },
       },
       fontFamily: {
         sans: ["'Microsoft Tai Le'", "sans-serif"],

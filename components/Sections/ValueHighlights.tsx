@@ -67,7 +67,7 @@ export default function ValueHighlights() {
                                     {item.title}
                                 </h3>
                             </div>
-                            <p className="text-slate-500 leading-relaxed text-[14px]">
+                            <p className="text-slate-700 leading-relaxed text-[14px]">
                                 {item.desc}
                             </p>
                         </div>

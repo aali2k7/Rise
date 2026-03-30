@@ -8,7 +8,7 @@ const rateLimit = new Map();
 const checkRateLimit = (ip: string) => {
     const now = Date.now();
     const windowSize = 60 * 1000; // 1 minute
-    const limit = 60; // 60 requests per minute
+    const limit = 1000; // 1000 requests per minute
 
     const record = rateLimit.get(ip);
 
@@ -125,9 +125,11 @@ export function middleware(request: NextRequest) {
         style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
         img-src 'self' blob: data: https://maps.gstatic.com https://maps.googleapis.com;
         font-src 'self' https://fonts.gstatic.com;
+        frame-src 'self' https://www.google.com https://maps.google.com;
+        connect-src 'self' https://formspree.io;
         object-src 'none';
         base-uri 'self';
-        form-action 'self';
+        form-action 'self' https://formspree.io;
         frame-ancestors 'none';
         upgrade-insecure-requests;
     `.replace(/\s{2,}/g, ' ').trim();

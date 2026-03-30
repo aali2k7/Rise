@@ -87,17 +87,17 @@ export default function StudentJourney() {
     const buttonScale = useTransform(scrollYProgress, [0.85, 1], [1, 1.05]);
 
     return (
-        <section ref={containerRef} className="relative w-full py-24 overflow-hidden" style={{ background: 'linear-gradient(180deg, #FDFCFB 0%, #FAF9F6 50%, #FDFCFB 100%)' }}>
+        <section ref={containerRef} className="relative w-full py-14 sm:py-24 overflow-hidden" style={{ background: 'linear-gradient(180deg, #FDFCFB 0%, #FAF9F6 50%, #FDFCFB 100%)' }}>
             {/* Decorative warm glow */}
             <div className="absolute bottom-0 right-0 w-[500px] h-[400px] bg-[#C9A96E]/[0.025] rounded-full blur-[120px] pointer-events-none" />
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
                 {/* Header */}
-                <header className="text-center mb-20">
-                    <h2 className="text-3xl font-bold text-[#1A2E44] tracking-tight sm:text-4xl mb-6">
+                <header className="text-center mb-12 sm:mb-20">
+                    <h2 className="text-2xl sm:text-3xl font-bold text-[#1A2E44] tracking-tight sm:text-4xl mb-4 sm:mb-6">
                         The RISE Student Journey
                     </h2>
-                    <p className="text-lg text-[#4A5568] max-w-2xl mx-auto">
+                    <p className="text-[1rem] sm:text-lg text-[#4A5568] max-w-2xl mx-auto">
                         From orientation to outcomes — a structured path, guided at every step.
                     </p>
                 </header>
@@ -114,7 +114,7 @@ export default function StudentJourney() {
                         />
                     </div>
 
-                    <div className="flex flex-col gap-24 lg:gap-32 w-full relative z-10">
+                    <div className="flex flex-col gap-12 sm:gap-24 lg:gap-32 w-full relative z-10">
                         {steps.map((step, index) => (
                             <JourneyStep key={step.id} step={step} index={index} />
                         ))}
@@ -180,12 +180,12 @@ function JourneyStep({ step, index }: { step: typeof steps[0]; index: number }) 
                 <span className="inline-block py-1 px-3 rounded-full bg-slate-100 text-xs font-semibold text-slate-500 mb-4 tracking-wide uppercase">
                     {step.highlight}
                 </span>
-                <h3 className="text-2xl font-bold text-[#1A3C5E] mb-4">
+                <h3 className="text-xl sm:text-2xl font-bold text-[#1A3C5E] mb-3 sm:mb-4">
                     {step.title}
                 </h3>
                 <div className={`space-y-2 ${isEven ? "lg:ml-auto" : "lg:mr-auto"}`}>
                     {step.description.map((line, i) => (
-                        <p key={i} className="text-slate-600 text-lg leading-relaxed">
+                        <p key={i} className="text-slate-600 text-[1rem] sm:text-lg leading-relaxed">
                             {line}
                         </p>
                     ))}

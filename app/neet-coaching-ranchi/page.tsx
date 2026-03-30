@@ -54,48 +54,35 @@ export default function NEETCoachingPage() {
                 </div>
             </section>
 
-            {/* WHY FUTURE DOCTORS CHOOSE RISE - image 2 */}
+            {/* WHY FUTURE DOCTORS CHOOSE RISE */}
             <section className="py-24 lg:py-32 bg-[#FAFAFA] w-full">
-                <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-                    <div className="relative order-2 lg:order-1">
-                        <div className="aspect-[4/3] bg-[#E2E8F0] rounded-3xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-slate-200 flex items-center justify-center">
-                            <span className="text-xl text-slate-400 font-medium">Biology Lab / Class</span>
-                        </div>
-                        <div className="absolute -bottom-8 -right-4 md:-right-8 bg-white p-6 rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.08)] border border-slate-100 flex items-center gap-4">
-                            <HeartPulse className="w-10 h-10 text-rose-500" strokeWidth={2.5} />
-                            <div>
-                                <p className="text-xl font-bold text-slate-900 leading-tight">Dr. Faculty</p>
-                                <p className="text-xs text-slate-500 font-bold uppercase tracking-widest mt-1">Expert Mentors</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="order-1 lg:order-2">
+                <div className="max-w-5xl mx-auto px-6">
+                    <div className="text-center mb-16">
                         <h2 className="text-4xl lg:text-5xl font-extrabold text-[#1A3C5E] mb-6 tracking-tight">
                             Why Future Doctors Choose <span className="text-[#10B981]">RISE</span>?
                         </h2>
-                        <p className="text-lg text-slate-500 mb-10 leading-relaxed">
+                        <p className="text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed font-medium">
                             Neet preparation requires a different mindset than JEE. It&apos;s about accuracy, speed, and 100% command over NCERT. At RISE, we don&apos;t just teach Science; we train you for the exam.
                         </p>
+                    </div>
 
-                        <div className="space-y-8">
-                            {[
-                                { title: "NCERT Line-by-Line", desc: "Special focus on Biology & Chemistry NCERT." },
-                                { title: "Physics for Medicos", desc: "Simplified Physics specifically designed for Biology students." },
-                                { title: "Regular Mock Tests", desc: "Weekly tests exactly on the NTA pattern." },
-                                { title: "Personal Attention", desc: "We know every student's weak areas." }
-                            ].map((item, i) => (
-                                <div key={i} className="flex gap-5">
-                                    <div className="w-12 h-12 rounded-full bg-[#ecfdf5] flex items-center justify-center flex-shrink-0">
-                                        <CheckCircle2 className="w-6 h-6 text-[#10B981]" strokeWidth={2.5} />
-                                    </div>
-                                    <div className="pt-1.5">
-                                        <h3 className="font-bold text-lg text-[#1A3C5E] mb-1">{item.title}</h3>
-                                        <p className="text-slate-500">{item.desc}</p>
-                                    </div>
+                    <div className="space-y-10 max-w-3xl mx-auto">
+                        {[
+                            { title: "NCERT Line-by-Line", desc: "Special focus on Biology & Chemistry NCERT." },
+                            { title: "Physics for Medicos", desc: "Simplified Physics specifically designed for Biology students." },
+                            { title: "Regular Mock Tests", desc: "Weekly tests exactly on the NTA pattern." },
+                            { title: "Personal Attention", desc: "We know every student's weak areas." }
+                        ].map((item, i) => (
+                            <div key={i} className="flex items-start gap-6">
+                                <div className="w-14 h-14 rounded-full bg-[#ecfdf5] flex items-center justify-center flex-shrink-0">
+                                    <CheckCircle2 className="w-7 h-7 text-[#10B981]" strokeWidth={2.5} />
                                 </div>
-                            ))}
-                        </div>
+                                <div className="pt-1">
+                                    <h3 className="font-bold text-xl text-[#1A3C5E] mb-2 tracking-tight">{item.title}</h3>
+                                    <p className="text-slate-500 text-lg font-medium leading-relaxed">{item.desc}</p>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>
