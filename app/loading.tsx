@@ -1,62 +1,51 @@
 export default function Loading() {
     return (
-        <div className="fixed inset-0 z-[9999] bg-white">
-            {/* Absolutely centered content — immune to body padding-top */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-6">
-                {/* Animated RISE wordmark */}
-                <div className="relative">
-                    <span
-                        className="text-4xl font-extrabold tracking-tight text-[#1E3A8A]"
-                        style={{ letterSpacing: "-0.03em" }}
-                    >
-                        RISE
-                    </span>
-                    {/* Underline sweep animation */}
-                    <span
-                        className="absolute bottom-0 left-0 h-[3px] rounded-full bg-[#10B981]"
-                        style={{
-                            animation: "rise-sweep 1.2s cubic-bezier(0.4,0,0.2,1) infinite",
-                            width: "100%",
-                        }}
-                    />
-                </div>
-
-                {/* Tagline */}
-                <p
-                    className="text-sm font-medium uppercase tracking-widest text-slate-400"
-                    style={{ letterSpacing: "0.2em" }}
+        <div className="fixed inset-0 z-50 bg-[#FAF8F5] flex items-center justify-center">
+            {/* Minimalist Premium Loader container */}
+            <div className="flex flex-col items-center">
+                
+                {/* Elegant Shimmering Typography Logo */}
+                <h1 
+                    className="text-4xl sm:text-5xl font-extrabold tracking-[-0.03em] bg-clip-text text-transparent bg-gradient-to-r from-[#1A3C5E] via-[#60A5FA] to-[#1A3C5E]" 
+                    style={{ 
+                        backgroundSize: '200% auto',
+                        animation: 'rise-shimmer 2s linear infinite'
+                    }}
                 >
-                    Our Effort. Your Rise.
-                </p>
-
-                {/* Three-dot pulse loader */}
-                <div className="flex items-center gap-2 mt-2">
-                    {[0, 1, 2].map((i) => (
-                        <span
-                            key={i}
-                            className="block h-2 w-2 rounded-full bg-[#1E3A8A]"
-                            style={{
-                                animation: `rise-dot-pulse 1.2s ease-in-out ${i * 0.2}s infinite`,
-                            }}
-                        />
-                    ))}
+                    RISE
+                </h1>
+                
+                {/* Thin Sleek Progress Line */}
+                <div className="w-16 h-[2px] mt-6 bg-slate-200 rounded-full overflow-hidden relative">
+                    <div 
+                        className="absolute inset-y-0 left-0 w-full bg-[#1A3C5E] rounded-full"
+                        style={{
+                            animation: 'rise-fast-sweep 1s cubic-bezier(0.4, 0, 0.2, 1) infinite'
+                        }}
+                    ></div>
                 </div>
             </div>
 
-            {/* Inline keyframes */}
+            {/* Inline keyframes to keep it SSR compliant without "use client" */}
             <style>{`
-        @keyframes rise-sweep {
-          0%   { transform: scaleX(0); transform-origin: left; opacity: 1; }
-          50%  { transform: scaleX(1); transform-origin: left; opacity: 1; }
-          51%  { transform: scaleX(1); transform-origin: right; }
-          100% { transform: scaleX(0); transform-origin: right; opacity: 0.4; }
-        }
-
-        @keyframes rise-dot-pulse {
-          0%, 80%, 100% { transform: scale(0.6); opacity: 0.3; }
-          40%            { transform: scale(1);   opacity: 1; }
-        }
-      `}</style>
+                @keyframes rise-shimmer {
+                    to {
+                        background-position: 200% center;
+                    }
+                }
+                
+                @keyframes rise-fast-sweep {
+                    0% {
+                        transform: translateX(-100%) scaleX(0.5);
+                    }
+                    50% {
+                        transform: translateX(0%) scaleX(1);
+                    }
+                    100% {
+                        transform: translateX(100%) scaleX(0.5);
+                    }
+                }
+            `}</style>
         </div>
     );
 }

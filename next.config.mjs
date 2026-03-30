@@ -4,43 +4,17 @@ const nextConfig = {
   poweredByHeader: false,
   productionBrowserSourceMaps: false,
 
-  output: 'export', // Enabled for Hostinger static export (Note: Middleware is disabled in this mode)
+  // Static export for Hostinger shared hosting
+  output: 'export',
+
+  // Required for static export — disables Next.js image optimization
+  // (images are served as-is from the /public folder)
   images: {
     unoptimized: true,
   },
-  async headers() {
-    return [
-      {
-        source: '/:path*',
-        headers: [
-          {
-            key: 'X-DNS-Prefetch-Control',
-            value: 'on'
-          },
-          {
-            key: 'Strict-Transport-Security',
-            value: 'max-age=63072000; includeSubDomains; preload'
-          },
-          {
-            key: 'X-Frame-Options',
-            value: 'SAMEORIGIN'
-          },
-          {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff'
-          },
-          {
-            key: 'Referrer-Policy',
-            value: 'strict-origin-when-cross-origin'
-          },
-          {
-            key: 'Permissions-Policy',
-            value: 'camera=(), microphone=(), geolocation=(), browsing-topics=()'
-          }
-        ]
-      }
-    ]
-  }
+
+  // NOTE: headers(), redirects(), rewrites() are NOT supported with output:'export'
+  // Security headers for static hosting must be set via Hostinger's .htaccess file instead
 };
 
 export default nextConfig;

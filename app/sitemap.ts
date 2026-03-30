@@ -41,10 +41,40 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 0.9,
         },
         {
-            url: `${baseUrl}/contact-us`,
+            url: `${baseUrl}/faculty`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.8,
+        },
+        {
+            url: `${baseUrl}/courses`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.8,
+        },
+        {
+            url: `${baseUrl}/results`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.8,
+        },
+        {
+            url: `${baseUrl}/approach`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.7,
+        },
+        {
+            url: `${baseUrl}/contact`,
             lastModified: new Date(),
             changeFrequency: 'yearly',
-            priority: 0.6,
+            priority: 0.7,
+        },
+        {
+            url: `${baseUrl}/enquire`,
+            lastModified: new Date(),
+            changeFrequency: 'yearly',
+            priority: 0.7,
         },
     ]
 }

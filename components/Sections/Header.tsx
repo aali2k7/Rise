@@ -185,9 +185,10 @@ export default function Header() {
                                                 href={social.href}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
+                                                aria-label={social.label}
                                                 className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-white transition-transform hover:scale-110"
                                             >
-                                                <social.icon size={18} />
+                                                <social.icon size={18} aria-hidden="true" />
                                             </a>
                                         ))}
                                     </div>
