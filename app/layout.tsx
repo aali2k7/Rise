@@ -3,7 +3,7 @@ import "./globals.css";
 import Header from "@/components/Sections/Header";
 import ScrollRevealProvider from "@/components/UI/ScrollRevealProvider";
 import GlobalPreloader from "@/components/UI/GlobalPreloader";
-import { SpeedInsights } from "@vercel/speed-insights/next";
+
 
 
 
@@ -202,7 +202,7 @@ export default function RootLayout({
           <Header />
 
           <main>{children}</main>
-          <SpeedInsights />
+
           {/* Cleaned up hidden keywords to prevent Google Penalization */}
         </ScrollRevealProvider>
       </body>

@@ -1,82 +1,95 @@
 # ============================================================
 # RISE Coaching Institute — Hostinger Static Hosting Config
-# Replaces Next.js Middleware security headers for static export
 # ============================================================
 
-# ---- Clean URLs (hide .html extension) ----------------------
+# Enable rewrite engine
 Options -MultiViews
 RewriteEngine On
 
-# If the request is for a real file or directory, serve it directly
+# ── 1. SECURITY HEADERS ─────────────────────────────────────
+<IfModule mod_headers.c>
+  # Prevent clickjacking
+  Header always set X-Frame-Options "SAMEORIGIN"
+  # Prevent MIME-type sniffing
+  Header always set X-Content-Type-Options "nosniff"
+  # Basic XSS protection
+  Header always set X-XSS-Protection "1; mode=block"
+  # Referrer policy
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  # Permissions policy
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+  # Content Security Policy
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; frame-src https://www.google.com; connect-src 'self' https://formspree.io https://vitals.vercel-insights.com;"
+  # Remove server fingerprinting
+  Header unset Server
+  Header always unset X-Powered-By
+</IfModule>
+
+# ── 2. HTTPS REDIRECT ────────────────────────────────────────
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# ── 3. WWW → NON-WWW REDIRECT ───────────────────────────────
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+
+# ── 4. CLEAN URLS (Next.js static export) ───────────────────
+# Serve /page → /page.html (Next.js output: export creates <page>.html)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-
-# Try the path with .html appended
 RewriteCond %{REQUEST_FILENAME}.html -f
-RewriteRule ^(.+)$ $1.html [L,QSA]
+RewriteRule ^(.+?)/?$ /$1.html [L]
 
-# --- 404 Fallback -------------------------------------------
-ErrorDocument 404 /404.html
+# ── 5. SPA FALLBACK (404 → index.html) ──────────────────────
+# Required for client-side navigations
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ /404.html [L]
 
-# ---- Security Headers (replaces Next.js Middleware) ----------
-<IfModule mod_headers.c>
-    # Prevent clickjacking
-    Header always set X-Frame-Options "SAMEORIGIN"
-
-    # Prevent MIME type sniffing
-    Header always set X-Content-Type-Options "nosniff"
-
-    # Referrer Policy
-    Header always set Referrer-Policy "strict-origin-when-cross-origin"
-
-    # HSTS (force HTTPS for 2 years)
-    Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
-
-    # DNS prefetch
-    Header always set X-DNS-Prefetch-Control "on"
-
-    # Permissions Policy
-    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), browsing-topics=()"
-
-    # Content Security Policy (matches what middleware used to set)
-    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://maps.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' blob: data: https://maps.gstatic.com https://maps.googleapis.com; font-src 'self' https://fonts.gstatic.com; frame-src 'self' https://www.google.com https://maps.google.com; connect-src 'self' https://formspree.io; object-src 'none'; base-uri 'self'; form-action 'self' https://formspree.io; frame-ancestors 'none'; upgrade-insecure-requests;"
-</IfModule>
-
-# ---- Compression (Gzip) for faster page loads ---------------
-<IfModule mod_deflate.c>
-    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
-    AddOutputFilterByType DEFLATE application/javascript application/x-javascript
-    AddOutputFilterByType DEFLATE application/json application/xml
-    AddOutputFilterByType DEFLATE image/svg+xml
-    AddOutputFilterByType DEFLATE font/woff font/woff2
-</IfModule>
-
-# ---- Browser Caching for Performance ------------------------
+# ── 6. CACHING ───────────────────────────────────────────────
 <IfModule mod_expires.c>
-    ExpiresActive On
+  ExpiresActive On
 
-    # HTML — short cache (pages may update)
-    ExpiresByType text/html                 "access plus 1 hour"
+  # HTML — no cache (always fresh)
+  ExpiresByType text/html                 "access plus 0 seconds"
 
-    # CSS and JS — long cache (hashed filenames from Next.js build)
-    ExpiresByType text/css                  "access plus 1 year"
-    ExpiresByType application/javascript    "access plus 1 year"
+  # CSS & JS — cache for 1 year (Next.js uses content hashes)
+  ExpiresByType text/css                  "access plus 1 year"
+  ExpiresByType application/javascript    "access plus 1 year"
+  ExpiresByType text/javascript           "access plus 1 year"
 
-    # Images
-    ExpiresByType image/jpeg                "access plus 1 year"
-    ExpiresByType image/png                 "access plus 1 year"
-    ExpiresByType image/webp                "access plus 1 year"
-    ExpiresByType image/svg+xml             "access plus 1 year"
-    ExpiresByType image/gif                 "access plus 1 year"
-    ExpiresByType image/ico                 "access plus 1 year"
+  # Images — cache for 6 months
+  ExpiresByType image/jpeg                "access plus 6 months"
+  ExpiresByType image/png                 "access plus 6 months"
+  ExpiresByType image/gif                 "access plus 6 months"
+  ExpiresByType image/webp                "access plus 6 months"
+  ExpiresByType image/svg+xml             "access plus 6 months"
+  ExpiresByType image/x-icon              "access plus 1 year"
 
-    # Fonts
-    ExpiresByType font/woff                 "access plus 1 year"
-    ExpiresByType font/woff2                "access plus 1 year"
+  # Fonts — cache for 1 year
+  ExpiresByType font/woff                 "access plus 1 year"
+  ExpiresByType font/woff2                "access plus 1 year"
+  ExpiresByType application/font-woff2    "access plus 1 year"
+
+  # XML/JSON — short cache
+  ExpiresByType application/xml           "access plus 1 day"
+  ExpiresByType text/xml                  "access plus 1 day"
 </IfModule>
 
-# ---- Block Bad Bots (replaces middleware bot protection) ----
-<IfModule mod_rewrite.c>
-    RewriteCond %{HTTP_USER_AGENT} (sqlmap|nikto|w3af|acunetix|nessus) [NC]
-    RewriteRule .* - [F,L]
+# ── 7. GZIP COMPRESSION ─────────────────────────────────────
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE text/javascript
+  AddOutputFilterByType DEFLATE application/json
+  AddOutputFilterByType DEFLATE text/xml
+  AddOutputFilterByType DEFLATE application/xml
+  AddOutputFilterByType DEFLATE image/svg+xml
 </IfModule>
+
+# ── 8. BLOCK SENSITIVE FILES ────────────────────────────────
+<FilesMatch "\.(env|md|lock|log|json|ts|tsx|mjs)$">
+  Order allow,deny
+  Deny from all
+</FilesMatch>

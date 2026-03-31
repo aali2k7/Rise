@@ -17,7 +17,7 @@ const facultyData: FacultyMember[] = [
         role: "Chemistry",
         department: "medical",
         tagline: "Unraveling the universe, one reaction at a time.",
-        image: "/faculty/priyam.jpg"
+        image: "/faculty/Priyam%20mam/WhatsApp%20Image%202026-03-19%20at%2010.23.06%20AM.jpeg"
     },
     {
         id: 3,
@@ -25,7 +25,7 @@ const facultyData: FacultyMember[] = [
         role: "Mathematics",
         department: "foundation",
         tagline: "Simplifying complexities for young minds.",
-        image: "/faculty/manish.jpg"
+        image: "/faculty/Manish%20Verma/WhatsApp%20Image%202026-03-31%20at%207.29.29%20PM.jpeg"
     }
 ];
 
