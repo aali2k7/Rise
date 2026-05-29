@@ -22,6 +22,7 @@ import TestimonialsSection from "@/components/Sections/TestimonialsSection";
 import WhyChooseRise from "@/components/Sections/WhyChooseRise";
 
 import MapSection from "@/components/Sections/MapSection";
+import FeesAndTimetable from "@/components/Sections/FeesAndTimetable";
 
 export default function Home() {
   return (
