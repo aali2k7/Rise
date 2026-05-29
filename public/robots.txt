@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin/
 Disallow: /_next/
 
-Sitemap: https://rise.edu.in/sitemap.xml
+Sitemap: https://riseinrise.com/sitemap.xml
